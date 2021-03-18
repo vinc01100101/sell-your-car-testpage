@@ -7,14 +7,19 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
+    marginTop: "98px",
   },
-  img: {
-    width: "407px",
-    height: "auto",
-    clipPath: `circle(39%)`,
+  child: {
+    marginBottom: "98px",
   },
   title: {
     margin: "20px 70px 20px 70px",
+  },
+
+  headerImg: {
+    width: "407px",
+    height: "auto",
+    clipPath: `circle(39%)`,
   },
 });
 

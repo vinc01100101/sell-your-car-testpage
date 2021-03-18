@@ -1,13 +1,11 @@
 import SectionHeading from "@/components/SectionHeading";
-import Section__ from "@/components/SectionMargin";
-import SectionIntro from "@/components/SectionIntro";
+import SectionBody from "@/components/SectionBody";
 
 export default function Home() {
   return (
     <main style={{ overflowX: "hidden" }}>
       <SectionHeading />
-      <Section__ />
-      <SectionIntro />
+      <SectionBody />
     </main>
   );
 }
