@@ -17,7 +17,10 @@ const video = () => {
       <iframe
         width="330"
         height="330"
-        src="https://youtu.be/tSM8gkFdTIA"
+        src="https://www.youtube.com/embed/tSM8gkFdTIA"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
       ></iframe>
     </Paper>
   );
