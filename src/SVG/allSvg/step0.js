@@ -26,7 +26,7 @@ const step0 = () => {
         <circle cx="90.5" cy="90" r="90" fill="white" />
         <mask
           id="mask0"
-          mask-type="alpha"
+          masktype="alpha"
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -152,10 +152,10 @@ const step0 = () => {
             y2="74.7812"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#EA9800" />
-            <stop offset="1" stop-color="white" stop-opacity="0.1" />
-            <stop offset="1" stop-color="white" stop-opacity="0.62" />
-            <stop offset="1" stop-color="#FFCF77" />
+            <stop stopColor="#EA9800" />
+            <stop offset="1" stopColor="white" stopOpacity="0.1" />
+            <stop offset="1" stopColor="white" stopOpacity="0.62" />
+            <stop offset="1" stopColor="#FFCF77" />
           </linearGradient>
         </defs>
       </svg>
