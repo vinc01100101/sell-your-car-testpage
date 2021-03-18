@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Hidden,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Hidden, Grid } from "@material-ui/core";
 import { Menu as MenuIcon } from "@material-ui/icons";
 import Link from "next/link";
 import { SellMyCar } from "@/SVG";
