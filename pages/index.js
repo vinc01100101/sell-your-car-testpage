@@ -1,3 +1,11 @@
+import SectionHeading from "@/components/SectionHeading";
+import SectionIntro from "@/components/SectionIntro";
+
 export default function Home() {
-  return <div>Welcome next</div>;
+  return (
+    <>
+      <SectionHeading />
+      <SectionIntro />
+    </>
+  );
 }

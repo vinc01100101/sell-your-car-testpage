@@ -64,7 +64,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
         anchor="left"
         open={isDrawerOpen}
         onClose={toggleDrawer(false)}
-        // transitionDuration={{ enter: 500, exit: 500 }}
+        transitionDuration={{ enter: 400, exit: 400 }}
       >
         <div className={classes.drawerContainer}>
           <List>

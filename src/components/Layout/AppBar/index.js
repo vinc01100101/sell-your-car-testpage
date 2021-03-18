@@ -12,39 +12,34 @@ import { SellMyCar } from "@/SVG";
 
 const appBar = ({ toggleDrawer }) => {
   return (
-    <AppBar color="secondary">
-      <Toolbar>
-        <Grid container>
-          <Grid item xs={1}>
-            <Hidden smUp>
-              <IconButton
-                edge="start"
-                color="inherit"
-                onClick={toggleDrawer(true)}
-              >
-                <MenuIcon />
-              </IconButton>
-            </Hidden>
+    <>
+      <AppBar color="secondary">
+        <Toolbar>
+          <Grid container>
+            <Grid item xs={1}>
+              <Hidden smUp>
+                <IconButton
+                  edge="start"
+                  color="inherit"
+                  onClick={toggleDrawer(true)}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Hidden>
+            </Grid>
+            <Grid item xs={10} container justify="center" alignItems="center">
+              <Link href="/">
+                <a>
+                  <SellMyCar />
+                </a>
+              </Link>
+            </Grid>
           </Grid>
-          <Grid item xs={10} container justify="center" alignItems="center">
-            {/* <Typography
-              component="div"
-              style={{
-                width: "50px",
-                height: "50px",
-                backgroundColor: "red",
-              }}
-            /> */}
-
-            <Link href="/">
-              <a>
-                <SellMyCar />
-              </a>
-            </Link>
-          </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+      {/* ----another Toolbar to make items behind the AppBar component visible---- */}
+      <Toolbar />
+    </>
   );
 };
 
