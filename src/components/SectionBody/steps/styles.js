@@ -16,6 +16,14 @@ const useStyles = makeStyles((theme) => ({
   introStep: {
     background: theme.palette.primary.main,
   },
+  introLogo: {
+    position: "relative",
+  },
+  introBadge: {
+    position: "absolute",
+    right: "0px",
+    top: "0px",
+  },
   title: {
     marginBottom: "14px",
   },

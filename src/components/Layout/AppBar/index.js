@@ -1,7 +1,9 @@
 import { AppBar, Toolbar, IconButton, Hidden, Grid } from "@material-ui/core";
 import { Menu as MenuIcon } from "@material-ui/icons";
 import Link from "next/link";
-import { SellMyCar } from "@/SVG";
+
+//svg piece
+import { sellmycar } from "@/svgStore/svgCall";
 
 const appBar = ({ toggleDrawer }) => {
   return (
@@ -22,9 +24,7 @@ const appBar = ({ toggleDrawer }) => {
             </Grid>
             <Grid item xs={10} container justify="center" alignItems="center">
               <Link href="/">
-                <a>
-                  <SellMyCar />
-                </a>
+                <a>{sellmycar}</a>
               </Link>
             </Grid>
           </Grid>

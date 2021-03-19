@@ -6,21 +6,26 @@ import {
   Typography,
 } from "@material-ui/core";
 import useStyles from "./styles";
-import { Step0, Step1, Step2, Step3 } from "@/SVG";
-// for array mapping index reference
-const svgSteps = [Step0, Step1, Step2, Step3];
+
 // component
 const steps = () => {
   const classes = useStyles();
   const makeCards = (entry, i) => {
-    const Svg = svgSteps[i];
     return (
       <Card
         key={i}
         className={`${classes.root} ${i == 0 && classes.introStep}`}
         elevation={3}
       >
-        <Svg />
+        <div className={classes.introLogo}>
+          {i == 0 && (
+            <img
+              className={classes.introBadge}
+              src={`svg/not-in-sprite/logo-step-badge.svg`}
+            />
+          )}
+          <img src={`svg/not-in-sprite/logo-step${i}.svg`} />
+        </div>
         <CardContent style={{ color: i == 0 && "white" }}>
           <Typography variant="h5" component="h5" className={classes.title}>
             {entry.title}

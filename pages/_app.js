@@ -7,6 +7,9 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { theme } from "@/config";
 const muiTheme = createMuiTheme(theme);
 
+//svg sprite
+import SvgSprite from "@/svgStore/sprite";
+
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={muiTheme}>
@@ -17,6 +20,8 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
+      {/* this svg sprite is hidden, images are called in src/svgStore/svgCall.js */}
+      <SvgSprite />
       <CssBaseline />
       <Layout>
         <Component {...pageProps} />

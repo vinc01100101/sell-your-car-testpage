@@ -7,8 +7,15 @@ import {
   Button,
 } from "@material-ui/core";
 import useStyles from "./styles";
-//SVG icons
-import { Facebook, Instagram, LinkedIn, YouTube, SellMyCar } from "@/SVG";
+
+//SVG icon pieces
+import {
+  facebook,
+  instagram,
+  linkedin,
+  youtube,
+  sellmycar,
+} from "@/svgStore/svgCall";
 
 //drawer component
 const drawer = ({ isDrawerOpen, toggleDrawer }) => {
@@ -37,7 +44,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
       >
         <div className={classes.drawerContainer}>
           <List>
-            <SellMyCar />
+            {sellmycar}
             <ListItem>
               <Typography className={classes.callUs}>
                 Call us: +639 2788 76400
@@ -50,18 +57,9 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
           <List>
             <ListItem>
-              <Button>
-                <Instagram />
-              </Button>
-              <Button>
-                <YouTube />
-              </Button>
-              <Button>
-                <Facebook />
-              </Button>
-              <Button>
-                <LinkedIn />
-              </Button>
+              {[facebook, instagram, linkedin, youtube].map((svg) => (
+                <Button>{svg}</Button>
+              ))}
             </ListItem>
             <ListItem>
               <Typography className={classes.copyRight}>
