@@ -17,37 +17,49 @@ const steps = () => {
         className={`${classes.root} ${i == 0 && classes.introStep}`}
         elevation={3}
       >
-        <div className={classes.introLogo}>
-          {i == 0 && (
-            <img
-              className={classes.introBadge}
-              src={`svg/not-in-sprite/logo-step-badge.svg`}
-            />
-          )}
-          <img src={`svg/not-in-sprite/logo-step${i}.svg`} />
+        <div className={classes.setFlex}>
+          <div className={classes.logoContainer}>
+            {
+              //the yellow badge on the first card
+              i == 0 && (
+                <img
+                  className={classes.introBadge}
+                  src={`svg/not-in-sprite/logo-step-badge.svg`}
+                />
+              )
+            }
+            <img src={`svg/not-in-sprite/logo-step${i}.svg`} />
+          </div>
+          <CardContent style={{ color: i == 0 && "white" }}>
+            <Typography variant="h5" component="h5" className={classes.title}>
+              {entry.title}
+            </Typography>
+            <Typography variant="body1" component="p">
+              {entry.content}
+            </Typography>
+            <CardActions className={classes.cardActions}>
+              {entry.button &&
+                //   idk why conditional statement doesn't work on color props,
+                //   so i'll do this instead
+                (i == 0 ? (
+                  <Button
+                    className={`${classes.button} ${classes.whiteButton}`}
+                    variant="contained"
+                  >
+                    {entry.button}
+                  </Button>
+                ) : (
+                  <Button
+                    className={classes.button}
+                    color="secondary"
+                    variant="contained"
+                  >
+                    {entry.button}
+                  </Button>
+                ))}
+            </CardActions>
+          </CardContent>
         </div>
-        <CardContent style={{ color: i == 0 && "white" }}>
-          <Typography variant="h5" component="h5" className={classes.title}>
-            {entry.title}
-          </Typography>
-          <Typography variant="body1" component="p">
-            {entry.content}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          {entry.button &&
-            //   idk why conditional statement doesn't work on color props,
-            //   so i'll do this instead
-            (i == 0 ? (
-              <Button className={classes.whiteButton} variant="contained">
-                {entry.button}
-              </Button>
-            ) : (
-              <Button color="secondary" variant="contained">
-                {entry.button}
-              </Button>
-            ))}
-        </CardActions>
       </Card>
     );
   };

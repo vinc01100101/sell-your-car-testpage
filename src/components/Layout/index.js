@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Drawer from "./Drawer";
-import AppBar from "./AppBar";
+import Drawer from "./drawer";
+import AppBar from "./appBar";
 import { Hidden } from "@material-ui/core";
 
 const layOut = ({ children }) => {
