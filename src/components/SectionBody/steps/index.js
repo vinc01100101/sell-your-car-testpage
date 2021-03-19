@@ -7,7 +7,9 @@ import {
 } from "@material-ui/core";
 import useStyles from "./styles";
 import { Step0, Step1, Step2, Step3 } from "@/SVG";
+// for array mapping index reference
 const svgSteps = [Step0, Step1, Step2, Step3];
+// component
 const steps = () => {
   const classes = useStyles();
   const makeCards = (entry, i) => {
@@ -20,8 +22,12 @@ const steps = () => {
       >
         <Svg />
         <CardContent style={{ color: i == 0 && "white" }}>
-          <Typography variant="h5">{entry.title}</Typography>
-          {entry.content}
+          <Typography variant="h5" component="h5" className={classes.title}>
+            {entry.title}
+          </Typography>
+          <Typography variant="body1" component="p">
+            {entry.content}
+          </Typography>
         </CardContent>
         <CardActions>
           {entry.button &&

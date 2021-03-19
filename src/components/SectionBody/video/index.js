@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    padding: "10px",
-    margin: "30px",
+    padding: "5px",
+    // margin: "30px",
     border: "hidden",
     borderRadius: "10px",
   },
@@ -15,7 +15,7 @@ const video = () => {
   return (
     <Paper className={classes.root} elevation={3}>
       <iframe
-        width="330"
+        width="100%"
         height="330"
         src="https://www.youtube.com/embed/tSM8gkFdTIA"
         frameBorder="0"

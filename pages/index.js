@@ -1,10 +1,10 @@
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeader from "@/components/SectionHeader";
 import SectionBody from "@/components/SectionBody";
 
 export default function Home() {
   return (
     <main style={{ overflowX: "hidden" }}>
-      <SectionHeading />
+      <SectionHeader />
       <SectionBody />
     </main>
   );

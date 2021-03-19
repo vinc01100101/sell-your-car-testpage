@@ -8,12 +8,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     textAlign: "left",
     marginTop: "40px",
-    padding: "48px",
+    padding: "40px",
     border: "hidden",
     borderRadius: "10px",
   },
+  //the first card with dark-blue background
   introStep: {
     background: theme.palette.primary.main,
+  },
+  title: {
+    marginBottom: "14px",
   },
   whiteButton: {
     color: "black",
