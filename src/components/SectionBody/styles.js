@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     clipPath: `circle(39%)`,
   },
   title: {
-    margin: "20px 70px 20px 70px",
+    margin: "20px 30px 20px 30px",
   },
   child: {
     marginBottom: "98px",
