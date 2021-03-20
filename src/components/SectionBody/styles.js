@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -9,10 +9,25 @@ const useStyles = makeStyles({
     textAlign: "center",
     marginTop: "98px",
   },
-  headerImg: {
+  introFlexSetter: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row",
+      textAlign: "left",
+    },
+  },
+  introImage: {
     width: "407px",
     height: "auto",
     clipPath: `circle(39%)`,
+  },
+  introTitle: {
+    [theme.breakpoints.up("md")]: {
+      marginLeft: "0px !important",
+    },
   },
   title: {
     margin: "20px 30px 20px 30px",
@@ -31,6 +46,6 @@ const useStyles = makeStyles({
     borderTopRightRadius: "50% 50px",
     borderTopLeftRadius: "50% 50px",
   },
-});
+}));
 
 export default useStyles;

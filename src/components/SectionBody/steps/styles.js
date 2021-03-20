@@ -14,12 +14,14 @@ const useStyles = makeStyles((theme) => ({
   },
   //div to set responsive display
   setFlex: {
+    width: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     [theme.breakpoints.up("sm")]: {
       flexDirection: "row",
+      justifyContent: "flex-start",
     },
   },
   //the first card with dark-blue background
@@ -28,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   },
   logoContainer: {
     position: "relative",
+    [theme.breakpoints.up("sm")]: {
+      marginRight: "32px",
+    },
   },
   introBadge: {
     position: "absolute",
@@ -42,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     minWidth: "168px",
+    fontWeight: "bold",
+    border: "hidden",
+    borderRadius: "10px",
   },
   whiteButton: {
     color: "black",

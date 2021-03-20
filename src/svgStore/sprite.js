@@ -25,6 +25,41 @@ export default function SvgSprite() {
       <symbol
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 55 55"
+        id="logo-arrowleft"
+      >
+        <circle
+          r={27}
+          transform="matrix(-1 0 0 1 27.5 27.5)"
+          fill="#fff"
+          stroke="#C4C4C4"
+        />
+        <path
+          d="M33 17L22.5 27.5 33 38"
+          stroke="#636363"
+          strokeWidth={2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </symbol>
+      <symbol
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 55 55"
+        id="logo-arrowright"
+      >
+        <circle cx="27.5" cy="27.5" r={27} fill="#fff" stroke="#C4C4C4" />
+        <path
+          d="M22 17l10.5 10.5L22 38"
+          stroke="#636363"
+          strokeWidth={2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </symbol>
+      <symbol
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         id="logo-linkedin"
       >

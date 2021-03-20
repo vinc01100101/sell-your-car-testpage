@@ -1,3 +1,6 @@
+//global css
+import "../src/global.css";
+
 import Layout from "@/components/Layout";
 import Head from "next/head";
 import CssBaseline from "@material-ui/core/CssBaseline";

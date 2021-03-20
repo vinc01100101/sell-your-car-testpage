@@ -57,8 +57,8 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
           <List>
             <ListItem>
-              {[facebook, instagram, linkedin, youtube].map((svg) => (
-                <Button>{svg}</Button>
+              {[facebook, instagram, linkedin, youtube].map((svg, i) => (
+                <Button key={i}>{svg}</Button>
               ))}
             </ListItem>
             <ListItem>

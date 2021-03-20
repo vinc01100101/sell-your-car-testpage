@@ -68,6 +68,16 @@ const benefits0 = (
     <use xlinkHref="#logo-benefits0" />
   </svg>
 );
+const arrowright = (
+  <svg width={55} height={55}>
+    <use xlinkHref="#logo-arrowright" />
+  </svg>
+);
+const arrowleft = (
+  <svg width={55} height={55}>
+    <use xlinkHref="#logo-arrowleft" />
+  </svg>
+);
 
 export {
   benefits0,
@@ -81,4 +91,6 @@ export {
   telephone,
   viber,
   atsign,
+  arrowright,
+  arrowleft,
 };

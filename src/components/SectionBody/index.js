@@ -17,21 +17,35 @@ const body = () => {
   return (
     // body component
     <div className={classes.root}>
-      {/* circular header image */}
-      <img className={classes.headerImg} src="images/introImage.jpg" />
       {/* body's child components */}
       {[intro, video, steps, benefits, testimonials].map((component, i) => {
         const Component = component.content;
         return (
+          // conditional classes.stepsBackground for light green background
           <div
             key={i}
             className={`${classes.child} ${i == 2 && classes.stepsBackground}`}
           >
-            <Container maxWidth={i == 3 ? "md" : "sm"}>
-              <Typography className={classes.title} variant="h4">
-                {component.title}
-              </Typography>
-              <Component />
+            <Container
+              maxWidth="md"
+              className={i == 0 ? classes.introFlexSetter : ""}
+            >
+              {/* circular header image */}
+              {i == 0 && (
+                <img
+                  className={classes.introImage}
+                  src="images/introImage.jpg"
+                />
+              )}
+              <div>
+                <Typography
+                  className={`${classes.title} ${i == 0 && classes.introTitle}`}
+                  variant="h4"
+                >
+                  {component.title}
+                </Typography>
+                <Component />
+              </div>
             </Container>
           </div>
         );

@@ -90,7 +90,7 @@ const steps = () => {
   ];
   return (
     <>
-      <Typography component="p" variant="body1">
+      <Typography component="h5" variant="h5">
         but use the amount as your trade in value instead
       </Typography>
       {entries.map(makeCards)}

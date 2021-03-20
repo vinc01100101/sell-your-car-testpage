@@ -3,7 +3,6 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["src/components/*"],
-      "@/SVG": ["src/SVG/index"],
       "@/svgStore/*": ["src/svgStore/*"],
       "@/config": ["config/index"]
       //   "@/utils/*": ["src/utils/*"],
