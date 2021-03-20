@@ -62,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "space-evenly",
     flex: "1",
+    color: "#636363",
     [theme.breakpoints.up("md")]: {
       padding: "20px",
     },
