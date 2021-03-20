@@ -1,4 +1,10 @@
-import { Typography, IconButton, Paper } from "@material-ui/core";
+import {
+  Typography,
+  IconButton,
+  Card,
+  CardMedia,
+  CardContent,
+} from "@material-ui/core";
 import useStyles from "./styles";
 import { arrowright, arrowleft } from "@/svgStore/svgCall";
 import testimonialsData from "./data";
@@ -11,17 +17,14 @@ const testimonials = () => {
     div1: {
       data: 0,
       position: "left",
-      isHidden: false,
     },
     div2: {
       data: 1,
       position: "middle",
-      isHidden: false,
     },
     div3: {
       data: 2,
       position: "right",
-      isHidden: false,
     },
     areButtonsDisabled: false,
   };
@@ -38,7 +41,7 @@ const testimonials = () => {
   const getNewState = (move, currentPosition, ownData, siblingData) => {
     const pattern = ["left", "middle", "right"];
     const position = pattern.indexOf(currentPosition);
-    let tempPosition = "";
+    let newPosition = "";
 
     const length = testimonialsData.length;
     let newData = ownData;
@@ -47,8 +50,8 @@ const testimonials = () => {
       //  <----display
       //  data---->
 
-      //if pointer is at the "left"(meaning it's at the start), throw it to "right" and hide it, else return position - 1
-      tempPosition = position == 0 ? "right hide" : pattern[position - 1];
+      //if pointer is at the "left"(meaning it's at the start), throw it to "right", else return position - 1
+      newPosition = position == 0 ? "right" : pattern[position - 1];
 
       //if current data is at the rightmost, move it to the leftmost, else just increment
       if (currentPosition != "middle")
@@ -58,18 +61,15 @@ const testimonials = () => {
       //  display---->
       //  <----data
 
-      //if pointer is at the "right"(meaning it's at the end), throw it to "left" and hide it, else return position + 1
-      tempPosition = position == 2 ? "left hide" : pattern[position + 1];
+      //if pointer is at the "right"(meaning it's at the end), throw it to "left", else return position + 1
+      newPosition = position == 2 ? "left" : pattern[position + 1];
 
       //if current data is at the leftmost, move it to the rightmost, else just decrement
       if (currentPosition != "middle")
         newData = siblingData <= 0 ? length - 1 : siblingData - 1;
     }
 
-    const tempArr = tempPosition.split(" ");
-    const newPosition = tempArr[0];
-    const isHidden = tempArr[1] == "hide";
-    return { data: newData, position: newPosition, isHidden };
+    return { data: newData, position: newPosition };
   };
   const moveLeft = () => {
     setState((currState) => {
@@ -133,26 +133,28 @@ const testimonials = () => {
   };
   const makeContent = () => {
     return [1, 2, 3].map((x, i) => (
-      <Paper
+      <Card
         elevation={3}
         key={i}
         className={`${classes.imgContainer} ${
           classes[state[`div${x}`].position]
-        } ${state[`div${x}`].isHidden && classes.hide}`}
+        }`}
       >
-        <img
+        <CardMedia
           className={classes.img}
           src={testimonialsData[state[`div${x}`].data].src}
+          component="img"
+          title={testimonialsData[state[`div${x}`].data].name}
         />
-        <div className={classes.textContainer}>
+        <CardContent className={classes.textContainer}>
           <Typography variant="body1">
             {testimonialsData[state[`div${x}`].data].testimonial}
           </Typography>
           <Typography variant="h6">
             – {testimonialsData[state[`div${x}`].data].name}
           </Typography>
-        </div>
-      </Paper>
+        </CardContent>
+      </Card>
     ));
   };
   return (

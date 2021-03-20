@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     display: "flex",
     width: "100%",
-    height: "408px",
+    height: "428px",
     [theme.breakpoints.up("sm")]: {
       height: "448px",
     },
@@ -38,10 +38,9 @@ const useStyles = makeStyles((theme) => ({
 
   img: {
     width: "auto",
-    height: "60%",
+    height: "55%",
     border: "hidden",
     borderRadius: "10px",
-    marginBottom: "10px",
   },
   imgContainer: {
     position: "absolute",
@@ -50,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "flex-start",
-    overflow: "hidden",
     width: "100%",
     height: "100%",
     padding: "20px",
@@ -66,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
       padding: "20px",
     },
   },
+  //animations
   middle: {
     transform: "translateX(0%)",
     transitionTimingFunction: "ease-out",
@@ -83,9 +82,6 @@ const useStyles = makeStyles((theme) => ({
     transitionTimingFunction: "ease-in",
     transitionDuration: "0.5s",
     opacity: 0,
-  },
-  hide: {
-    visibility: "hidden",
   },
 }));
 
