@@ -27,7 +27,14 @@ const testimonials = () => {
   };
   const [state, setState] = useState(defaultState);
 
-  //slideshow's move functions
+  /**getNewState
+   * @param {String} move             `slide direction
+   * @param {String} currentPosition  `current pos of card
+   * @param {Number} ownData          `index that points to testimonialsData
+   * @param {Number} siblingData      `sibling index that points to testimonialsData
+   * @returns {Object}                `new state
+   */
+
   const getNewState = (move, currentPosition, ownData, siblingData) => {
     const pattern = ["left", "middle", "right"];
     const position = pattern.indexOf(currentPosition);
@@ -126,7 +133,8 @@ const testimonials = () => {
   };
   const makeContent = () => {
     return [1, 2, 3].map((x, i) => (
-      <div
+      <Paper
+        elevation={3}
         key={i}
         className={`${classes.imgContainer} ${
           classes[state[`div${x}`].position]
@@ -144,11 +152,11 @@ const testimonials = () => {
             – {testimonialsData[state[`div${x}`].data].name}
           </Typography>
         </div>
-      </div>
+      </Paper>
     ));
   };
   return (
-    <Paper className={classes.root} elevation={10}>
+    <div className={classes.root}>
       {makeContent()}
       <IconButton
         className={classes.arrowLeft}
@@ -164,7 +172,7 @@ const testimonials = () => {
       >
         {arrowright}
       </IconButton>
-    </Paper>
+    </div>
   );
 };
 

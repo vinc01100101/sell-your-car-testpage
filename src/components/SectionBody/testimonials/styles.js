@@ -4,7 +4,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
     display: "flex",
-    overflow: "hidden",
     width: "100%",
     height: "408px",
     [theme.breakpoints.up("sm")]: {

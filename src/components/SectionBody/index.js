@@ -27,7 +27,7 @@ const body = () => {
             className={`${classes.child} ${i == 2 && classes.stepsBackground}`}
           >
             <Container
-              maxWidth="md"
+              maxWidth={i == 4 ? "sm" : "md"}
               className={i == 0 ? classes.introFlexSetter : ""}
             >
               {/* circular header image */}
