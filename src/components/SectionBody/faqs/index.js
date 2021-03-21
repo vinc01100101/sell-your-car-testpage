@@ -44,22 +44,44 @@ const faqs = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails className={classes.content}>
-            {accordion.content.map((qna, i) => {
+            {(function () {
+              /**
+               * note that this is an IIFE (Immediately Invoked Function Expression)
+               * we do this to separate content into two groups that divides when
+               * when screen is medium sized and up: [theme.breakpoints.up("md")]
+               */
+
+              const group1 = [];
+              const group2 = [];
+              let switchGroup = false;
+              accordion.content.map((qna, i) => {
+                //set switchGroup to true only once when encountered: {qna.break = true}
+                switchGroup = switchGroup || qna.break;
+                //if switchGroup is true, push to group2, else push to group1
+                let group = switchGroup ? group2 : group1;
+
+                group.push(
+                  <div key={i} className={classes.eachQna}>
+                    <Typography variant="body1" className={classes.q}>
+                      {qna.q}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      className={classes.a}
+                      component="p"
+                    >
+                      {qna.a}
+                    </Typography>
+                  </div>
+                );
+              });
               return (
-                <div key={i} className={classes.eachQna}>
-                  <Typography variant="body1" className={classes.q}>
-                    {qna.q}
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    className={classes.a}
-                    component="p"
-                  >
-                    {qna.a}
-                  </Typography>
-                </div>
+                <>
+                  <div>{group1}</div>
+                  <div>{group2}</div>
+                </>
               );
-            })}
+            })()}
           </AccordionDetails>
         </Accordion>
       );

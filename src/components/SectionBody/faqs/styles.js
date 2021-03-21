@@ -7,11 +7,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "flex-start",
     justifyContent: "flex-start",
     padding: "20px",
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row",
+    },
   },
 
   eachQna: {
     textAlign: "left",
     marginBottom: "24px",
+    paddingRight: "20px",
     whiteSpace: "pre-wrap",
   },
   summary: {

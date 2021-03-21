@@ -35,6 +35,7 @@ Duplicate keys
 Spare tire, tools, and other miscellaneous parts`,
     },
     {
+      break: true,
       q: `Can I sign up more than one car?`,
       a: `Yes, you may sign up more than one car and it is still free! Please present each individual unit for appraisal and inspection with their respective papers`,
     },
