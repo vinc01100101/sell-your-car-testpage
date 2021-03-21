@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     border: "hidden",
     borderRadius: "10px",
   },
-  imgContainer: {
+  card: {
     position: "absolute",
     left: "0px",
     display: "flex",
@@ -52,6 +52,8 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
     padding: "20px",
+    border: "hidden",
+    borderRadius: "20px",
     transition: "all",
   },
   textContainer: {
