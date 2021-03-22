@@ -1,3 +1,7 @@
+/**
+ * the "Customer Testimonials" section of the body
+ */
+
 import {
   Typography,
   IconButton,

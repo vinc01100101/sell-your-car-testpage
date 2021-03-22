@@ -1,6 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  description: {
+    marginBottom: "30px",
+  },
+  accordion: {
+    marginBottom: "24px",
+  },
   content: {
     display: "flex",
     flexDirection: "column",
@@ -21,12 +27,12 @@ const useStyles = makeStyles((theme) => ({
   summary: {
     background: "#F0F5EF",
   },
-  title: {
-    fontWeight: "bold",
-  },
   activeAccordion: {
     background: [theme.palette.secondary.main],
     color: "white",
+  },
+  title: {
+    fontWeight: "bold",
   },
   q: {
     fontWeight: "bold",

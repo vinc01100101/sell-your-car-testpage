@@ -1,3 +1,7 @@
+/**
+ * the "Which is more difficult–buying or selling a car?" section of the body
+ */
+
 import { Typography } from "@material-ui/core";
 
 const intro = () => {

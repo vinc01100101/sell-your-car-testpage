@@ -7,6 +7,7 @@ import steps from "./steps";
 import benefits from "./benefits";
 import testimonials from "./testimonials";
 import faqs from "./faqs";
+import pna from "./pna";
 
 import useStyles from "./styles";
 
@@ -19,7 +20,7 @@ const body = () => {
     // body component
     <div className={classes.root}>
       {/* body's child components */}
-      {[intro, video, steps, benefits, testimonials, faqs].map(
+      {[intro, video, steps, benefits, testimonials, faqs, pna].map(
         (component, i) => {
           const Component = component.content;
           return (

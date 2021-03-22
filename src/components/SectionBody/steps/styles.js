@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     border: "hidden",
     borderRadius: "10px",
   },
+  subtitle: {
+    marginTop: "-15px",
+    marginBottom: "60px",
+  },
   //div to set responsive display
   setFlex: {
     width: "100%",

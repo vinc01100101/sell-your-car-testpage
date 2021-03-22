@@ -1,3 +1,7 @@
+/**
+ * the "Sell My Car FAQ's" section of the body
+ */
+
 import {
   Accordion,
   AccordionDetails,
@@ -26,6 +30,7 @@ const faqs = () => {
       return (
         <Accordion
           key={i}
+          className={classes.accordion}
           expanded={expanded === `acco${i}`}
           onChange={() => handleChange(`acco${i}`)}
         >
@@ -47,8 +52,8 @@ const faqs = () => {
             {(function () {
               /**
                * note that this is an IIFE (Immediately Invoked Function Expression)
-               * we do this to separate content into two groups that divides when
-               * when screen is medium sized and up: [theme.breakpoints.up("md")]
+               * doing this to separate content into two groups that divides when
+               * screen size is medium and up: [theme.breakpoints.up("md")]
                */
 
               const group1 = [];
@@ -57,8 +62,8 @@ const faqs = () => {
               accordion.content.map((qna, i) => {
                 //set switchGroup to true only once when encountered: {qna.break = true}
                 switchGroup = switchGroup || qna.break;
-                //if switchGroup is true, push to group2, else push to group1
-                let group = switchGroup ? group2 : group1;
+                //if switchGroup is true, start pushing to group2, else keep pushing to group1
+                const group = switchGroup ? group2 : group1;
 
                 group.push(
                   <div key={i} className={classes.eachQna}>
@@ -75,6 +80,7 @@ const faqs = () => {
                   </div>
                 );
               });
+              //and then return the groups
               return (
                 <>
                   <div>{group1}</div>
@@ -87,7 +93,17 @@ const faqs = () => {
       );
     });
   };
-  return <>{makeAccordions()}</>;
+  return (
+    <>
+      <Typography variant="body1" className={classes.description}>
+        With the Sell My Car service, Automart.Ph will do the hard work to sell
+        your car while you wait. No more looking for buyers, negotiating with
+        joy bidders, and setting up countless meetups–Sell My Car is designed to
+        make the process as hassle-free as possible.
+      </Typography>
+      {makeAccordions()}
+    </>
+  );
 };
 
 export default { title: "Sell My Car FAQ’s", content: faqs };
