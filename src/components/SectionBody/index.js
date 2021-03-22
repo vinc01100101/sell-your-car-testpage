@@ -1,5 +1,5 @@
 /**
- * IMPORT VALUE IS: { title: "Component Titile", content: Component }
+ * IMPORT VALUE IS: { title: "Component Title", content: Component }
  */
 import intro from "./intro";
 import video from "./video";
