@@ -37,7 +37,7 @@ const testimonials = () => {
     },
     areButtonsDisabled: false,
   };
-  const [state, setState] = useState(defaultState);
+  const [state, setState] = useState(() => defaultState);
 
   const makeContent = () => {
     //div1 div2 div3 states

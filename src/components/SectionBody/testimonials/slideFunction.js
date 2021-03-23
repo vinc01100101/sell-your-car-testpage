@@ -6,7 +6,7 @@ import testimonialsData from "./data";
  * @param {Number} ownData          `index that points to testimonialsData
  * @param {Number} siblingData      `sibling index that points to testimonialsData
  * @returns {Object}                `new state
- */
+ **/
 
 const getNewState = (move, currentPosition, ownData, siblingData) => {
   const pattern = ["left", "middle", "right"];

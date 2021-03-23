@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    marginTop: "98px",
   },
   introFlexSetter: {
     display: "flex",
@@ -36,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "98px",
     width: "100%",
   },
-  //for light green background of "Just follow these 3 easy steps" section.
+  //for curved light green background of "Just follow these 3 easy steps" section.
   stepsBackground: {
     background: "#F0F5EF",
     padding: "68px 16px 158px 16px",
@@ -45,6 +44,14 @@ const useStyles = makeStyles((theme) => ({
     borderBottomLeftRadius: "50% 50px",
     borderTopRightRadius: "50% 50px",
     borderTopLeftRadius: "50% 50px",
+  },
+  //for bordered light green bg of "You can call or chat with us!"
+  callOrChatBackground: {
+    background: "#F0F5EF",
+    borderColor: [theme.palette.secondary.main],
+    border: "2px solid",
+    borderRadius: "10px",
+    boxShadow: "2px 2px 10px gray",
   },
 }));
 

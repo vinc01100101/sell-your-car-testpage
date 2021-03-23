@@ -3,16 +3,7 @@ const howToSellYourCar = {
   content: [
     {
       q: `What is the best way to Sell My Car?`,
-      a: `Head to https://sellmycar.automart.ph/sell-my-car and input the necessary information about your car.
-
-Enter your personal information then choose a location and time of your choice for the inspection and appraisal. In Metro Manila, slots are available everyday, from 9AM to 4PM. For Davao, slots are available only on Fridays, and in Cebu, TBA.
-Meetup with our adviser the pre-purchase car inspection, appraisal, and price negotiation.
-Go home and relax while we sell your car, normally within one week.
-Sign the deed of sale and get your money.
-Want to trade in? Buy your next car from us and get an additional P10,000 of credit.
-
-
-Head to www.sellmycar.automart.ph/sell-my-car and input the necessary information about your car.
+      a: `Head to www.sellmycar.automart.ph/sell-my-car and input the necessary information about your car.
 
 1. Enter your personal information then choose a location and time of your choice for the inspection and appraisal. In Metro Manila, slots are available everyday, from 9AM to 4PM. For Davao, slots are available only on Fridays, and in Cebu, TBA.
 2. Meetup with our adviser the pre-purchase car inspection, appraisal, and price negotiation.
@@ -66,14 +57,29 @@ const eligibilityGuidelines = {
   title: "Eligibility Guidelines",
   content: [
     {
-      q: `Sample Question 1?`,
-      a: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sodales lorem, quis ultricies velit. Pellentesque maximus neque quis ultrices ultrices. Donec a sollicitudin orci. Praesent cursus eget erat vel pharetra. Donec tempor interdum risus, ac hendrerit sapien convallis at. Fusce et ante vitae enim tempor cursus. Quisque elementum tempus luctus. Aliquam congue risus eu sagittis condimentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur luctus lobortis ligula ac vestibulum. Suspendisse quam nisi, euismod venenatis lacus egestas, rutrum maximus arcu.
-
-Pellentesque sed ante tempor, aliquet nunc a, eleifend est. Vivamus vehicula erat id pulvinar vehicula. Fusce vulputate dolor sodales, porttitor libero ut, consequat tortor. Morbi ultrices odio quis pulvinar facilisis. Nunc bibendum fermentum eros eu tincidunt. Curabitur ut mauris in nulla cursus malesuada. Vivamus consequat placerat magna nec aliquet. Nunc massa felis, dictum vestibulum felis sit amet, euismod mollis nulla. Phasellus lacinia odio a malesuada auctor. Cras vitae magna libero. Etiam non venenatis sapien, a posuere dui. Aliquam auctor, sem ac tempor lacinia, lectus lacus faucibus nibh, sed ultricies nisi arcu sed mi.`,
+      q: `What if the car is not under my name?`,
+      a: `A notarized deed of sale will be required if the car’s registration is not under your name.`,
     },
     {
-      q: `Sample Question 2?`,
-      a: `Pellentesque sed ante tempor, aliquet nunc a, eleifend est. Vivamus vehicula erat id pulvinar vehicula. Fusce vulputate dolor sodales, porttitor libero ut, consequat tortor. Morbi ultrices odio quis pulvinar facilisis. Nunc bibendum fermentum eros eu tincidunt. Curabitur ut mauris in nulla cursus malesuada. Vivamus consequat placerat magna nec aliquet. Nunc massa felis, dictum vestibulum felis sit amet, euismod mollis nulla. Phasellus lacinia odio a malesuada auctor. Cras vitae magna libero. Etiam non venenatis sapien, a posuere dui. Aliquam auctor, sem ac tempor lacinia, lectus lacus faucibus nibh, sed ultricies nisi arcu sed mi.`,
+      q: `What if my car registration is expired?`,
+      a: `Cars with expired registration may be accepted but it may affect the car’s final valuation during the appraisal.`,
+    },
+    {
+      q: `What if my car has been modified?`,
+      a: `Non-stock cars with modifications are allowed. If you plan to return it to stock condition before selling, please do so before appraisal and inspection.`,
+    },
+    {
+      q: `What issues could cause my car to be rejected?`,
+      a: `Cars with the following conditions are not eligible for Sell My Car.
+
+The car is past a certain age (10 years)
+Major body or drivetrain damage
+Unauthorized change of color
+Other issues or modifications that could render the vehicle unsafe according to our mechanic’s pre-purchase inspection`,
+    },
+    {
+      q: `Can I sell my car that is still under loan?`,
+      a: `Cars for “assume balance” or “pasalo” will not be accepted for Sell My Car. All cars must be free from any bank loan or financing agreements.`,
     },
   ],
 };
@@ -82,14 +88,32 @@ const priceAndPayment = {
   title: "Price and Payment",
   content: [
     {
-      q: `Sample Question 1?`,
-      a: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sodales lorem, quis ultricies velit. Pellentesque maximus neque quis ultrices ultrices. Donec a sollicitudin orci. Praesent cursus eget erat vel pharetra. Donec tempor interdum risus, ac hendrerit sapien convallis at. Fusce et ante vitae enim tempor cursus. Quisque elementum tempus luctus. Aliquam congue risus eu sagittis condimentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur luctus lobortis ligula ac vestibulum. Suspendisse quam nisi, euismod venenatis lacus egestas, rutrum maximus arcu.
-
-Pellentesque sed ante tempor, aliquet nunc a, eleifend est. Vivamus vehicula erat id pulvinar vehicula. Fusce vulputate dolor sodales, porttitor libero ut, consequat tortor. Morbi ultrices odio quis pulvinar facilisis. Nunc bibendum fermentum eros eu tincidunt. Curabitur ut mauris in nulla cursus malesuada. Vivamus consequat placerat magna nec aliquet. Nunc massa felis, dictum vestibulum felis sit amet, euismod mollis nulla. Phasellus lacinia odio a malesuada auctor. Cras vitae magna libero. Etiam non venenatis sapien, a posuere dui. Aliquam auctor, sem ac tempor lacinia, lectus lacus faucibus nibh, sed ultricies nisi arcu sed mi.`,
+      q: `How do I find out what my car is worth?`,
+      a: `Our advisers will conduct an appraisal and provide a price that will be open to negotiation afterwards. If an agreement cannot be reached, then the car will not be accepted for sale.`,
     },
     {
-      q: `Sample Question 2?`,
-      a: `Pellentesque sed ante tempor, aliquet nunc a, eleifend est. Vivamus vehicula erat id pulvinar vehicula. Fusce vulputate dolor sodales, porttitor libero ut, consequat tortor. Morbi ultrices odio quis pulvinar facilisis. Nunc bibendum fermentum eros eu tincidunt. Curabitur ut mauris in nulla cursus malesuada. Vivamus consequat placerat magna nec aliquet. Nunc massa felis, dictum vestibulum felis sit amet, euismod mollis nulla. Phasellus lacinia odio a malesuada auctor. Cras vitae magna libero. Etiam non venenatis sapien, a posuere dui. Aliquam auctor, sem ac tempor lacinia, lectus lacus faucibus nibh, sed ultricies nisi arcu sed mi.`,
+      q: `Will Automart.Ph take a commission from me?`,
+      a: `Yes, Automart.Ph will take a commission from the seller that will be discussed during the inspection appointment.`,
+    },
+    {
+      q: `What if my car has not sold after one week?`,
+      a: `We can keep your car up for sale until it is sold or you wish to take it down.`,
+    },
+    {
+      q: `Do I have a last say on the final price?`,
+      a: `No. Once an agreement to sell your car has been made, it will be sold based on the appraisal price. Automart.Ph will not ask for your final approval before accepting any offers.`,
+    },
+    {
+      q: `What if a buyer wants to pay in installment? Will I get my money in installments?`,
+      a: `Automart.Ph will only accept payments in full through deposit or cheque, so there is no need to wait for your money. If needed, Automart will arrange the financing for the vehicle, however, you will still get your money in full.`,
+    },
+    {
+      q: `Can I get paid in cash?`,
+      a: `The proceeds from a car’s sale will only be available via cheque, to be claimed upon signing of the deed of sale.`,
+    },
+    {
+      q: `Can a buyer approach me with any issues after a sale?`,
+      a: `No. Automart.Ph will prepare a deed of absolute sale for every sale, to release you from any liabilities after the buyer takes delivery of the car.`,
     },
   ],
 };
@@ -98,14 +122,20 @@ const howToTradeInWithSellMyCar = {
   title: "How To Trade In With Sell My Car",
   content: [
     {
-      q: `Sample Question 1?`,
-      a: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet sodales lorem, quis ultricies velit. Pellentesque maximus neque quis ultrices ultrices. Donec a sollicitudin orci. Praesent cursus eget erat vel pharetra. Donec tempor interdum risus, ac hendrerit sapien convallis at. Fusce et ante vitae enim tempor cursus. Quisque elementum tempus luctus. Aliquam congue risus eu sagittis condimentum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur luctus lobortis ligula ac vestibulum. Suspendisse quam nisi, euismod venenatis lacus egestas, rutrum maximus arcu.
-
-Pellentesque sed ante tempor, aliquet nunc a, eleifend est. Vivamus vehicula erat id pulvinar vehicula. Fusce vulputate dolor sodales, porttitor libero ut, consequat tortor. Morbi ultrices odio quis pulvinar facilisis. Nunc bibendum fermentum eros eu tincidunt. Curabitur ut mauris in nulla cursus malesuada. Vivamus consequat placerat magna nec aliquet. Nunc massa felis, dictum vestibulum felis sit amet, euismod mollis nulla. Phasellus lacinia odio a malesuada auctor. Cras vitae magna libero. Etiam non venenatis sapien, a posuere dui. Aliquam auctor, sem ac tempor lacinia, lectus lacus faucibus nibh, sed ultricies nisi arcu sed mi.`,
+      q: `How do I trade-in my car?`,
+      a: `You may opt to trade-in instead of getting the cheque from your car’s sale. You also get an additional P10,000 credit towards any vehicle in Automart.Ph’s inventory.`,
     },
     {
-      q: `Sample Question 2?`,
-      a: `Pellentesque sed ante tempor, aliquet nunc a, eleifend est. Vivamus vehicula erat id pulvinar vehicula. Fusce vulputate dolor sodales, porttitor libero ut, consequat tortor. Morbi ultrices odio quis pulvinar facilisis. Nunc bibendum fermentum eros eu tincidunt. Curabitur ut mauris in nulla cursus malesuada. Vivamus consequat placerat magna nec aliquet. Nunc massa felis, dictum vestibulum felis sit amet, euismod mollis nulla. Phasellus lacinia odio a malesuada auctor. Cras vitae magna libero. Etiam non venenatis sapien, a posuere dui. Aliquam auctor, sem ac tempor lacinia, lectus lacus faucibus nibh, sed ultricies nisi arcu sed mi.`,
+      q: `Can I combine financing with my trade-in?`,
+      a: `Yes, Automart.Ph accepts financing, subject to approval.`,
+    },
+    {
+      q: `Learn more about Automart.Ph`,
+      a: `Want to learn more about buying from Automart.Ph? Here’s a few great links:How to Buy Repossessed CarsHow to Buy Used CarsGet Your Car Loan Approved`,
+    },
+    {
+      q: `Got more questions?`,
+      a: `We’d love to hear from you! Please send us an email at contact@automart.ph or call us at 0927-887-6400 so we can speak with you and answer any questions you might have.`,
     },
   ],
 };

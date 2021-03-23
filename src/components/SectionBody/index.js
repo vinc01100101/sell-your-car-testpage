@@ -8,6 +8,7 @@ import benefits from "./benefits";
 import testimonials from "./testimonials";
 import faqs from "./faqs";
 import pna from "./pna";
+import callorchat from "./callorchat";
 
 import useStyles from "./styles";
 
@@ -19,8 +20,8 @@ const body = () => {
   return (
     // body component
     <div className={classes.root}>
-      {/* body's child components */}
-      {[intro, video, steps, benefits, testimonials, faqs, pna].map(
+      {/* body's children components */}
+      {[intro, video, steps, benefits, testimonials, faqs, pna, callorchat].map(
         (component, i) => {
           const Component = component.content;
           return (
@@ -31,8 +32,9 @@ const body = () => {
                 i == 2 && classes.stepsBackground
               }`}
             >
+              {/* maxWidth = "sm" for testimonials and callorchat */}
               <Container
-                maxWidth={i == 4 ? "sm" : "md"}
+                maxWidth={i == 4 || i == 7 ? "sm" : "md"}
                 className={i == 0 ? classes.introFlexSetter : ""}
               >
                 {/* circular header image */}
@@ -42,7 +44,7 @@ const body = () => {
                     src="images/introImage.jpg"
                   />
                 )}
-                <div>
+                <div className={`${i == 7 && classes.callOrChatBackground}`}>
                   <Typography
                     className={`${classes.title} ${
                       i == 0 && classes.introTitle

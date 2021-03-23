@@ -12,15 +12,15 @@ const appBar = ({ toggleDrawer }) => {
         <Toolbar>
           <Grid container>
             <Grid item xs={1}>
-              <Hidden smUp>
-                <IconButton
-                  edge="start"
-                  color="inherit"
-                  onClick={toggleDrawer(true)}
-                >
-                  <MenuIcon />
-                </IconButton>
-              </Hidden>
+              {/* <Hidden smUp> */}
+              <IconButton
+                edge="start"
+                color="inherit"
+                onClick={toggleDrawer(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+              {/* </Hidden> */}
             </Grid>
             <Grid item xs={10} container justify="center" alignItems="center">
               <Link href="/">

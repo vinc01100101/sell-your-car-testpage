@@ -18,7 +18,7 @@ import useStyles from "./styles";
 const faqs = () => {
   const classes = useStyles();
   //for controlled accordion
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(() => false);
   const handleChange = (id) => {
     setExpanded((currState) => {
       return currState === id ? false : id;

@@ -12,9 +12,9 @@ const layOut = ({ children }) => {
 
   return (
     <>
-      <Hidden smUp>
-        <Drawer isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
-      </Hidden>
+      {/* <Hidden smUp> */}
+      <Drawer isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
+      {/* </Hidden> */}
 
       <AppBar toggleDrawer={toggleDrawer} />
       {children}

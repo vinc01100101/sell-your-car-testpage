@@ -2,29 +2,36 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  semiRoot: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
-    width: "100%",
+    width: "120%",
     height: "514px",
     overflow: "hidden",
     border: "hidden",
-    borderBottomRightRadius: "50% 20%",
-    borderBottomLeftRadius: "50% 20%",
+    borderBottomRightRadius: "50% 140px",
+    borderBottomLeftRadius: "50% 140px",
     [theme.breakpoints.up("sm")]: {
       height: "466px",
     },
   },
   imgBackground: {
     position: "absolute",
-    width: "100%",
+    width: "90%",
     height: "auto",
     minWidth: "900px",
     opacity: 0.7,
     [theme.breakpoints.up("lg")]: {
-      top: "-200px",
+      top: "-250px",
     },
   },
   blackBackground: {
