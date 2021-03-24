@@ -13,9 +13,13 @@ const muiTheme = createMuiTheme(theme);
 //svg sprite
 import SvgSprite from "@/svgStore/sprite";
 
+//redux
+import { Provider } from "react-redux";
+import store from "@/redux/store";
+
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={muiTheme}>
+    <>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -27,21 +31,18 @@ function MyApp({ Component, pageProps }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-6L6EWL6H47"
         ></script>
-        <script>
-          {/* {`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-
-  gtag('config', 'G-6L6EWL6H47');`} */}
-        </script>
       </Head>
       {/* this svg sprite is hidden, images are called in src/svgStore/svgCall.js */}
       <SvgSprite />
-      <CssBaseline />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+      <ThemeProvider theme={muiTheme}>
+        <CssBaseline />
+        <Provider store={store}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Provider>
+      </ThemeProvider>
+    </>
   );
 }
 

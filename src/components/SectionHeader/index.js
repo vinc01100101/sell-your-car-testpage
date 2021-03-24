@@ -1,8 +1,17 @@
 import { Typography, Button, Container, Hidden } from "@material-ui/core";
 import useStyles from "./styles";
 
+//redux
+import { useDispatch } from "react-redux";
+import { setModal } from "@/redux/modals/creators";
+
 const sectionHeader = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(setModal("getMyQuote"));
+  };
   return (
     <div className={classes.root}>
       <div className={classes.semiRoot}>
@@ -17,6 +26,7 @@ const sectionHeader = () => {
             color="secondary"
             variant="contained"
             className={classes.button}
+            onClick={handleClick}
           >
             Get my QUOTE
           </Button>

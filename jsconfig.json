@@ -4,6 +4,7 @@
     "paths": {
       "@/components/*": ["src/components/*"],
       "@/svgStore/*": ["src/svgStore/*"],
+      "@/redux/*": ["redux/*"],
       "@/config": ["config/index"]
       //   "@/utils/*": ["src/utils/*"],
       //   "@/models/*": ["src/models/*"],
