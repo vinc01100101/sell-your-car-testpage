@@ -18,6 +18,7 @@ const useStyles = makeStyles({
     padding: "32px",
 
     "& form": {
+      position: "relative",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -26,17 +27,40 @@ const useStyles = makeStyles({
       width: "100%",
       flex: 1,
       overflowY: "auto",
-
+      overflowX: "hidden",
+      //each div child
       "& > div": {
         width: "100%",
         marginBottom: "25px",
 
-        //overflow
         "&.datesContainer": {
+          position: "relative",
           width: "100%",
           height: "141px",
-          overflowX: "hidden",
+        },
 
+        //the arrows
+        "& > .arrowLeft": {
+          position: "absolute",
+          left: "0px",
+          top: "50%",
+          transform: "translateY(-50%)",
+          padding: "0px",
+        },
+        "& > .arrowRight": {
+          position: "absolute",
+          right: "0px",
+          top: "50%",
+          transform: "translateY(-50%)",
+          padding: "0px",
+        },
+
+        //overflow date container
+        "& > .sub-datesContainer": {
+          width: "100%",
+          height: "100%",
+          overflow: "hidden",
+          padding: "0px 32px",
           //cells container
           "& > div": {
             height: "100%",

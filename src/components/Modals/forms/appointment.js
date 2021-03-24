@@ -5,7 +5,11 @@ import {
   Select,
   MenuItem,
   Typography,
+  IconButton,
 } from "@material-ui/core";
+
+//svg icons
+import { arrowright, arrowleft } from "@/svgStore/svgCall";
 
 import { setInput } from "@/redux/modals/creators";
 import { useSelector, useDispatch } from "react-redux";
@@ -90,12 +94,14 @@ const appointment = () => {
     total = parseInt(translateX);
 
     lastX = e.clientX || e.touches[0].clientX || 0;
+
+    cellsContainer.style.transition = "none";
+    cellsContainer.style.transform = `translateX(${total}px)`;
   };
 
   const handleDragMove = (e) => {
     if (!isNaN(e.buttons) && e.buttons != 1) return;
     difference = (e.clientX || e.touches[0].clientX) - lastX;
-
     cellsContainer.style.transition = "none";
     cellsContainer.style.transform = `translateX(${total + difference}px)`;
   };
@@ -103,10 +109,31 @@ const appointment = () => {
   const handleDragUp = (e) => {
     //just accept left click on mouse leave
     if (e.type == "mouseleave" && e.buttons !== 1) return;
-
     total += difference;
+
+    const containerView = cellsContainer.offsetWidth;
+    // const remainder = total % containerView;
+
+    const leftPoint = Math.floor(total / containerView);
+    const rightPoint = Math.ceil(total / containerView);
+
+    // const percentage = remainder / containerView;
+    // const positivePercentage = percentage < 0 ? percentage * -1 : percentage;
+    // const direction = positivePercentage > 0.5 ? "left" : "right";
+
+    const direction = (difference < 0 && "left") || (difference > 0 && "right");
+    difference = 0;
+
+    if (direction == "left") {
+      total = leftPoint * containerView;
+    } else if (direction == "right") {
+      total = rightPoint * containerView;
+    }
+
     if (total > 0) {
       total = 0;
+    } else if (total < containerView * 4 * -1) {
+      total = containerView * 4 * -1;
     }
     cellsContainer.style.transition = "transform 1s";
     cellsContainer.style.transform = `translateX(${total}px)`;
@@ -126,31 +153,35 @@ const appointment = () => {
           <MenuItem value="Loc 3">Loc 3</MenuItem>
         </Select>
       </FormControl>
-
       <div className="datesContainer">
-        <div
-          className="cellsContainer"
-          onTouchStart={handleDragDown}
-          onTouchMove={handleDragMove}
-          onTouchEnd={handleDragUp}
-          onMouseDown={handleDragDown}
-          onMouseMove={handleDragMove}
-          onMouseUp={handleDragUp}
-          onMouseLeave={handleDragUp}
-        >
-          {datesArray.map((date, i) => (
-            <div key={i}>
-              <div>
-                <Typography variant="h6">{date.month}</Typography>
-                <Typography variant="h5" style={{ fontWeight: "bold" }}>
-                  {date.date}
-                </Typography>
-                <Typography variant="h6">{date.day}</Typography>
+        <div className="sub-datesContainer">
+          <div
+            className="cellsContainer"
+            onTouchStart={handleDragDown}
+            onTouchMove={handleDragMove}
+            onTouchEnd={handleDragUp}
+            onMouseDown={handleDragDown}
+            onMouseMove={handleDragMove}
+            onMouseUp={handleDragUp}
+            onMouseLeave={handleDragUp}
+          >
+            {datesArray.map((date, i) => (
+              <div key={i}>
+                <div>
+                  <Typography variant="h6">{date.month}</Typography>
+                  <Typography variant="h5" style={{ fontWeight: "bold" }}>
+                    {date.date}
+                  </Typography>
+                  <Typography variant="h6">{date.day}</Typography>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+        <IconButton className="arrowLeft">{arrowleft}</IconButton>
+        <IconButton className="arrowRight">{arrowright}</IconButton>
       </div>
+
       <FormControl required>
         <InputLabel id="time">Time</InputLabel>
         <Select
