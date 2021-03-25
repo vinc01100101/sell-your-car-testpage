@@ -40,7 +40,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   const makeList = () => {
     return Object.entries(textLinks).map((textLink, i) => (
-      <Link key={i} href={textLink[0]}>
+      <Link key={i} href={textLink[0]} target="_blank">
         <ListItem button>
           <ListItemText primary={textLink[1]} />
         </ListItem>
@@ -71,7 +71,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
           <List>
             <ListItem>
               {Object.entries(logoLinks).map((logoLink, i) => (
-                <Link key={i} href={logoLink[0]}>
+                <Link key={i} href={logoLink[0]} target="_blank">
                   <IconButton>{logoLink[1]}</IconButton>
                 </Link>
               ))}
