@@ -20,7 +20,14 @@ import PersonalInfo from "./forms/personalInfo";
 import Confirmation from "./forms/confirmation";
 
 const modals = () => {
-  const activeModal = useSelector((state) => state.modals.activeModal);
+  const {
+    activeModal,
+    firstName,
+    lastName,
+    mobileNumber,
+    plateNumber,
+    conductionSticker,
+  } = useSelector((state) => state.modals);
   const dispatch = useDispatch();
   const classes = useStyles();
   const [activeForm, setActiveForm] = useState(() => 0);
@@ -44,7 +51,9 @@ const modals = () => {
     },
     {
       component: Confirmation,
-      title: "Confirm",
+      title: "Summary",
+      description:
+        "Please check if all of the information your provided are correct.",
     },
   ];
   const handleClose = () => {
@@ -60,12 +69,21 @@ const modals = () => {
   const handleNextButton = () => {
     if (activeForm < 3) {
       setActiveForm((curr) => curr + 1);
+    } else {
+      document.querySelector("#confirmation-form").submit();
     }
   };
   const createModalContent = () => {
     const { component: Form, title, description } = formReferenceArray[
       activeForm
     ];
+
+    const isDisabled =
+      activeForm === 3 &&
+      (firstName === "" ||
+        lastName === "" ||
+        mobileNumber === "" ||
+        (plateNumber === "" && conductionSticker === ""));
     return (
       <Paper className={classes.paper}>
         <Typography
@@ -86,6 +104,7 @@ const modals = () => {
             {activeForm > 0 ? "Back" : "Cancel"}
           </Button>
           <Button
+            disabled={isDisabled}
             variant="contained"
             color="secondary"
             onClick={handleNextButton}

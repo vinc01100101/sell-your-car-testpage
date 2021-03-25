@@ -1,21 +1,22 @@
-import {
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  TextField,
-} from "@material-ui/core";
+//material ui
+import { Typography } from "@material-ui/core";
 
 //redux
-import { setInput } from "@/redux/modals/creators";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 //fields data
-import { FIELD_YEAR } from "./data/vehicleInfoData";
+import {
+  FIELD_BRAND,
+  FIELD_YEAR,
+  FIELD_TRANSMISSION_TYPE,
+  FIELD_FUEL_TYPE,
+  FIELD_COLOR,
+} from "./data/vehicleInfoData";
+
+//input component makers
+import makeInputComponents from "./makeInputComponents";
 
 const vehicleInfo = () => {
-  const dispatch = useDispatch();
-
   //redux states
   const {
     year,
@@ -28,48 +29,33 @@ const vehicleInfo = () => {
     odometer,
   } = useSelector((state) => state.modals);
 
-  //controlled inputs
-  const handleChange = (key, value) => {
-    dispatch(setInput({ key, value }));
-  };
+  //makeInputComponents returns input component makers
+  const { makeSelect, makeTextField } = makeInputComponents();
 
   return (
     <form>
-      <FormControl required variant="outlined">
-        <InputLabel id="input-year">Year</InputLabel>
-        <Select
-          labelId="input-year"
-          label="Year"
-          value={year}
-          onChange={(e) => handleChange("year", e.target.value)}
-        >
-          {FIELD_YEAR.map((x, i) => (
-            <MenuItem key={i} value={x}>
-              {x}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl required variant="outlined">
-        <InputLabel id="input-brand">Brand</InputLabel>
-        <Select
-          labelId="input-brand"
-          label="Brand"
-          value={brand}
-          onChange={(e) => handleChange("brand", e.target.value)}
-        >
-          <MenuItem value="Brand 1">Brand 1</MenuItem>
-          <MenuItem value="Brand 2">Brand 2</MenuItem>
-          <MenuItem value="Brand 3">Brand 3</MenuItem>
-          <MenuItem value="Brand 4">Brand 4</MenuItem>
-        </Select>
-      </FormControl>
-      <TextField
-        label="Plate Number"
-        variant="outlined"
-        required
-        onChange={(e) => handleChange("plateNumber", e.target.value)}
-      />
+      {makeSelect("Year", year, "year", FIELD_YEAR)}
+      {makeSelect("Brand", brand, "brand", FIELD_BRAND)}
+      {makeTextField("Plate Number", plateNumber, "plateNumber")}
+
+      <Typography variant="h6" component="p">
+        Or
+      </Typography>
+
+      {makeTextField(
+        "Conduction Sticker",
+        conductionSticker,
+        "conductionSticker"
+      )}
+      {makeSelect(
+        "Transmission Type",
+        transmissionType,
+        "transmissionType",
+        FIELD_TRANSMISSION_TYPE
+      )}
+      {makeSelect("Fuel Type", fuelType, "fuelType", FIELD_FUEL_TYPE)}
+      {makeSelect("Color", color, "color", FIELD_COLOR)}
+      {makeTextField("Odometer", odometer, "odometer")}
     </form>
   );
 };

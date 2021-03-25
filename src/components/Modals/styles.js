@@ -13,10 +13,12 @@ const useStyles = makeStyles({
     flexDirection: "column",
 
     width: "90%",
-    height: "80%",
     maxWidth: "707px",
-    maxHeight: "517px",
+    maxHeight: "95%",
     padding: "32px",
+
+    border: "hidden",
+    borderRadius: "10px",
 
     "& form": {
       position: "relative",
@@ -29,8 +31,44 @@ const useStyles = makeStyles({
       overflowY: "auto",
       overflowX: "hidden",
       padding: "10px",
+
+      /******************************************
+       * REMOVING ARROWS FROM NUMBER TYPED INPUTS
+       *
+       * Chrome, Safari, Edge, Opera
+       */
+      "& input::-webkit-outer-spin-button, input::-webkit-inner-spin-button": {
+        "-webkit-appearance": "none",
+        margin: 0,
+      },
+      /* Firefox */
+      "& input[type=number]": {
+        "-moz-appearance": "textfield",
+      },
+      /******************************************/
+      "& > .summaryTitle": {
+        color: "#6FA269",
+        fontWeight: "bold",
+        marginTop: "32px !important",
+        marginBottom: "2px !important",
+      },
+      "& > .summaryContentBox": {
+        display: "flex",
+        flexDirection: "row",
+        marginBottom: "2px !important",
+
+        "& > .summaryLabel": {
+          display: "flex",
+          alignItems: "center",
+          width: "40%",
+        },
+        "& > .summaryValue": {
+          width: "60%",
+        },
+      },
+
       //each div child
-      "& > div": {
+      "& > div, p": {
         width: "100%",
         marginBottom: "25px",
 

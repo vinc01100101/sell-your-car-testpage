@@ -1,3 +1,4 @@
+//material ui
 import {
   FormControl,
   InputLabel,
@@ -20,6 +21,9 @@ import { useState, useEffect } from "react";
 //fields data
 import { FIELD_TIME, FIELD_LOCATION } from "./data/appointmentData";
 
+//input component makers
+import makeInputComponents from "./makeInputComponents";
+
 //global to prevent redefine during window.onresize
 let lastX, difference, cellsContainer, pointer, containerWidth, total;
 const appointment = () => {
@@ -30,7 +34,13 @@ const appointment = () => {
     (state) => state.modals
   );
 
+  //makeInputComponents returns input component makers
+  const { makeSelect, makeTextField } = makeInputComponents();
+
+  //selected date state
   const [selectedDate, setSelectedDate] = useState();
+
+  //component did mount
   useEffect(() => {
     console.log("Component Did Mount. Now setting variables...");
     //initiate variables
@@ -158,22 +168,8 @@ const appointment = () => {
 
   return (
     <form>
-      <FormControl required variant="outlined">
-        <InputLabel id="label-location">Location</InputLabel>
-        <Select
-          labelId="label-location"
-          id="input-location"
-          label="Location"
-          value={location}
-          onChange={(e) => handleChange("location", e.target.value)}
-        >
-          {FIELD_LOCATION.map((x, i) => (
-            <MenuItem key={i} value={x}>
-              {x}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      {makeSelect("Location", location, "location", FIELD_LOCATION)}
+
       <div className="datesContainer">
         <div className="sub-datesContainer">
           <div
@@ -213,22 +209,7 @@ const appointment = () => {
         </IconButton>
       </div>
 
-      <FormControl required variant="outlined">
-        <InputLabel id="label-time">Time</InputLabel>
-        <Select
-          labelId="label-time"
-          id="input-time"
-          label="Time"
-          value={time}
-          onChange={(e) => handleChange("time", e.target.value)}
-        >
-          {FIELD_TIME.map((x, i) => (
-            <MenuItem key={i} value={x}>
-              {x}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      {makeSelect("Time", time, "time", FIELD_TIME)}
     </form>
   );
 };
