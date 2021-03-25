@@ -1,7 +1,6 @@
 import {
   FormControl,
   InputLabel,
-  FormHelperText,
   Select,
   MenuItem,
   Typography,
@@ -11,15 +10,22 @@ import {
 //svg icons
 import { arrowright, arrowleft } from "@/svgStore/svgCall";
 
+//redux
 import { setInput } from "@/redux/modals/creators";
 import { useSelector, useDispatch } from "react-redux";
+
+//react
 import { useState, useEffect } from "react";
+
+//fields data
+import { FIELD_TIME, FIELD_LOCATION } from "./data/appointmentData";
 
 //global to prevent redefine during window.onresize
 let lastX, difference, cellsContainer, pointer, containerWidth, total;
 const appointment = () => {
   const dispatch = useDispatch();
 
+  //redux states
   const { location, date, time, datesArray } = useSelector(
     (state) => state.modals
   );
@@ -38,9 +44,9 @@ const appointment = () => {
       setSelectedDate(() => dateOnMount);
 
       //update the date display
-      pointer = Math.ceil((dateOnMount + 1) / 3) - 1;
+      pointer = (Math.ceil((dateOnMount + 1) / 3) - 1) * -1;
       console.log(pointer);
-      const value = pointer * containerWidth * -1;
+      const value = pointer * containerWidth;
       updateCurrentPosition(value, true);
     }
 
@@ -81,6 +87,7 @@ const appointment = () => {
     pointer--;
     //min max
     pointer = pointer < -4 ? -4 : pointer;
+    console.log(pointer);
     //render
     const value = pointer * containerWidth;
     updateCurrentPosition(value, true);
@@ -122,7 +129,7 @@ const appointment = () => {
     if (e.type == "mouseleave" && e.buttons !== 1) return;
     console.log(e.type);
     if (index != undefined) {
-      if (difference === 0) {
+      if (difference >= -15 && difference <= 15) {
         console.log("INDEX IS: " + index);
         setSelectedDate(() => index);
         handleChange("date", datesArray[index]);
@@ -151,16 +158,20 @@ const appointment = () => {
 
   return (
     <form>
-      <FormControl required>
-        <InputLabel>Location</InputLabel>
+      <FormControl required variant="outlined">
+        <InputLabel id="label-location">Location</InputLabel>
         <Select
-          variant="outlined"
+          labelId="label-location"
+          id="input-location"
+          label="Location"
           value={location}
           onChange={(e) => handleChange("location", e.target.value)}
         >
-          <MenuItem value="Loc 1">Loc 1</MenuItem>
-          <MenuItem value="Loc 2">Loc 2</MenuItem>
-          <MenuItem value="Loc 3">Loc 3</MenuItem>
+          {FIELD_LOCATION.map((x, i) => (
+            <MenuItem key={i} value={x}>
+              {x}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
       <div className="datesContainer">
@@ -202,21 +213,20 @@ const appointment = () => {
         </IconButton>
       </div>
 
-      <FormControl required>
-        <InputLabel id="time">Time</InputLabel>
+      <FormControl required variant="outlined">
+        <InputLabel id="label-time">Time</InputLabel>
         <Select
-          labelId="time"
-          variant="outlined"
+          labelId="label-time"
+          id="input-time"
+          label="Time"
           value={time}
           onChange={(e) => handleChange("time", e.target.value)}
         >
-          <MenuItem value="9 AM">9 AM</MenuItem>
-          <MenuItem value="10 AM">10 AM</MenuItem>
-          <MenuItem value="11 AM">11 AM</MenuItem>
-          <MenuItem value="1 PM">1 PM</MenuItem>
-          <MenuItem value="2 PM">2 PM</MenuItem>
-          <MenuItem value="3 PM">3 PM</MenuItem>
-          <MenuItem value="4 PM">4 PM</MenuItem>
+          {FIELD_TIME.map((x, i) => (
+            <MenuItem key={i} value={x}>
+              {x}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </form>

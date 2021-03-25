@@ -7,8 +7,8 @@ import {
   Button,
 } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
 import { setModal } from "@/redux/modals/creators";
+import { useState } from "react";
 
 //styles
 import useStyles from "./styles";

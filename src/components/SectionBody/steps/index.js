@@ -14,8 +14,13 @@ import {
 import useStyles from "./styles";
 import data from "./data";
 
+//redux
+import { useDispatch } from "react-redux";
+import { setModal } from "@/redux/modals/creators";
+
 // component
 const steps = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const makeCards = (entry, i) => {
     return (
@@ -52,6 +57,7 @@ const steps = () => {
                   <Button
                     className={`${classes.button} ${classes.whiteButton}`}
                     variant="contained"
+                    onClick={() => dispatch(setModal("getMyQuote"))}
                   >
                     {entry.button}
                   </Button>
@@ -60,6 +66,7 @@ const steps = () => {
                     className={classes.button}
                     color="secondary"
                     variant="contained"
+                    onClick={() => dispatch(setModal("getMyQuote"))}
                   >
                     {entry.button}
                   </Button>

@@ -26,6 +26,11 @@ const useStyles = makeStyles({
     color: "white",
     width: "335px",
     padding: "20px",
+
+    "& a": {
+      color: "white",
+      textDecoration: "none !important",
+    },
   },
 });
 export default useStyles;

@@ -4,7 +4,8 @@ import {
   ListItem,
   ListItemText,
   Typography,
-  Button,
+  IconButton,
+  Link,
 } from "@material-ui/core";
 import useStyles from "./styles";
 
@@ -20,19 +21,35 @@ import {
 //drawer component
 const drawer = ({ isDrawerOpen, toggleDrawer }) => {
   const classes = useStyles();
+
+  //reference
+  const textLinks = {
+    "https://automart.ph/": "AutoMart",
+    "https://motomart.ph/": "MotoMart",
+    "https://automart.ph/blog": "Blog",
+    "https://automart.ph/blog/frequently-asked-questions": "FAQ's",
+    "https://automart.ph/contact-us": "Contact Us",
+  };
+
+  const logoLinks = {
+    "https://www.facebook.com/automartph/": facebook,
+    "https://www.instagram.com/automartph/": instagram,
+    "https://www.youtube.com/channel/UCh-uSYHQZPeNMFkIZzBBbDw": youtube,
+    "https://www.linkedin.com/company/automart-ph/": linkedin,
+  };
+
   const makeList = () => {
-    return ["AutoMart", "MotoMart", "Blog", "FAQ's", "Contact us"].map(
-      (text, i) => (
+    return Object.entries(textLinks).map((textLink, i) => (
+      <Link key={i} href={textLink[0]} target="_blank">
         <ListItem
-          key={i}
           button
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
-          <ListItemText primary={text} />
+          <ListItemText primary={textLink[1]} />
         </ListItem>
-      )
-    );
+      </Link>
+    ));
   };
   return (
     <>
@@ -57,8 +74,10 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
           <List>
             <ListItem>
-              {[facebook, instagram, linkedin, youtube].map((svg, i) => (
-                <Button key={i}>{svg}</Button>
+              {Object.entries(logoLinks).map((logoLink, i) => (
+                <Link key={i} href={logoLink[0]} target="_blank">
+                  <IconButton>{logoLink[1]}</IconButton>
+                </Link>
               ))}
             </ListItem>
             <ListItem>
