@@ -24,12 +24,25 @@ const appointment = () => {
     (state) => state.modals
   );
 
-  const [selectedDate, setSelectedDate] = useState(() => 1);
+  const [selectedDate, setSelectedDate] = useState();
   useEffect(() => {
     console.log("Component Did Mount. Now setting variables...");
+    //initiate variables
     (lastX = 0), (difference = 0), (pointer = 0), (total = 0);
     cellsContainer = document.querySelector(".cellsContainer");
     updateContainerWidth();
+
+    //get the date selected when re-opening modal
+    const dateOnMount = datesArray.indexOf(date);
+    if (dateOnMount >= 0) {
+      setSelectedDate(() => dateOnMount);
+
+      //update the date display
+      pointer = Math.ceil((dateOnMount + 1) / 3) - 1;
+      console.log(pointer);
+      const value = pointer * containerWidth * -1;
+      updateCurrentPosition(value, true);
+    }
 
     //mounting event listeners
     window.addEventListener("resize", updateContainerWidth);
