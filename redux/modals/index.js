@@ -6,6 +6,7 @@ const initialState = {
   location: "",
   date: "",
   time: "",
+  datesArray: [],
   //vehicle info
   year: "",
   brand: "",
@@ -30,6 +31,47 @@ const modalsReducer = (state = initialState, action) => {
       break;
     case ACTIONS.SET_INPUT:
       return { ...state, [action.payload.key]: action.payload.value };
+      break;
+    case ACTIONS.SET_DATES_ARRAY:
+      const now = Date.now();
+      /**
+       * there is 8.64e7 milliseconds in a day
+       * increment "now" by 8.64e7 to get each day of the same time
+       **/
+
+      const dates = [...Array(15)].map(
+        (x, i) => new Date(now + 8.64e7 * (i + 1))
+      );
+
+      //IIFE (Immediately Invoked Function Expression)
+      const formattedUtcDates = (() => {
+        //set references
+        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+
+        //formattedUtcDates = this..
+        return dates.map((date) => ({
+          month: months[date.getUTCMonth()],
+          date: date.getUTCDate(),
+          day: days[date.getUTCDay()],
+        }));
+      })();
+
+      // console.log(formattedUtcDates);
+      return { ...state, datesArray: formattedUtcDates };
       break;
     default:
       return state;

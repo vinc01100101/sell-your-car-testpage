@@ -15,51 +15,30 @@ import { setInput } from "@/redux/modals/creators";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 
+//global to prevent redefine during window.onresize
+let lastX, difference, cellsContainer, pointer, containerWidth, total;
 const appointment = () => {
-  const { location, date, time } = useSelector((state) => state.modals);
   const dispatch = useDispatch();
-  const [datesArray, setDatesArray] = useState([]);
 
-  //onMount, get the array of [15days] starting tomorrow
+  const { location, date, time, datesArray } = useSelector(
+    (state) => state.modals
+  );
+
+  const [selectedDate, setSelectedDate] = useState(() => 1);
   useEffect(() => {
-    const now = Date.now();
-    /**
-     * there is 8.64e7 milliseconds in a day
-     * increment "now" by 8.64e7 to get each day of the same time
-     **/
+    console.log("Component Did Mount. Now setting variables...");
+    (lastX = 0), (difference = 0), (pointer = 0), (total = 0);
+    cellsContainer = document.querySelector(".cellsContainer");
+    updateContainerWidth();
 
-    const dates = [...Array(15)].map(
-      (x, i) => new Date(now + 8.64e7 * (i + 1))
-    );
+    //mounting event listeners
+    window.addEventListener("resize", updateContainerWidth);
 
-    //IIFE (Immediately Invoked Function Expression)
-    const formattedUtcDates = (() => {
-      const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-      const months = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-
-      //formattedUtcDates = this..
-      return dates.map((date) => ({
-        month: months[date.getUTCMonth()],
-        date: date.getUTCDate(),
-        day: days[date.getUTCDay()],
-      }));
-    })();
-
-    // console.log(formattedUtcDates);
-    setDatesArray(formattedUtcDates);
+    //cleaning up event listeners
+    return () => {
+      console.log("Component Will Unmount...");
+      window.removeEventListener("resize", updateContainerWidth);
+    };
   }, []);
 
   //controlled inputs
@@ -78,11 +57,29 @@ const appointment = () => {
    * total                == the total value to be applied on translateX
    **/
 
-  let lastX = 0,
-    difference = 0,
-    total = 0;
-  const cellsContainer = document.querySelector(".cellsContainer");
-
+  function updateContainerWidth() {
+    containerWidth = cellsContainer.offsetWidth;
+  }
+  function updateCurrentPosition(value, isAnimating) {
+    cellsContainer.style.transition = isAnimating ? "transform 0.5s" : "none";
+    cellsContainer.style.transform = `translateX(${value}px)`;
+  }
+  function panLeft() {
+    pointer--;
+    //min max
+    pointer = pointer < -4 ? -4 : pointer;
+    //render
+    const value = pointer * containerWidth;
+    updateCurrentPosition(value, true);
+  }
+  function panRight() {
+    pointer++;
+    //min max
+    pointer = pointer > 0 ? 0 : pointer;
+    //render
+    const value = pointer * containerWidth;
+    updateCurrentPosition(value, true);
+  }
   const handleDragDown = (e) => {
     if (!isNaN(e.buttons) && e.buttons != 1) return;
 
@@ -93,50 +90,50 @@ const appointment = () => {
 
     total = parseInt(translateX);
 
+    //record last X value
     lastX = e.clientX || e.touches[0].clientX || 0;
 
-    cellsContainer.style.transition = "none";
-    cellsContainer.style.transform = `translateX(${total}px)`;
+    updateCurrentPosition(total, false);
   };
 
   const handleDragMove = (e) => {
-    if (!isNaN(e.buttons) && e.buttons != 1) return;
+    //just accept left click on "mousemove" event
+    if (e.type == "mousemove" && e.buttons !== 1) return;
     difference = (e.clientX || e.touches[0].clientX) - lastX;
-    cellsContainer.style.transition = "none";
-    cellsContainer.style.transform = `translateX(${total + difference}px)`;
+    const value = total + difference;
+    updateCurrentPosition(value, false);
   };
 
-  const handleDragUp = (e) => {
-    //just accept left click on mouse leave
+  const handleDragUp = (e, index) => {
+    //just accept left click on "mouseleave" event
     if (e.type == "mouseleave" && e.buttons !== 1) return;
-    total += difference;
-
-    const containerView = cellsContainer.offsetWidth;
-    // const remainder = total % containerView;
-
-    const leftPoint = Math.floor(total / containerView);
-    const rightPoint = Math.ceil(total / containerView);
-
-    // const percentage = remainder / containerView;
-    // const positivePercentage = percentage < 0 ? percentage * -1 : percentage;
-    // const direction = positivePercentage > 0.5 ? "left" : "right";
-
-    const direction = (difference < 0 && "left") || (difference > 0 && "right");
-    difference = 0;
-
-    if (direction == "left") {
-      total = leftPoint * containerView;
-    } else if (direction == "right") {
-      total = rightPoint * containerView;
+    console.log(e.type);
+    if (index != undefined) {
+      if (difference === 0) {
+        console.log("INDEX IS: " + index);
+        setSelectedDate(() => index);
+        handleChange("date", datesArray[index]);
+      }
+      if (e.type === "click") {
+        //reset diff
+        difference = 0;
+        return;
+      }
     }
+    //initialize pointer
+    pointer = Math.floor(total / containerWidth);
+    //left or right
+    pointer += difference < -15 ? -1 : difference > 15 ? 1 : 0;
+    //min max
+    pointer = pointer > 0 ? 0 : pointer < -4 ? -4 : pointer;
 
-    if (total > 0) {
-      total = 0;
-    } else if (total < containerView * 4 * -1) {
-      total = containerView * 4 * -1;
+    if (e.type === "touchend") {
+      //reset diff
+      difference = 0;
     }
-    cellsContainer.style.transition = "transform 1s";
-    cellsContainer.style.transform = `translateX(${total}px)`;
+    //render
+    const value = pointer * containerWidth;
+    updateCurrentPosition(value, true);
   };
 
   return (
@@ -156,6 +153,7 @@ const appointment = () => {
       <div className="datesContainer">
         <div className="sub-datesContainer">
           <div
+            // touch events for smartphones, mouse events for pc
             className="cellsContainer"
             onTouchStart={handleDragDown}
             onTouchMove={handleDragMove}
@@ -166,8 +164,13 @@ const appointment = () => {
             onMouseLeave={handleDragUp}
           >
             {datesArray.map((date, i) => (
-              <div key={i}>
-                <div>
+              <div key={i} onClick={(e) => handleDragUp(e, i)}>
+                <div
+                  style={{
+                    backgroundColor: selectedDate === i && "#2B2D4D",
+                    color: selectedDate === i && "white",
+                  }}
+                >
                   <Typography variant="h6">{date.month}</Typography>
                   <Typography variant="h5" style={{ fontWeight: "bold" }}>
                     {date.date}
@@ -178,8 +181,12 @@ const appointment = () => {
             ))}
           </div>
         </div>
-        <IconButton className="arrowLeft">{arrowleft}</IconButton>
-        <IconButton className="arrowRight">{arrowright}</IconButton>
+        <IconButton className="arrowLeft" onClick={panRight}>
+          {arrowleft}
+        </IconButton>
+        <IconButton className="arrowRight" onClick={panLeft}>
+          {arrowright}
+        </IconButton>
       </div>
 
       <FormControl required>

@@ -14,10 +14,30 @@ const muiTheme = createMuiTheme(theme);
 import SvgSprite from "@/svgStore/sprite";
 
 //redux
-import { Provider } from "react-redux";
+import { createWrapper } from "next-redux-wrapper";
+import { useDispatch } from "react-redux"; //Provider module not needed, createWrapper did it instead
 import store from "@/redux/store";
+import { setDatesArray } from "@/redux/modals/creators";
+
+//react
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setDatesArray());
+
+    //google analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-6L6EWL6H47");
+
+    console.log(window.dataLayer);
+  }, []);
   return (
     <>
       <Head>
@@ -36,14 +56,14 @@ function MyApp({ Component, pageProps }) {
       <SvgSprite />
       <ThemeProvider theme={muiTheme}>
         <CssBaseline />
-        <Provider store={store}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </Provider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </>
   );
 }
 
-export default MyApp;
+const makeStore = () => store;
+export const wrapper = createWrapper(makeStore);
+export default wrapper.withRedux(MyApp);

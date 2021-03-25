@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     alignItems: "center",
   },
   paper: {
+    position: "relative",
     display: "flex",
     flexDirection: "column",
 
@@ -23,11 +24,11 @@ const useStyles = makeStyles({
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "flex-start",
-      //   background: "#888",
       width: "100%",
       flex: 1,
       overflowY: "auto",
       overflowX: "hidden",
+      padding: "10px",
       //each div child
       "& > div": {
         width: "100%",
@@ -37,11 +38,14 @@ const useStyles = makeStyles({
           position: "relative",
           width: "100%",
           height: "141px",
+          padding: "0px 30px",
         },
 
         //the arrows
         "& > .arrowLeft": {
           position: "absolute",
+          width: "30px",
+          height: "30px",
           left: "0px",
           top: "50%",
           transform: "translateY(-50%)",
@@ -49,18 +53,19 @@ const useStyles = makeStyles({
         },
         "& > .arrowRight": {
           position: "absolute",
+          width: "30px",
+          height: "30px",
           right: "0px",
           top: "50%",
           transform: "translateY(-50%)",
           padding: "0px",
         },
-
         //overflow date container
         "& > .sub-datesContainer": {
           width: "100%",
           height: "100%",
           overflow: "hidden",
-          padding: "0px 32px",
+
           //cells container
           "& > div": {
             height: "100%",
@@ -79,6 +84,8 @@ const useStyles = makeStyles({
 
               //inner border
               "& > div": {
+                pointerEvents: "none",
+                cursor: "pointer",
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",

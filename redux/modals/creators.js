@@ -6,11 +6,13 @@ export const setModal = (modal) => ({
 });
 
 /**
- *
  * @param {Object} data `{key, value}
- *
  */
 export const setInput = (data) => ({
   type: ACTIONS.SET_INPUT,
   payload: data,
+});
+
+export const setDatesArray = () => ({
+  type: ACTIONS.SET_DATES_ARRAY,
 });
