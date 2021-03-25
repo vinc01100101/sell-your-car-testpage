@@ -71,7 +71,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
           <List>
             <ListItem>
               {Object.entries(logoLinks).map((logoLink, i) => (
-                <Link key={i} href={logoLink[0]} target="_blank">
+                <Link key={i} href={logoLink[0]}>
                   <IconButton>{logoLink[1]}</IconButton>
                 </Link>
               ))}
