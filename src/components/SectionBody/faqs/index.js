@@ -17,11 +17,21 @@ import useStyles from "./styles";
 
 const faqs = () => {
   const classes = useStyles();
-  //for controlled accordion
-  const [expanded, setExpanded] = useState(() => false);
+  //for controlled accordion____
+  // const [expanded, setExpanded] = useState(() => false);
+
+  const [expanded, setExpanded] = useState(() => []);
   const handleChange = (id) => {
+    //for controlled accordion____
+    // setExpanded((currState) => {
+    //   return currState === id ? false : id;
+    // });
+
     setExpanded((currState) => {
-      return currState === id ? false : id;
+      const index = currState.indexOf(id);
+      return index === -1
+        ? [...currState, id]
+        : currState.filter((x) => x != id);
     });
   };
 
@@ -31,7 +41,7 @@ const faqs = () => {
         <Accordion
           key={i}
           className={classes.accordion}
-          expanded={expanded === `acco${i}`}
+          // expanded={expanded === `acco${i}`}
           onChange={() => handleChange(`acco${i}`)}
         >
           <AccordionSummary
@@ -39,7 +49,7 @@ const faqs = () => {
             aria-controls={`acco${i}-content`}
             id={`acco${i}-header`}
             className={
-              expanded === `acco${i}`
+              expanded.indexOf(`acco${i}`) >= 0
                 ? classes.activeAccordion
                 : classes.summary
             }

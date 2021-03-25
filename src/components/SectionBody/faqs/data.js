@@ -69,6 +69,7 @@ const eligibilityGuidelines = {
       a: `Non-stock cars with modifications are allowed. If you plan to return it to stock condition before selling, please do so before appraisal and inspection.`,
     },
     {
+      break: true,
       q: `What issues could cause my car to be rejected?`,
       a: `Cars with the following conditions are not eligible for Sell My Car.
 
@@ -104,6 +105,7 @@ const priceAndPayment = {
       a: `No. Once an agreement to sell your car has been made, it will be sold based on the appraisal price. Automart.Ph will not ask for your final approval before accepting any offers.`,
     },
     {
+      break: true,
       q: `What if a buyer wants to pay in installment? Will I get my money in installments?`,
       a: `Automart.Ph will only accept payments in full through deposit or cheque, so there is no need to wait for your money. If needed, Automart will arrange the financing for the vehicle, however, you will still get your money in full.`,
     },
@@ -130,6 +132,7 @@ const howToTradeInWithSellMyCar = {
       a: `Yes, Automart.Ph accepts financing, subject to approval.`,
     },
     {
+      break: true,
       q: `Learn more about Automart.Ph`,
       a: `Want to learn more about buying from Automart.Ph? Here’s a few great links:How to Buy Repossessed CarsHow to Buy Used CarsGet Your Car Loan Approved`,
     },
