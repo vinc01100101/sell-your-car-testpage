@@ -1,14 +1,15 @@
 import {
-  Drawer,
+  SwipeableDrawer,
+  // Drawer,
   List,
   ListItem,
   ListItemText,
   Typography,
   IconButton,
-  Link,
+  // Link,
 } from "@material-ui/core";
 import useStyles from "./styles";
-
+import Link from "next/link";
 //SVG icon pieces
 import {
   facebook,
@@ -42,7 +43,6 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
     return Object.entries(textLinks).map((textLink, i) => (
       <Link key={i} href={textLink[0]} target="_blank">
         <ListItem
-          key={i}
           button
           // onClick={() => {
           //   window.open(textLink[0], "_blank");
@@ -56,12 +56,17 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
       </Link>
     ));
   };
+
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
   return (
     <>
-      <Drawer
+      <SwipeableDrawer
         anchor="left"
         open={isDrawerOpen}
+        onOpen={toggleDrawer(true)}
         onClose={toggleDrawer(false)}
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
         transitionDuration={{ enter: 400, exit: 400 }}
       >
         <div className={classes.drawerContainer}>
@@ -81,7 +86,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
             <ListItem>
               {Object.entries(logoLinks).map((logoLink, i) => (
                 <Link key={i} href={logoLink[0]} target="_blank">
-                  <IconButton key={i}>{logoLink[1]}</IconButton>
+                  <IconButton>{logoLink[1]}</IconButton>
                 </Link>
               ))}
             </ListItem>
@@ -94,7 +99,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
             </ListItem>
           </List>
         </div>
-      </Drawer>
+      </SwipeableDrawer>
     </>
   );
 };
