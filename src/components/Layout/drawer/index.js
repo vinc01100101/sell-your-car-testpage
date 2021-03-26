@@ -45,7 +45,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
         key={i}
         button
         onClick={() => {
-          window.open(textLink[0], "_blank");
+          window.location.href = textLink[0];
         }}
       >
         <ListItemText primary={textLink[1]} />
@@ -79,6 +79,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
               {Object.entries(logoLinks).map((logoLink, i) => (
                 // <Link key={i} href={logoLink[0]} target="_blank">
                 <IconButton
+                  key={i}
                   onClick={() => {
                     window.open(logoLink[0], "_blank");
                   }}
