@@ -24,7 +24,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   //reference
   const textLinks = {
-    "https://automart.ph": "AutoMart",
+    [`https://automart.ph`]: "AutoMart",
     "https://motomart.ph": "MotoMart",
     "https://automart.ph/blog": "Blog",
     "https://automart.ph/blog/frequently-asked-questions": "FAQ's",
