@@ -65,7 +65,14 @@ const confirmation = () => {
         </Typography>
         {info.data.map((data, i) => {
           //required fields
-          const requiredFields = ["First Name", "Last Name", "Mobile Number"];
+          const requiredFields = [
+            "First Name",
+            "Last Name",
+            "Mobile Number",
+            "Location",
+            "Date",
+            "Time",
+          ];
 
           //either conduction sticker or plate number required
           const either =

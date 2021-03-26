@@ -22,6 +22,9 @@ import Confirmation from "./forms/confirmation";
 const modals = () => {
   const {
     activeModal,
+    location,
+    date,
+    time,
     firstName,
     lastName,
     mobileNumber,
@@ -83,6 +86,9 @@ const modals = () => {
       (firstName === "" ||
         lastName === "" ||
         mobileNumber === "" ||
+        location === "" ||
+        date === "" ||
+        time === "" ||
         (plateNumber === "" && conductionSticker === ""));
     return (
       <Paper className={classes.paper}>

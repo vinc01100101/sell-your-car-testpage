@@ -7,7 +7,7 @@ import {
   Link,
 } from "@material-ui/core";
 import { Menu as MenuIcon } from "@material-ui/icons";
-// import Link from "next/link";
+import NextLink from "next/link";
 
 //sibling files
 import useStyles from "./styles";
@@ -35,7 +35,7 @@ const appBar = ({ toggleDrawer }) => {
         target="_blank"
         className={classes.gridLink}
       >
-        <a>{textLink[1]}</a>
+        {textLink[1]}
       </Link>
     ));
   };
@@ -62,9 +62,9 @@ const appBar = ({ toggleDrawer }) => {
               className={classes.gridTitle}
               alignItems="center"
             >
-              <Link href="/">
+              <NextLink href="/">
                 <a>{sellmycar}</a>
-              </Link>
+              </NextLink>
             </Grid>
 
             <Hidden smDown>

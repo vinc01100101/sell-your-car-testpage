@@ -6,10 +6,11 @@ import {
   ListItemText,
   Typography,
   IconButton,
-  // Link,
+  Link,
 } from "@material-ui/core";
 import useStyles from "./styles";
-import Link from "next/link";
+// import Link from "next/link";
+
 //SVG icon pieces
 import {
   facebook,
