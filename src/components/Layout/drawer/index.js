@@ -40,20 +40,20 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   const makeList = () => {
     return Object.entries(textLinks).map((textLink, i) => (
-      // <Link key={i} href={textLink[0]} target="_blank">
-      <ListItem
-        key={i}
-        button
-        onClick={() => {
-          // window.open(textLink[0], "_blank");
-          // window.location.href = textLink[0];
-          // window.location.assign(textLink[0]);
-          window.location.replace(textLink[0]);
-        }}
-      >
-        <ListItemText primary={textLink[1]} />
-      </ListItem>
-      // </Link>
+      <Link key={i} href={textLink[0]} target="_blank">
+        <ListItem
+          key={i}
+          button
+          onClick={() => {
+            // window.open(textLink[0], "_blank");
+            // window.location.href = textLink[0];
+            // window.location.assign(textLink[0]);
+            // window.location.replace(textLink[0]);
+          }}
+        >
+          <ListItemText primary={textLink[1]} />
+        </ListItem>
+      </Link>
     ));
   };
   return (
