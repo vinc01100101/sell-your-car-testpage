@@ -40,11 +40,17 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   const makeList = () => {
     return Object.entries(textLinks).map((textLink, i) => (
-      <Link key={i} href={textLink[0]} target="_blank">
-        <ListItem button>
-          <ListItemText primary={textLink[1]} />
-        </ListItem>
-      </Link>
+      // <Link key={i} href={textLink[0]} target="_blank">
+      <ListItem
+        key={i}
+        button
+        onClick={() => {
+          window.open(textLink[0], "_blank");
+        }}
+      >
+        <ListItemText primary={textLink[1]} />
+      </ListItem>
+      // </Link>
     ));
   };
   return (
@@ -71,9 +77,15 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
           <List>
             <ListItem>
               {Object.entries(logoLinks).map((logoLink, i) => (
-                <Link key={i} href={logoLink[0]} target="_blank">
-                  <IconButton>{logoLink[1]}</IconButton>
-                </Link>
+                // <Link key={i} href={logoLink[0]} target="_blank">
+                <IconButton
+                  onClick={() => {
+                    window.open(logoLink[0], "_blank");
+                  }}
+                >
+                  {logoLink[1]}
+                </IconButton>
+                // </Link>
               ))}
             </ListItem>
             <ListItem>
