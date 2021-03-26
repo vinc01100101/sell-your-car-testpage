@@ -24,11 +24,11 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   //reference
   const textLinks = {
-    "https://www.automart.ph": "AutoMart",
-    "https://www.motomart.ph": "MotoMart",
-    "https://www.automart.ph/blog": "Blog",
-    "https://www.automart.ph/blog/frequently-asked-questions": "FAQ's",
-    "https://www.automart.ph/contact-us": "Contact Us",
+    "https://www.automart.com.ph": "AutoMart",
+    "https://www.motomart.com.ph": "MotoMart",
+    "https://www.automart.com.ph/blog": "Blog",
+    "https://www.automart.com.ph/blog/frequently-asked-questions": "FAQ's",
+    "https://www.automart.com.ph/contact-us": "Contact Us",
   };
 
   const logoLinks = {
