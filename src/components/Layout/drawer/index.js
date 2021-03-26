@@ -24,8 +24,8 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   //reference
   const textLinks = {
-    "https://www.automart.ph/": "AutoMart",
-    "https://www.motomart.ph/": "MotoMart",
+    "https://www.automart.ph": "AutoMart",
+    "https://www.motomart.ph": "MotoMart",
     "https://www.automart.ph/blog": "Blog",
     "https://www.automart.ph/blog/frequently-asked-questions": "FAQ's",
     "https://www.automart.ph/contact-us": "Contact Us",
@@ -45,7 +45,9 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
         key={i}
         button
         onClick={() => {
-          window.location.href = textLink[0];
+          // window.open(textLink[0], "_blank")
+          // window.location.href = textLink[0];
+          window.location.assign(textLink[0]);
         }}
       >
         <ListItemText primary={textLink[1]} />
