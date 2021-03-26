@@ -24,7 +24,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   //reference
   const textLinks = {
-    [`https://automart.ph`]: "AutoMart",
+    "https://automart.ph": "AutoMart",
     "https://motomart.ph": "MotoMart",
     "https://automart.ph/blog": "Blog",
     "https://automart.ph/blog/frequently-asked-questions": "FAQ's",
@@ -40,16 +40,16 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   const makeList = () => {
     return Object.entries(textLinks).map((textLink, i) => (
-      <Link key={i} href={textLink[0]}>
+      <Link key={i} href={textLink[0]} target="_blank">
         <ListItem
           key={i}
           button
-          onClick={() => {
-            // window.open(textLink[0], "_blank");
-            // window.location.href = textLink[0];
-            // window.location.assign(textLink[0]);
-            // window.location.replace(textLink[0]);
-          }}
+          // onClick={() => {
+          //   window.open(textLink[0], "_blank");
+          //   window.location.href = textLink[0];
+          //   window.location.assign(textLink[0]);
+          //   window.location.replace(textLink[0]);
+          // }}
         >
           <ListItemText primary={textLink[1]} />
         </ListItem>
@@ -80,16 +80,9 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
           <List>
             <ListItem>
               {Object.entries(logoLinks).map((logoLink, i) => (
-                // <Link key={i} href={logoLink[0]} target="_blank">
-                <IconButton
-                  key={i}
-                  onClick={() => {
-                    window.open(logoLink[0], "_blank");
-                  }}
-                >
-                  {logoLink[1]}
-                </IconButton>
-                // </Link>
+                <Link key={i} href={logoLink[0]} target="_blank">
+                  <IconButton key={i}>{logoLink[1]}</IconButton>
+                </Link>
               ))}
             </ListItem>
             <ListItem>

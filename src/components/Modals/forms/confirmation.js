@@ -77,6 +77,7 @@ const confirmation = () => {
           //error styles and values
           const padding = either && "0px";
           const display = either && "flex";
+          const fontSize = either && "12px";
           const alignItems =
             either &&
             (data[0] === "Conduction Sticker" ? "flex-start" : "flex-end");
@@ -110,7 +111,7 @@ const confirmation = () => {
                 {data[0]}
               </Typography>
               <InputBase
-                style={{ color, display, alignItems, fontWeight }}
+                style={{ color, display, alignItems, fontWeight, fontSize }}
                 inputProps={{
                   style: {
                     padding,
@@ -119,7 +120,7 @@ const confirmation = () => {
                 className="summaryValue"
                 name={data[0]}
                 value={value}
-                readOnly={true}
+                readOnly
               ></InputBase>
             </div>
           );
