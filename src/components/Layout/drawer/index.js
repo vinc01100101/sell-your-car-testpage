@@ -45,9 +45,10 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
         key={i}
         button
         onClick={() => {
-          // window.open(textLink[0], "_blank")
+          // window.open(textLink[0], "_blank");
           // window.location.href = textLink[0];
-          window.location.assign(textLink[0]);
+          // window.location.assign(textLink[0]);
+          window.location.replace(textLink[0]);
         }}
       >
         <ListItemText primary={textLink[1]} />
