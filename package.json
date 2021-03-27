@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "postinstall": "npm run build",
-    "start": "next start -p $PORT"
+    "start": "next start -p $PORT",
+    "localstart": "next start"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
