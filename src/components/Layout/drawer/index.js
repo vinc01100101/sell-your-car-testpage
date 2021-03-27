@@ -26,7 +26,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   //reference
   const textLinks = {
-    "automart.ph": "AutoMart",
+    "https://automart.ph": "AutoMart",
     "https://motomart.ph": "MotoMart",
     "https://automart.ph/blog": "Blog",
     "https://automart.ph/blog/frequently-asked-questions": "FAQ's",
@@ -42,7 +42,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   const makeList = () => {
     return Object.entries(textLinks).map((textLink, i) => (
-      <Link key={i} href={textLink[0]} target="_blank">
+      <a key={i} href={textLink[0]} target="_blank">
         <ListItem
           button
           // onClick={() => {
@@ -54,7 +54,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
         >
           <ListItemText primary={textLink[1]} />
         </ListItem>
-      </Link>
+      </a>
     ));
   };
 
