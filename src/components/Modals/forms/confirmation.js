@@ -1,5 +1,5 @@
 //material ui
-import { Divider, Typography, InputBase } from "@material-ui/core";
+import { Typography, InputBase } from "@material-ui/core";
 
 //redux
 import { useSelector } from "react-redux";
@@ -119,6 +119,7 @@ const confirmation = () => {
               </Typography>
               <InputBase
                 style={{ color, display, alignItems, fontWeight, fontSize }}
+                //the input element inside inputBase has padding, remove it if "either"
                 inputProps={{
                   style: {
                     padding,
@@ -127,6 +128,7 @@ const confirmation = () => {
                 className="summaryValue"
                 name={data[0]}
                 value={value}
+                //this section is for details confirmation, make it readOnly
                 readOnly
               ></InputBase>
             </div>

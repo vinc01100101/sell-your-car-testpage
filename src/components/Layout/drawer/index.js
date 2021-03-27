@@ -42,7 +42,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   const makeList = () => {
     return Object.entries(textLinks).map((textLink, i) => (
-      <Link key={i} href={textLink[0]} target="_blank">
+      <Link key={i} href={textLink[0]} target="_blank" runat="server">
         <ListItem
           button
           // onClick={() => {

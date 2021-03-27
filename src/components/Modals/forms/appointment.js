@@ -1,12 +1,5 @@
 //material ui
-import {
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Typography,
-  IconButton,
-} from "@material-ui/core";
+import { Typography, IconButton } from "@material-ui/core";
 
 //svg icons
 import { arrowright, arrowleft } from "@/svgStore/svgCall";
@@ -35,7 +28,7 @@ const appointment = () => {
   );
 
   //makeInputComponents returns input component makers
-  const { makeSelect, makeTextField } = makeInputComponents();
+  const { makeSelect } = makeInputComponents();
 
   //selected date state
   const [selectedDate, setSelectedDate] = useState();
