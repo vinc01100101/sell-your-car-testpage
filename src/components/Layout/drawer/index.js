@@ -4,6 +4,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  InputBase,
   Typography,
   IconButton,
   Link,
@@ -42,19 +43,22 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
 
   const makeList = () => {
     return Object.entries(textLinks).map((textLink, i) => (
-      <a key={i} href={textLink[0]} target="_blank">
-        <ListItem
-          button
-          // onClick={() => {
-          //   window.open(textLink[0], "_blank");
-          //   window.location.href = textLink[0];
-          //   window.location.assign(textLink[0]);
-          //   window.location.replace(textLink[0]);
-          // }}
-        >
-          <ListItemText primary={textLink[1]} />
-        </ListItem>
-      </a>
+      // <Link key={i} href={textLink[0]} target="_blank">
+      //   <ListItem
+      //     button
+      //     // onClick={() => {
+      //     //   window.open(textLink[0], "_blank");
+      //     //   window.location.href = textLink[0];
+      //     //   window.location.assign(textLink[0]);
+      //     //   window.location.replace(textLink[0]);
+      //     // }}
+      //   >
+      //     <ListItemText primary={textLink[1]} />
+      //   </ListItem>
+      // </Link>
+      <form key={i} method="GET" action={textLink[0]} target="_blank">
+        <InputBase type="submit" value={textLink[1]} />
+      </form>
     ));
   };
 
