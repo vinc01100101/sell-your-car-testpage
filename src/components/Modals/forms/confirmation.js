@@ -183,8 +183,12 @@ const confirmation = ({ setActiveComponent, setResult }) => {
             <>
               We will finalize details, and get in contact with you if there’s
               anything else we’d need. For any concerns, or if you need to
-              cancel, contact us at <a href="tel:02-7905-7940">02-7905-7940</a>,{" "}
-              <a href="tel:+639278876400">0927-887-6400</a> or{" "}
+              cancel, contact us at <br />
+              <a href="tel:02-7905-7940">02-7905-7940</a>,<br />
+              <a href="tel:+639278876400">0927-887-6400</a>
+              <br />
+              or
+              <br />
               <a href="mailto:contact@automart.ph">contact@automart.ph</a>
             </>
           ),

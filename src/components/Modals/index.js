@@ -115,18 +115,10 @@ const modals = () => {
 
     return (
       <>
-        <Typography
-          className={classes.title}
-          variant="h6"
-          id={`${title}-modal-title`}
-        >
+        <Typography className={classes.title} variant="h6">
           {title}
         </Typography>
-        {description && (
-          <Typography variant="body1" id={`${title}-modal-description`}>
-            {description}
-          </Typography>
-        )}
+        {description && <Typography variant="body1">{description}</Typography>}
         <ActiveComponent
           setActiveComponent={activeComponent === 3 && setActiveComponent}
           setResult={activeComponent === 3 && setResult}
@@ -136,7 +128,7 @@ const modals = () => {
             {activeComponent > 0 ? "Back" : "Cancel"}
           </Button>
           <Button
-            // disabled={isDisabled}
+            disabled={isDisabled}
             variant="contained"
             color="secondary"
             onClick={handleNextButton}
@@ -154,13 +146,9 @@ const modals = () => {
         <div className="iconAndText">
           {svgReferenceArray[result.svg]}
           <div>
-            <Typography variant="h5" id={`${title}-modal-title`}>
-              {title}
-            </Typography>
+            <Typography variant="h5">{title}</Typography>
             {description && (
-              <Typography variant="body1" id={`${title}-modal-description`}>
-                {description}
-              </Typography>
+              <Typography variant="body1">{description}</Typography>
             )}
           </div>
         </div>
