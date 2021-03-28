@@ -4,7 +4,7 @@ import { Typography, InputBase } from "@material-ui/core";
 //redux
 import { useSelector } from "react-redux";
 
-const confirmation = () => {
+const confirmation = ({ setActiveComponent, setResult }) => {
   //redux states
   const {
     location,
@@ -64,6 +64,10 @@ const confirmation = () => {
           {info.title}
         </Typography>
         {info.data.map((data, i) => {
+          //data[0] == key
+          //data[1] == value
+          //thou we could have used Object.fromEntries(data)
+
           //required fields
           const requiredFields = [
             "First Name",
@@ -85,6 +89,7 @@ const confirmation = () => {
           const padding = either && "0px";
           const display = either && "flex";
           const fontSize = either && "12px";
+
           const alignItems =
             either &&
             (data[0] === "Conduction Sticker" ? "flex-start" : "flex-end");
@@ -123,6 +128,7 @@ const confirmation = () => {
                 inputProps={{
                   style: {
                     padding,
+                    pointerEvents: "none",
                   },
                 }}
                 className="summaryValue"
@@ -130,6 +136,7 @@ const confirmation = () => {
                 value={value}
                 //this section is for details confirmation, make it readOnly
                 readOnly
+                disabled
               ></InputBase>
             </div>
           );
@@ -137,11 +144,83 @@ const confirmation = () => {
       </>
     );
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //open loading dialog
+    setResult({
+      title: "Please wait...",
+      description: "Your data is being sent.",
+      svg: 0,
+    });
+    setActiveComponent(4);
+
+    //uncomment "return" to see the loading dialog longer
+    // return;
+
+    const readyStates = [
+      "0: request not initialized",
+      "1: server connection established",
+      "2: request received",
+      "3: processing request",
+      "4: request finished and response is ready",
+    ];
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/appointment", true);
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.onreadystatechange = () => {
+      console.log(readyStates[xhr.readyState], xhr.status);
+      if (xhr.readyState === 4 && xhr.status === 201) {
+        const json = JSON.parse(xhr.response);
+        console.log(JSON.stringify(json));
+
+        //set success dialog
+        setResult({
+          title:
+            "Thanks for successfully booking a Car Inspection to Sell Your Car!",
+          description: (
+            <>
+              We will finalize details, and get in contact with you if there’s
+              anything else we’d need. For any concerns, or if you need to
+              cancel, contact us at <a href="tel:02-7905-7940">02-7905-7940</a>,{" "}
+              <a href="tel:+639278876400">0927-887-6400</a> or{" "}
+              <a href="mailto:contact@automart.ph">contact@automart.ph</a>
+            </>
+          ),
+          svg: 1,
+        });
+      } else {
+        //set error dialog
+        setResult({
+          title: `Error Status: ${xhr.status}`,
+          description: xhr.statusText,
+          svg: 2,
+        });
+        console.log(xhr);
+      }
+    };
+
+    //get the form values and stringify it
+    const formData = new FormData(e.target);
+    const formObject = Object.fromEntries(formData);
+    const stringified = JSON.stringify(formObject);
+    xhr.send(stringified);
+
+    console.log("sent");
+  };
+
   return (
-    <form id="confirmation-form" method="post" action="/api/appointment">
+    <form
+      onSubmit={handleSubmit}
+      id="confirmation-form"
+      method="post"
+      action="/api/appointment"
+    >
       {makeSection(appointment)}
       {makeSection(vehicle)}
       {makeSection(personal)}
+      <input type="submit" id="submitterButton" hidden />
     </form>
   );
 };

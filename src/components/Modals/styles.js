@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
     flexDirection: "column",
@@ -146,11 +146,46 @@ const useStyles = makeStyles({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
+    marginTop: "30px",
 
     "& button": {
       width: "180px",
     },
   },
-});
+  dialogLayout: {
+    overflowY: "auto",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+
+    "& > .iconAndText": {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "flex-start",
+      alignItems: "center",
+
+      [theme.breakpoints.up("sm")]: {
+        flexDirection: "row",
+        alignItems: "flex-start",
+      },
+
+      "& > svg": {
+        width: "150px",
+        height: "auto%",
+        marginRight: "30px",
+        flexShrink: 0,
+        marginBottom: "32px",
+
+        [theme.breakpoints.up("sm")]: {
+          marginBottom: "0px",
+        },
+      },
+    },
+    "& > div > h5, p": {
+      userSelect: "text !important",
+      pointerEvents: "auto !important",
+    },
+  },
+}));
 
 export default useStyles;
