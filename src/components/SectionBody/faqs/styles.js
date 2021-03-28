@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       flexDirection: "row",
     },
+
+    "& > div": {
+      flex: 1,
+    },
   },
 
   eachQna: {

@@ -62,7 +62,6 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
     ));
   };
 
-  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
   return (
     <>
       <SwipeableDrawer
@@ -70,8 +69,8 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
         open={isDrawerOpen}
         onOpen={toggleDrawer(true)}
         onClose={toggleDrawer(false)}
-        disableBackdropTransition={!iOS}
-        disableDiscovery={iOS}
+        disableBackdropTransition={true}
+        disableDiscovery={true}
         transitionDuration={{ enter: 400, exit: 400 }}
       >
         <div className={classes.drawerContainer}>
@@ -79,7 +78,7 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
             {sellmycar}
             <ListItem>
               <Typography className={classes.callUs}>
-                Call us: +639 2788 76400
+                <a href="tel:+639278876400">Call us: +639 2788 76400</a>
               </Typography>
             </ListItem>
             {makeList()}

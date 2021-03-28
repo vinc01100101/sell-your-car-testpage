@@ -20,9 +20,9 @@ import PersonalInfo from "./forms/personalInfo";
 import Confirmation from "./forms/confirmation";
 
 //svg's
-import loading from "./svg/loading";
-import success from "./svg/success";
-import error from "./svg/error";
+import loading from "@/svgStore/svg/loading";
+import success from "@/svgStore/svg/success";
+import error from "@/svgStore/svg/error";
 
 const modals = () => {
   const {
@@ -67,7 +67,7 @@ const modals = () => {
       component: Confirmation,
       title: "Summary",
       description:
-        "Please check if all of the information your provided are correct.",
+        "Please check if all of the information you provided are correct.",
     },
     {
       title: result.title,
@@ -89,7 +89,8 @@ const modals = () => {
       setActiveComponent((curr) => curr + 1);
     } else {
       // const form = document.querySelector("#confirmation-form");
-      // form.submit();
+      // form.submit(); //<---onSubmit is not triggering
+
       const formSubmitButton = document.querySelector("#submitterButton");
       formSubmitButton.click();
     }
@@ -142,16 +143,19 @@ const modals = () => {
 
   const makeDialogLayout = () => {
     return (
-      <div className={classes.dialogLayout}>
-        <div className="iconAndText">
-          {svgReferenceArray[result.svg]}
-          <div>
-            <Typography variant="h5">{title}</Typography>
-            {description && (
-              <Typography variant="body1">{description}</Typography>
-            )}
+      <>
+        <div className={classes.dialogLayout}>
+          <div className="iconAndText">
+            {svgReferenceArray[result.svg]}
+            <div>
+              <Typography variant="h5">{title}</Typography>
+              {description && (
+                <Typography variant="body1">{description}</Typography>
+              )}
+            </div>
           </div>
         </div>
+
         <div className={classes.buttonsContainer}>
           {result.svg != 0 && (
             <Button
@@ -173,7 +177,7 @@ const modals = () => {
             </Button>
           )}
         </div>
-      </div>
+      </>
     );
   };
   return (

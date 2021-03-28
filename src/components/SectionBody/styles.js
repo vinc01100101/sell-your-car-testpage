@@ -37,13 +37,14 @@ const useStyles = makeStyles((theme) => ({
   },
   //for curved light green background of "Just follow these 3 easy steps" section.
   stepsBackground: {
+    width: "120%",
     background: "#F0F5EF",
-    padding: "68px 16px 158px 16px",
+    padding: "68px 10% 158px 10%",
     border: "hidden",
-    borderBottomRightRadius: "50% 50px",
-    borderBottomLeftRadius: "50% 50px",
-    borderTopRightRadius: "50% 50px",
-    borderTopLeftRadius: "50% 50px",
+    borderBottomRightRadius: "50% 140px",
+    borderBottomLeftRadius: "50% 140px",
+    borderTopRightRadius: "50% 140px",
+    borderTopLeftRadius: "50% 140px",
   },
   //for bordered light green bg of "You can call or chat with us!"
   callOrChatBackground: {

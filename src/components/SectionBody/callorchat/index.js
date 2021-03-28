@@ -7,7 +7,12 @@ import useStyles from "./styles";
 const callorchat = () => {
   const classes = useStyles();
 
-  const makeContacts = (contacts) => {
+  const contacts = {
+    "+639 2788 76400": viber,
+    "(+632) 7905 7940": telephone,
+    "contact@automart.ph": atsign,
+  };
+  const makeContacts = () => {
     return Object.entries(contacts).map((contact, i) => {
       return (
         <div className={classes.contact} key={i}>
@@ -20,12 +25,7 @@ const callorchat = () => {
     });
   };
 
-  const contacts = {
-    "+639 2788 76400": viber,
-    "(+632) 7905 7940": telephone,
-    "contact@automart.ph": atsign,
-  };
-  return <div className={classes.root}>{makeContacts(contacts)}</div>;
+  return <div className={classes.root}>{makeContacts()}</div>;
 };
 
 export default { title: "You can call or chat with us!", content: callorchat };

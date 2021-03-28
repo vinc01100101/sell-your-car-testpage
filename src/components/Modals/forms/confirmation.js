@@ -4,6 +4,9 @@ import { Typography, InputBase } from "@material-ui/core";
 //redux
 import { useSelector } from "react-redux";
 
+//svg's
+import { viber, telephone, atsign } from "@/svgStore/svgCall";
+
 const confirmation = ({ setActiveComponent, setResult }) => {
   //redux states
   const {
@@ -183,13 +186,19 @@ const confirmation = ({ setActiveComponent, setResult }) => {
             <>
               We will finalize details, and get in contact with you if there’s
               anything else we’d need. For any concerns, or if you need to
-              cancel, contact us at <br />
-              <a href="tel:02-7905-7940">02-7905-7940</a>,<br />
-              <a href="tel:+639278876400">0927-887-6400</a>
-              <br />
-              or
-              <br />
-              <a href="mailto:contact@automart.ph">contact@automart.ph</a>
+              cancel, contact us at
+              <div className="contact">
+                {telephone}
+                <a href="tel:02-7905-7940">02-7905-7940</a>
+              </div>
+              <div className="contact">
+                {viber}
+                <a href="tel:+639278876400">0927-887-6400</a>
+              </div>
+              <div className="contact">
+                {atsign}
+                <a href="mailto:contact@automart.ph">contact@automart.ph</a>
+              </div>
             </>
           ),
           svg: 1,

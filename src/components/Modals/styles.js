@@ -172,11 +172,12 @@ const useStyles = makeStyles((theme) => ({
       "& > svg": {
         width: "150px",
         height: "auto%",
-        marginRight: "30px",
+        marginRight: "0px",
         flexShrink: 0,
         marginBottom: "32px",
 
         [theme.breakpoints.up("sm")]: {
+          marginRight: "30px",
           marginBottom: "0px",
         },
       },
@@ -184,6 +185,11 @@ const useStyles = makeStyles((theme) => ({
     "& > div > h5, p": {
       userSelect: "text !important",
       pointerEvents: "auto !important",
+
+      "& > .contact": {
+        display: "flex",
+        alignItems: "center",
+      },
     },
   },
 }));
