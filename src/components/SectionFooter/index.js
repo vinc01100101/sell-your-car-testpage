@@ -49,7 +49,6 @@ const sectionFooter = () => {
     const group2 = [];
 
     links.map((entry, i) => {
-      console.log(type);
       const group = type == "string" && i > 2 ? group2 : group1;
       group.push(
         <li key={i}>

@@ -39,12 +39,22 @@ const vehicleInfo = () => {
 
       {/* flex row this plateConduction*/}
       <div className="plateConduction">
-        {makeTextField("Plate Number", plateNumber, "plateNumber")}
+        {makeTextField(
+          <>
+            <div>Plate</div>
+            <div>Number</div>
+          </>,
+          plateNumber,
+          "plateNumber"
+        )}
         <Typography variant="h6" component="p">
           Or
         </Typography>
         {makeTextField(
-          "Conduction Sticker",
+          <>
+            <div>Conduction</div>
+            <div>Sticker</div>
+          </>,
           conductionSticker,
           "conductionSticker"
         )}

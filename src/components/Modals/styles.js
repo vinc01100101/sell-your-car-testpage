@@ -59,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
           display: "inline-block",
           margin: "0px 10px",
         },
+        "& label": {
+          top: "-10px",
+        },
       },
 
       "& > .summaryTitle": {
