@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
       },
 
       "& > .summaryTitle": {
+        alignSelf: "flex-start",
         color: "#6FA269",
         fontWeight: "bold",
         marginTop: "32px !important",
