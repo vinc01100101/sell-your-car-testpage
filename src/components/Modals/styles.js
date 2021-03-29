@@ -46,6 +46,21 @@ const useStyles = makeStyles((theme) => ({
         "-moz-appearance": "textfield",
       },
       /******************************************/
+
+      "& > .plateConduction": {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        "& > div": {
+          flex: 1,
+        },
+        "& > p": {
+          display: "inline-block",
+          margin: "0px 10px",
+        },
+      },
+
       "& > .summaryTitle": {
         color: "#6FA269",
         fontWeight: "bold",
@@ -68,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
       },
 
       //each div child
-      "& > div, p": {
+      "& > div": {
         width: "100%",
         marginBottom: "25px",
 

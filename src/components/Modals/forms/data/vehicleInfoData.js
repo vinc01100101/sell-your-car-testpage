@@ -1,3 +1,4 @@
+console.log("exporting vehicle info..");
 export const FIELD_YEAR = (() => {
   const yearNow = new Date().getFullYear();
   // "", == for empty value

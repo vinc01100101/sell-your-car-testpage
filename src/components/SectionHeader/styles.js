@@ -15,14 +15,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     position: "relative",
     width: "120%",
-    height: "514px",
+    // height: "514px",
+    height: "80%",
     overflow: "hidden",
     border: "hidden",
     borderBottomRightRadius: "50% 140px",
     borderBottomLeftRadius: "50% 140px",
-    [theme.breakpoints.up("sm")]: {
-      height: "466px",
-    },
+    // [theme.breakpoints.up("sm")]: {
+    //   height: "466px",
+    // },
   },
   imgBackground: {
     position: "absolute",

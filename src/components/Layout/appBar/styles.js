@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+export default makeStyles((theme) => ({
   gridTitle: {
     justifyContent: "center",
     [theme.breakpoints.up("md")]: {
@@ -13,5 +13,3 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "50px",
   },
 }));
-
-export default useStyles;

@@ -36,17 +36,20 @@ const vehicleInfo = () => {
     <form>
       {makeSelect("Year", year, "year", FIELD_YEAR)}
       {makeSelect("Brand", brand, "brand", FIELD_BRAND)}
-      {makeTextField("Plate Number", plateNumber, "plateNumber")}
 
-      <Typography variant="h6" component="p">
-        Or
-      </Typography>
+      {/* flex row this plateConduction*/}
+      <div className="plateConduction">
+        {makeTextField("Plate Number", plateNumber, "plateNumber")}
+        <Typography variant="h6" component="p">
+          Or
+        </Typography>
+        {makeTextField(
+          "Conduction Sticker",
+          conductionSticker,
+          "conductionSticker"
+        )}
+      </div>
 
-      {makeTextField(
-        "Conduction Sticker",
-        conductionSticker,
-        "conductionSticker"
-      )}
       {makeSelect(
         "Transmission Type",
         transmissionType,

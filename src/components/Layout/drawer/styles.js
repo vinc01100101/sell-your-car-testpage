@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+export default makeStyles({
   callUs: {
     border: "1px solid white",
     padding: "5px",
@@ -33,4 +33,3 @@ const useStyles = makeStyles({
     },
   },
 });
-export default useStyles;

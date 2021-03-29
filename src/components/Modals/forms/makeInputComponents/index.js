@@ -2,6 +2,7 @@
 import {
   FormControl,
   InputLabel,
+  InputAdornment,
   Select,
   MenuItem,
   TextField,
@@ -14,9 +15,57 @@ import { useDispatch } from "react-redux";
 export default function makeInputComponents() {
   const dispatch = useDispatch();
 
+  //input formats (string? number? email? etc..)
+  const numberReg = /^\d*$/;
+  const stringReg = /^[a-z]*((?<=\S)\s{0,1}[a-z]*)*$/i; //multiple words, space separated
+  const emailReg = /^(\w+)?@?([a-z]*)?\.?([a-z]{0,3})?$/i;
+  const defaultFormatReg = /.*/;
+
+  //hashmap [inputFormat, characterLength]
+  const regs = {
+    plateNumber: [defaultFormatReg, 14],
+    conductionSticker: [defaultFormatReg, 14],
+    odometer: [numberReg, 7],
+    firstName: [stringReg, 20],
+    lastName: [stringReg, 20],
+    mobileNumber: [numberReg, 14],
+    email: [emailReg, 40],
+    address: [defaultFormatReg, 150],
+  };
+
   //controlled inputs
   const handleChange = (key, value) => {
-    dispatch(setInput({ key, value }));
+    //remove odometer comma's
+    value = key === "odometer" ? value.replace(/,/g, "") : value;
+
+    const keyName = regs[key];
+    const regFormat = keyName ? keyName[0] : defaultFormatReg;
+    const regLength = RegExp(`^.{0,${keyName ? keyName[1] : 30}}$`);
+
+    let returnValue = value;
+
+    const testAndDispatch = () => {
+      //if format and length is correct, allow the input
+      regFormat.test(value) &&
+        regLength.test(value) &&
+        dispatch(setInput({ key, value: returnValue }));
+    };
+
+    //guard clause
+    if (value == "") return testAndDispatch();
+
+    //bring back odometer's comma delimiter
+    if (key === "odometer") returnValue = parseInt(value).toLocaleString();
+
+    //capitalize first letter of each word (firstName, lastName)
+    if (regFormat === stringReg)
+      returnValue = value
+        .split(" ")
+        .map((x) => x && x[0].toUpperCase() + x.slice(1).toLowerCase())
+        .join(" ");
+
+    //dispatch
+    return testAndDispatch();
   };
 
   //component makers
@@ -46,8 +95,12 @@ export default function makeInputComponents() {
       <TextField
         label={label}
         value={value}
-        type={id === "mobileNumber" ? "number" : "text"}
-        id={`input-${value}`}
+        id={`input-${id}`}
+        InputProps={{
+          endAdornment: id === "odometer" && (
+            <InputAdornment>miles</InputAdornment>
+          ),
+        }}
         variant="outlined"
         onChange={(e) => handleChange(id, e.target.value)}
       />

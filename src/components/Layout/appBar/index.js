@@ -1,3 +1,4 @@
+//material ui
 import {
   AppBar,
   Toolbar,
@@ -6,16 +7,16 @@ import {
   Grid,
   Link,
 } from "@material-ui/core";
+//mui icons
 import { Menu as MenuIcon } from "@material-ui/icons";
+//next
 import NextLink from "next/link";
-
 //sibling files
 import useStyles from "./styles";
-
 //svg piece
 import { sellmycar } from "@/svgStore/svgCall";
 
-const appBar = ({ toggleDrawer }) => {
+export default function appBar({ toggleDrawer }) {
   const classes = useStyles();
 
   //reference
@@ -76,7 +77,7 @@ const appBar = ({ toggleDrawer }) => {
                 justify="flex-end"
                 alignItems="center"
               >
-                {makeList(textLinks)}
+                {makeList()}
               </Grid>
             </Hidden>
           </Grid>
@@ -86,6 +87,4 @@ const appBar = ({ toggleDrawer }) => {
       <Toolbar />
     </>
   );
-};
-
-export default appBar;
+}

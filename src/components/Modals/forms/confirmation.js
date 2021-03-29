@@ -158,7 +158,7 @@ const confirmation = ({ setActiveComponent, setResult }) => {
     });
     setActiveComponent(4);
 
-    //uncomment "return" to see the loading dialog longer
+    //uncomment "return" to simulate the loading dialog
     // return;
 
     const readyStates = [

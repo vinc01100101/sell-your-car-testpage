@@ -24,7 +24,8 @@ import loading from "@/svgStore/svg/loading";
 import success from "@/svgStore/svg/success";
 import error from "@/svgStore/svg/error";
 
-const modals = () => {
+const modals = ({ locations }) => {
+  // console.log(locations);
   const {
     activeModal,
     location,

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Drawer from "./drawer";
 import AppBar from "./appBar";
 
-const layOut = ({ children }) => {
+export default function layOut({ children }) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = (isOpen) => (e) => {
@@ -14,9 +14,8 @@ const layOut = ({ children }) => {
       <Drawer isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
 
       <AppBar toggleDrawer={toggleDrawer} />
+
       {children}
     </>
   );
-};
-
-export default layOut;
+}

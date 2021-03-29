@@ -1,17 +1,15 @@
+//material ui
 import {
   SwipeableDrawer,
-  // Drawer,
   List,
   ListItem,
   ListItemText,
-  InputBase,
   Typography,
   IconButton,
   Link,
 } from "@material-ui/core";
+//sibling files
 import useStyles from "./styles";
-// import Link from "next/link";
-
 //SVG icon pieces
 import {
   facebook,
@@ -22,10 +20,10 @@ import {
 } from "@/svgStore/svgCall";
 
 //drawer component
-const drawer = ({ isDrawerOpen, toggleDrawer }) => {
+export default function drawer({ isDrawerOpen, toggleDrawer }) {
   const classes = useStyles();
 
-  //reference
+  //references
   const textLinks = {
     "https://automart.ph": "AutoMart",
     "https://motomart.ph": "MotoMart",
@@ -106,5 +104,4 @@ const drawer = ({ isDrawerOpen, toggleDrawer }) => {
       </SwipeableDrawer>
     </>
   );
-};
-export default drawer;
+}

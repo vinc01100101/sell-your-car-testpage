@@ -64,6 +64,7 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
+//redux Provider wrapper
 const makeStore = () => store;
 export const wrapper = createWrapper(makeStore);
 export default wrapper.withRedux(MyApp);
