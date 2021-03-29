@@ -36,33 +36,34 @@ export default function makeInputComponents() {
   //controlled inputs
   const handleChange = (key, value) => {
     //remove odometer comma's
-    value = key === "odometer" ? value.replace(/,/g, "") : value;
+    const testValue = key === "odometer" ? value.replace(/,/g, "") : value;
 
     const keyName = regs[key];
     const regFormat = keyName ? keyName[0] : defaultFormatReg;
     const regLength = RegExp(`^.{0,${keyName ? keyName[1] : 30}}$`);
 
-    let returnValue = value;
+    let returnValue = testValue;
 
     const testAndDispatch = () => {
       //if format and length is correct, allow the input
-      regFormat.test(value) &&
-        regLength.test(value) &&
+      regFormat.test(testValue) &&
+        regLength.test(testValue) &&
         dispatch(setInput({ key, value: returnValue }));
     };
 
     //guard clause
-    if (value == "") return testAndDispatch();
+    if (testValue == "") return testAndDispatch();
 
     //bring back odometer's comma delimiter
-    if (key === "odometer") returnValue = parseInt(value).toLocaleString();
+    if (key === "odometer") returnValue = parseInt(testValue).toLocaleString();
 
     //capitalize first letter of each word (firstName, lastName)
-    if (regFormat === stringReg)
-      returnValue = value
-        .split(" ")
-        .map((x) => x && x[0].toUpperCase() + x.slice(1).toLowerCase())
-        .join(" ");
+    //NOTE: this lags on android phone!
+    // if (regFormat === stringReg)
+    //   returnValue = value
+    //     .split(" ")
+    //     .map((x) => x && x[0].toUpperCase() + x.slice(1).toLowerCase())
+    //     .join(" ");
 
     //dispatch
     return testAndDispatch();

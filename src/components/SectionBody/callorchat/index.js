@@ -1,5 +1,9 @@
+//svg pieces
 import { viber, telephone, atsign } from "@/svgStore/svgCall";
-import { Typography, Paper } from "@material-ui/core";
+//href strings
+import { VIBER, TELEPHONE, EMAIL } from "@/components/hrefLinks";
+
+import { Link } from "@material-ui/core";
 
 //sibling files
 import useStyles from "./styles";
@@ -7,19 +11,20 @@ import useStyles from "./styles";
 const callorchat = () => {
   const classes = useStyles();
 
-  const contacts = {
-    "+639 2788 76400": viber,
-    "(+632) 7905 7940": telephone,
-    "contact@automart.ph": atsign,
-  };
+  const contacts = [
+    [VIBER, viber],
+    [TELEPHONE, telephone],
+    [EMAIL, atsign],
+  ];
+
   const makeContacts = () => {
-    return Object.entries(contacts).map((contact, i) => {
+    return contacts.map((contact, i) => {
       return (
         <div className={classes.contact} key={i}>
           <div className={classes.contactLogo}>{contact[1]}</div>
-          <Typography className={classes.contactText} variant="h6">
-            {contact[0]}
-          </Typography>
+          <Link href={contact[0]} className={classes.contactText} variant="h6">
+            {contact[0].split(":")[1]}
+          </Link>
         </div>
       );
     });

@@ -18,29 +18,40 @@ import {
   youtube,
   sellmycar,
 } from "@/svgStore/svgCall";
-
+//href strings
+import {
+  AUTOMART,
+  MOTOMART,
+  BLOG,
+  FAQS,
+  CONTACTUS,
+  FACEBOOK,
+  INSTAGRAM,
+  YOUTUBE,
+  LINKEDIN,
+} from "@/components/hrefLinks";
 //drawer component
 export default function drawer({ isDrawerOpen, toggleDrawer }) {
   const classes = useStyles();
 
   //references
-  const textLinks = {
-    "https://automart.ph": "AutoMart",
-    "https://motomart.ph": "MotoMart",
-    "https://automart.ph/blog": "Blog",
-    "https://automart.ph/blog/frequently-asked-questions": "FAQ's",
-    "https://automart.ph/contact-us": "Contact Us",
-  };
+  const textLinks = [
+    [AUTOMART, "AutoMart"],
+    [MOTOMART, "MotoMart"],
+    [BLOG, "Blog"],
+    [FAQS, "FAQ's"],
+    [CONTACTUS, "Contact Us"],
+  ];
 
-  const logoLinks = {
-    "https://www.facebook.com/automartph/": facebook,
-    "https://www.instagram.com/automartph/": instagram,
-    "https://www.youtube.com/channel/UCh-uSYHQZPeNMFkIZzBBbDw": youtube,
-    "https://www.linkedin.com/company/automart-ph/": linkedin,
-  };
+  const logoLinks = [
+    [FACEBOOK, facebook],
+    [INSTAGRAM, instagram],
+    [YOUTUBE, youtube],
+    [LINKEDIN, linkedin],
+  ];
 
   const makeList = () => {
-    return Object.entries(textLinks).map((textLink, i) => (
+    return textLinks.map((textLink, i) => (
       <Link key={i} href={textLink[0]} target="_blank">
         <ListItem
           button
@@ -76,7 +87,7 @@ export default function drawer({ isDrawerOpen, toggleDrawer }) {
             {sellmycar}
             <ListItem>
               <Typography className={classes.callUs}>
-                <a href="tel:+639278876400">Call us: +639 2788 76400</a>
+                <a href="tel:+639 2788 76400">Call us: +639 2788 76400</a>
               </Typography>
             </ListItem>
             {makeList()}
@@ -86,7 +97,7 @@ export default function drawer({ isDrawerOpen, toggleDrawer }) {
 
           <List>
             <ListItem>
-              {Object.entries(logoLinks).map((logoLink, i) => (
+              {logoLinks.map((logoLink, i) => (
                 <Link key={i} href={logoLink[0]} target="_blank">
                   <IconButton>{logoLink[1]}</IconButton>
                 </Link>

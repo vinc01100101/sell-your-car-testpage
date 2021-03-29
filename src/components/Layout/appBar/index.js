@@ -15,21 +15,29 @@ import NextLink from "next/link";
 import useStyles from "./styles";
 //svg piece
 import { sellmycar } from "@/svgStore/svgCall";
+//href strings
+import {
+  AUTOMART,
+  MOTOMART,
+  BLOG,
+  FAQS,
+  CONTACTUS,
+} from "@/components/hrefLinks";
 
 export default function appBar({ toggleDrawer }) {
   const classes = useStyles();
 
-  //reference
-  const textLinks = {
-    "https://automart.ph": "AutoMart",
-    "https://motomart.ph": "MotoMart",
-    "https://automart.ph/blog": "Blog",
-    "https://automart.ph/blog/frequently-asked-questions": "FAQ's",
-    "https://automart.ph/contact-us": "Contact Us",
-  };
+  //references
+  const textLinks = [
+    [AUTOMART, "AutoMart"],
+    [MOTOMART, "MotoMart"],
+    [BLOG, "Blog"],
+    [FAQS, "FAQ's"],
+    [CONTACTUS, "Contact Us"],
+  ];
 
   const makeList = () => {
-    return Object.entries(textLinks).map((textLink, i) => (
+    return textLinks.map((textLink, i) => (
       <Link
         key={i}
         href={textLink[0]}

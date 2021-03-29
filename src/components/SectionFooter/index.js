@@ -8,38 +8,48 @@ import {
   linkedin,
   sellmycar,
 } from "@/svgStore/svgCall";
-
+//href strings
+import {
+  LOGIN,
+  FAQS,
+  TERMS,
+  PRIVACY,
+  CONTACTUS,
+  FACEBOOK,
+  INSTAGRAM,
+  YOUTUBE,
+  LINKEDIN,
+} from "@/components/hrefLinks";
 //sibling files
 import useStyles from "./styles";
 
 const sectionFooter = () => {
   const classes = useStyles();
 
-  const textLinks = {
-    "https://automart.ph/login": "Login or Signup",
-    "https://automart.ph/blog/frequently-asked-questions": "FAQs",
-    "https://automart.ph/page/terms-and-conditions": "Terms and Condition",
-    "https://automart.ph/page/privacy-policy": "Privacy Policy",
-    "https://automart.ph/contact-us": "Contact Us",
-  };
+  const textLinks = [
+    [LOGIN, "Login or Signup"],
+    [FAQS, "FAQs"],
+    [TERMS, "Terms and Condition"],
+    [PRIVACY, "Privacy Policy"],
+    [CONTACTUS, "Contact Us"],
+  ];
 
-  const logoLinks = {
-    "https://www.facebook.com/automartph/": facebook,
-    "https://www.instagram.com/automartph/": instagram,
-    "https://www.youtube.com/channel/UCh-uSYHQZPeNMFkIZzBBbDw": youtube,
-    "https://www.linkedin.com/company/automart-ph/": linkedin,
-  };
+  const logoLinks = [
+    [FACEBOOK, facebook],
+    [INSTAGRAM, instagram],
+    [YOUTUBE, youtube],
+    [LINKEDIN, linkedin],
+  ];
 
   const makeLinks = (links) => {
-    //convert object to array
-    const entries = Object.entries(links);
     //get the type
-    const type = typeof entries[0][1];
+    const type = typeof links[0][1];
     //divide the textLinks into two
     const group1 = [];
     const group2 = [];
 
-    entries.map((entry, i) => {
+    links.map((entry, i) => {
+      console.log(type);
       const group = type == "string" && i > 2 ? group2 : group1;
       group.push(
         <li key={i}>
