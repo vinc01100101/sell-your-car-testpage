@@ -49,8 +49,14 @@ const testimonials = () => {
       >
         <CardMedia
           className={classes.img}
-          src={testimonialsData[state[`div${x}`].data].src}
-          component="img"
+          // image={testimonialsData[state[`div${x}`].data].src}
+          component={() => (
+            <img
+              width="auto"
+              height="55%"
+              src={testimonialsData[state[`div${x}`].data].src}
+            />
+          )}
           title={testimonialsData[state[`div${x}`].data].name}
         />
         <CardContent className={classes.textContainer}>
