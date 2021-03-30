@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
   },
   imgBackground: {
     position: "absolute",
-    // width: "90%",
-    // height: "auto",
+    width: "90%",
+    height: "auto",
     minWidth: "900px",
     opacity: 0.7,
     [theme.breakpoints.up("lg")]: {

@@ -16,12 +16,7 @@ const sectionHeader = () => {
     <div className={classes.root}>
       <div className={classes.semiRoot}>
         <div className={classes.blackBackground} />
-        <img
-          className={classes.imgBackground}
-          width="90%"
-          height="auto"
-          src="images/headerImage.jpg"
-        />
+        <img className={classes.imgBackground} src="images/headerImage.jpg" />
 
         <Container maxWidth="sm" className={classes.container}>
           <Typography variant="h3" className={classes.headerText}>
