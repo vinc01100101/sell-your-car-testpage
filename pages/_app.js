@@ -41,7 +41,15 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Sell My Car</title>
+        <title>
+          Sell My Car or Trade It In Quickly and at Top Prices | Automart.Ph"
+        </title>
+        <meta
+          name="description"
+          content="Sell My Car or Trade In My Used Car Hassle-Free, Quickly and for High Prices in the Philippines. Automart.Ph Will Sell for You. Just Drive It In"
+        />
+        <link rel="icon" href="/favicon.ico" />
+
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
