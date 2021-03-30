@@ -41,7 +41,7 @@ const body = () => {
                 {i == 0 && (
                   <img
                     className={classes.introImage}
-                    src="images/introImage.jpg"
+                    src="images/introImage.webp"
                   />
                 )}
                 <div className={`${i == 7 && classes.callOrChatBackground}`}>

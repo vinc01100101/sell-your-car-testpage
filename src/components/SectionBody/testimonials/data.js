@@ -6,7 +6,7 @@ const testimonialsData = [
     testimonial: `“Some short copy here for testimonial. Vesting period influencer
         learning curve. Social media disruptive product management business
         plan”`,
-    src: "images/testimonials/testimonial0.png",
+    src: "images/testimonials/testimonial0.webp",
   },
   {
     name: "Sample1",
@@ -14,7 +14,7 @@ const testimonialsData = [
     consectetur adipiscing elit. Mauris ultricies
     pharetra ultrices. Sed ac facilisis dolor.
     In vestibulum mi non lorem consectetur tincidunt.”`,
-    src: "images/testimonials/testimonial1.png",
+    src: "images/testimonials/testimonial1.webp",
   },
   {
     name: "Sample2",
@@ -22,7 +22,7 @@ const testimonialsData = [
     consectetur adipiscing elit. Mauris ultricies
     pharetra ultrices. Sed ac facilisis dolor.
     In vestibulum mi non lorem consectetur tincidunt.”`,
-    src: "images/testimonials/testimonial2.png",
+    src: "images/testimonials/testimonial2.webp",
   },
 ];
 export default testimonialsData;

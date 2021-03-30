@@ -146,7 +146,7 @@ const modals = ({ locations }) => {
             {activeComponent > 0 ? "Back" : "Cancel"}
           </Button>
           <Button
-            // disabled={isDisabled}
+            disabled={isDisabled}
             variant="contained"
             color="secondary"
             onClick={handleNextButton}
