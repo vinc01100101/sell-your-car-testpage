@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
       overflowY: "auto",
       overflowX: "hidden",
       padding: "10px",
+      // background: "#e3fae3",
 
       /******************************************
        * REMOVING ARROWS FROM NUMBER TYPED INPUTS

@@ -6,6 +6,7 @@ const initialState = {
   location: "",
   date: "",
   time: "",
+  locationsArray: [],
   datesArray: [],
   //vehicle info
   year: "",
@@ -72,6 +73,14 @@ const modalsReducer = (state = initialState, action) => {
 
       // console.log(formattedUtcDates);
       return { ...state, datesArray: formattedUtcDates };
+      break;
+
+    case ACTIONS.SET_LOCATIONS_DATA:
+      return {
+        ...state,
+        locationsArray: action.payload,
+      };
+
       break;
     default:
       return state;

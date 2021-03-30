@@ -10,7 +10,12 @@ export default makeStyles((theme) => ({
   gridLink: {
     color: "white",
     textDecoration: "none !important",
-    marginRight: "50px",
+    margin: "16px 25px",
     whiteSpace: "nowrap",
+
+    transition: "transform 0.2s",
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
   },
 }));

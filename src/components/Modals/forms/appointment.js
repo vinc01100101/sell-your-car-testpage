@@ -13,8 +13,8 @@ import { useSelector, useDispatch } from "react-redux";
 //react
 import { useState, useEffect } from "react";
 
-//fields data
-import { FIELD_TIME, FIELD_LOCATION } from "./data/appointmentData";
+//static fields data
+import { FIELD_TIME } from "./data/appointmentData";
 
 //input component makers
 import makeInputComponents from "./makeInputComponents";
@@ -25,7 +25,7 @@ const appointment = () => {
   const dispatch = useDispatch();
 
   //redux states
-  const { location, date, time, datesArray } = useSelector(
+  const { location, date, time, locationsArray, datesArray } = useSelector(
     (state) => state.modals
   );
 
@@ -161,7 +161,7 @@ const appointment = () => {
 
   return (
     <form>
-      {makeSelect("Location", location, "location", FIELD_LOCATION)}
+      {makeSelect("Location", location, "location", locationsArray)}
 
       <div className="datesContainer">
         <div className="sub-datesContainer">

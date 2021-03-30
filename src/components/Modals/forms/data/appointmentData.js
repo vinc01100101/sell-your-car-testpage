@@ -7,4 +7,3 @@ export const FIELD_TIME = [
   "3 PM",
   "4 PM",
 ];
-export const FIELD_LOCATION = ["Loc 1", "Loc 2", "Loc 3", "Loc 4"];

@@ -67,8 +67,7 @@ let componentReferenceArray = [
   },
 ];
 
-const modals = ({ locations }) => {
-  // console.log(locations);
+const modals = () => {
   const {
     activeModal,
     location,
@@ -133,7 +132,7 @@ const modals = ({ locations }) => {
     const ActiveComponent = component;
     return (
       <>
-        <Typography className={classes.title} variant="h6">
+        <Typography className={classes.title} variant="h5">
           {title}
         </Typography>
         {description && <Typography variant="body1">{description}</Typography>}
