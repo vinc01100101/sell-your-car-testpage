@@ -62,7 +62,10 @@ export default function drawer({ isDrawerOpen, toggleDrawer }) {
           //   window.location.replace(textLink[0]);
           // }}
         >
-          <ListItemText primary={textLink[1]} />
+          <ListItemText
+            primary={textLink[1]}
+            primaryTypographyProps={{ variant: "h6" }}
+          />
         </ListItem>
       </Link>
       // <form key={i} method="GET" action={textLink[0]} target="_blank">

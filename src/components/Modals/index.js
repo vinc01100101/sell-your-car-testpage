@@ -38,7 +38,7 @@ const svgReferenceArray = [loading, success, error];
 //dynamic import creator
 const makeDynamic = (path) => {
   return dynamic(() => import(`${path}`), {
-    loading: () => <p>Please wait...</p>,
+    loading: () => <h3>Please wait...</h3>,
     ssr: false,
   });
 };

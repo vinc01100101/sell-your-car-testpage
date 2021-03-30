@@ -11,5 +11,6 @@ export default makeStyles((theme) => ({
     color: "white",
     textDecoration: "none !important",
     marginRight: "50px",
+    whiteSpace: "nowrap",
   },
 }));

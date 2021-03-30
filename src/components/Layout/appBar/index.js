@@ -43,6 +43,7 @@ export default function appBar({ toggleDrawer }) {
         href={textLink[0]}
         target="_blank"
         className={classes.gridLink}
+        variant="h6"
       >
         {textLink[1]}
       </Link>
