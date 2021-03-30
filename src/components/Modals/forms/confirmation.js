@@ -1,3 +1,5 @@
+console.log("IMPORTING: confirmation.js");
+
 //material ui
 import { Typography, InputBase } from "@material-ui/core";
 
@@ -133,13 +135,14 @@ const confirmation = ({ setActiveComponent, setResult }) => {
                     padding,
                     pointerEvents: "none",
                   },
+                  name: data[0],
+                  value,
                 }}
                 className="summaryValue"
-                name={data[0]}
-                value={value}
                 //this section is for details confirmation, make it readOnly
                 readOnly
-                disabled
+                //not sending any data when disabled
+                // disabled
               ></InputBase>
             </div>
           );
@@ -176,7 +179,6 @@ const confirmation = ({ setActiveComponent, setResult }) => {
       console.log(readyStates[xhr.readyState], xhr.status);
       if (xhr.readyState === 4 && xhr.status === 201) {
         const json = JSON.parse(xhr.response);
-        console.log(JSON.stringify(json));
 
         //set success dialog
         setResult({
@@ -187,18 +189,18 @@ const confirmation = ({ setActiveComponent, setResult }) => {
               We will finalize details, and get in contact with you if there’s
               anything else we’d need. For any concerns, or if you need to
               cancel, contact us at
-              <div className="contact">
+              <span className="contact">
                 {telephone}
                 <a href="tel:02-7905-7940">02-7905-7940</a>
-              </div>
-              <div className="contact">
+              </span>
+              <span className="contact">
                 {viber}
                 <a href="tel:+639278876400">0927-887-6400</a>
-              </div>
-              <div className="contact">
+              </span>
+              <span className="contact">
                 {atsign}
                 <a href="mailto:contact@automart.ph">contact@automart.ph</a>
-              </div>
+              </span>
             </>
           ),
           svg: 1,
@@ -210,7 +212,6 @@ const confirmation = ({ setActiveComponent, setResult }) => {
           description: xhr.statusText,
           svg: 2,
         });
-        console.log(xhr);
       }
     };
 

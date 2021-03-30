@@ -1,3 +1,5 @@
+console.log("IMPORTING: makeInputsComponent.js");
+
 //material ui
 import {
   FormControl,

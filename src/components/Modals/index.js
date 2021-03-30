@@ -6,23 +6,66 @@ import {
   Paper,
   Button,
 } from "@material-ui/core";
+
+//redux
 import { useSelector, useDispatch } from "react-redux";
 import { setModal } from "@/redux/modals/creators";
 import { useState } from "react";
+
+//next
+import dynamic from "next/dynamic";
 
 //styles
 import useStyles from "./styles";
 
 //forms
-import Appointment from "./forms/appointment";
-import VehicleInfo from "./forms/vehicleInfo";
-import PersonalInfo from "./forms/personalInfo";
-import Confirmation from "./forms/confirmation";
+// import Appointment from "./forms/appointment";
+// import VehicleInfo from "./forms/vehicleInfo";
+// import PersonalInfo from "./forms/personalInfo";
+// import Confirmation from "./forms/confirmation";
+
+const Appointment = "./forms/appointment";
+const VehicleInfo = "./forms/vehicleInfo";
+const PersonalInfo = "./forms/personalInfo";
+const Confirmation = "./forms/confirmation";
 
 //svg's
 import loading from "@/svgStore/svg/loading";
 import success from "@/svgStore/svg/success";
 import error from "@/svgStore/svg/error";
+//svg reference array
+const svgReferenceArray = [loading, success, error];
+//dynamic import creator
+const makeDynamic = (path) => {
+  return dynamic(() => import(`${path}`), {
+    loading: () => <p>Please wait...</p>,
+    ssr: false,
+  });
+};
+//reference for the active form
+let componentReferenceArray = [
+  {
+    component: makeDynamic(Appointment),
+    title: "Appointment",
+  },
+  {
+    component: makeDynamic(VehicleInfo),
+    title: "Vehicle Information",
+    description:
+      "Tell us about your vehicle so we can give you a rough estimate of how much you can sell it for.",
+  },
+  {
+    component: makeDynamic(PersonalInfo),
+    title: "Personal Information",
+    description: "Tell us about your personal information.",
+  },
+  {
+    component: makeDynamic(Confirmation),
+    title: "Summary",
+    description:
+      "Please check if all of the information you provided are correct.",
+  },
+];
 
 const modals = ({ locations }) => {
   // console.log(locations);
@@ -45,36 +88,10 @@ const modals = ({ locations }) => {
     title: "",
     description: "",
   }));
-
-  const svgReferenceArray = [loading, success, error];
-  //reference for the active form
-  const componentReferenceArray = [
-    {
-      component: Appointment,
-      title: "Appointment",
-    },
-    {
-      component: VehicleInfo,
-      title: "Vehicle Information",
-      description:
-        "Tell us about your vehicle so we can give you a rough estimate of how much you can sell it for.",
-    },
-    {
-      component: PersonalInfo,
-      title: "Personal Information",
-      description: "Tell us about your personal information.",
-    },
-    {
-      component: Confirmation,
-      title: "Summary",
-      description:
-        "Please check if all of the information you provided are correct.",
-    },
-    {
-      title: result.title,
-      description: result.description,
-    },
-  ];
+  componentReferenceArray[4] = {
+    title: result.title,
+    description: result.description,
+  };
   const handleClose = () => {
     dispatch(setModal(false));
   };
@@ -97,11 +114,9 @@ const modals = ({ locations }) => {
     }
   };
 
-  const {
-    component: ActiveComponent,
-    title,
-    description,
-  } = componentReferenceArray[activeComponent];
+  const { component, title, description } = componentReferenceArray[
+    activeComponent
+  ];
 
   const makeFormLayout = () => {
     //disable submit button if requirements are not met
@@ -115,6 +130,7 @@ const modals = ({ locations }) => {
         time === "" ||
         (plateNumber === "" && conductionSticker === ""));
 
+    const ActiveComponent = component;
     return (
       <>
         <Typography className={classes.title} variant="h6">
@@ -130,7 +146,7 @@ const modals = ({ locations }) => {
             {activeComponent > 0 ? "Back" : "Cancel"}
           </Button>
           <Button
-            disabled={isDisabled}
+            // disabled={isDisabled}
             variant="contained"
             color="secondary"
             onClick={handleNextButton}
@@ -161,7 +177,7 @@ const modals = ({ locations }) => {
           {result.svg != 0 && (
             <Button
               variant={result.svg === 1 ? "contained" : "text"}
-              color={result.svg === 1 ? "secondary" : "none"}
+              color={result.svg === 1 ? "secondary" : "default"}
               onClick={handleClose}
             >
               {result.svg === 1 ? "OK" : "Cancel"}

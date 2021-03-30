@@ -1,3 +1,5 @@
+console.log("IMPORTING: vehicleInfo.js");
+
 //material ui
 import { Typography } from "@material-ui/core";
 
@@ -32,6 +34,19 @@ const vehicleInfo = () => {
   //makeInputComponents returns input component makers
   const { makeSelect, makeTextField } = makeInputComponents();
 
+  const jsxPlateNumber = (
+    <>
+      <div>Plate</div>
+      <div>Number</div>
+    </>
+  );
+
+  const jsxConductionSticker = (
+    <>
+      <div>Conduction</div>
+      <div>Sticker</div>
+    </>
+  );
   return (
     <form>
       {makeSelect("Year", year, "year", FIELD_YEAR)}
@@ -39,22 +54,12 @@ const vehicleInfo = () => {
 
       {/* flex row this plateConduction*/}
       <div className="plateConduction">
-        {makeTextField(
-          <>
-            <div>Plate</div>
-            <div>Number</div>
-          </>,
-          plateNumber,
-          "plateNumber"
-        )}
+        {makeTextField(jsxPlateNumber, plateNumber, "plateNumber")}
         <Typography variant="h6" component="p">
           Or
         </Typography>
         {makeTextField(
-          <>
-            <div>Conduction</div>
-            <div>Sticker</div>
-          </>,
+          jsxConductionSticker,
           conductionSticker,
           "conductionSticker"
         )}

@@ -6,6 +6,7 @@ export default (req, res) => {
   console.log(method + " FROM " + ip);
   if (method === "POST") {
     const body = req.body;
+    console.log(body);
 
     res.status(201).json(body); //success
     // res.status(404).json(body); //simulate Not Found

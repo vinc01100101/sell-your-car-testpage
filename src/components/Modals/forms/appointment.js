@@ -1,3 +1,5 @@
+console.log("IMPORTING: appointment.js");
+
 //material ui
 import { Typography, IconButton } from "@material-ui/core";
 
@@ -35,7 +37,6 @@ const appointment = () => {
 
   //component did mount
   useEffect(() => {
-    console.log("Component Did Mount. Now setting variables...");
     //initiate variables
     (lastX = 0), (difference = 0), (pointer = 0), (total = 0);
     cellsContainer = document.querySelector(".cellsContainer");
@@ -58,7 +59,6 @@ const appointment = () => {
 
     //cleaning up event listeners
     return () => {
-      console.log("Component Will Unmount...");
       window.removeEventListener("resize", updateContainerWidth);
     };
   }, []);
