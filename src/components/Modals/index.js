@@ -45,22 +45,22 @@ const makeDynamic = (path) => {
 //reference for the active form
 let componentReferenceArray = [
   {
-    component: makeDynamic(Appointment),
+    Component: makeDynamic(Appointment),
     title: "Appointment",
   },
   {
-    component: makeDynamic(VehicleInfo),
+    Component: makeDynamic(VehicleInfo),
     title: "Vehicle Information",
     description:
       "Tell us about your vehicle so we can give you a rough estimate of how much you can sell it for.",
   },
   {
-    component: makeDynamic(PersonalInfo),
+    Component: makeDynamic(PersonalInfo),
     title: "Personal Information",
     description: "Tell us about your personal information.",
   },
   {
-    component: makeDynamic(Confirmation),
+    Component: makeDynamic(Confirmation),
     title: "Summary",
     description:
       "Please check if all of the information you provided are correct.",
@@ -87,10 +87,6 @@ const modals = () => {
     title: "",
     description: "",
   }));
-  componentReferenceArray[4] = {
-    title: result.title,
-    description: result.description,
-  };
   const handleClose = () => {
     dispatch(setModal(false));
   };
@@ -112,13 +108,17 @@ const modals = () => {
       formSubmitButton.click();
     }
   };
-
-  const { component, title, description } = componentReferenceArray[
+  if (activeComponent === 4)
+    componentReferenceArray[4] = {
+      title: result.title,
+      description: result.description,
+    };
+  const { Component, title, description } = componentReferenceArray[
     activeComponent
   ];
-
+  //--Component variable is only for makeFormLayout()
   const makeFormLayout = () => {
-    //disable submit button if requirements are not met
+    //--disable submit button if requirements are not met
     const isDisabled =
       activeComponent === 3 &&
       (firstName === "" ||
@@ -129,14 +129,13 @@ const modals = () => {
         time === "" ||
         (plateNumber === "" && conductionSticker === ""));
 
-    const ActiveComponent = component;
     return (
       <>
         <Typography className={classes.title} variant="h5">
           {title}
         </Typography>
         {description && <Typography variant="body1">{description}</Typography>}
-        <ActiveComponent
+        <Component
           setActiveComponent={activeComponent === 3 && setActiveComponent}
           setResult={activeComponent === 3 && setResult}
         />

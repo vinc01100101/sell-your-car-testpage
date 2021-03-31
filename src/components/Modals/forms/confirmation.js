@@ -9,6 +9,10 @@ import { useSelector } from "react-redux";
 //svg's
 import { viber, telephone, atsign } from "@/svgStore/svgCall";
 
+//redux
+import { useDispatch } from "react-redux";
+import { setModal } from "@/redux/modals/creators";
+
 const confirmation = ({ setActiveComponent, setResult }) => {
   //redux states
   const {
@@ -29,6 +33,7 @@ const confirmation = ({ setActiveComponent, setResult }) => {
     email,
     address,
   } = useSelector((state) => state.modals);
+  const dispatch = useDispatch();
 
   const appointment = {
     title: "Appointment Schedule",
@@ -177,42 +182,44 @@ const confirmation = ({ setActiveComponent, setResult }) => {
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     xhr.onreadystatechange = () => {
       console.log(readyStates[xhr.readyState], xhr.status);
-      if (xhr.readyState === 4 && xhr.status === 201) {
-        const json = JSON.parse(xhr.response);
-
-        //set success dialog
-        setResult({
-          title:
-            "Thanks for successfully booking a Car Inspection to Sell Your Car!",
-          description: (
-            <>
-              We will finalize details, and get in contact with you if there’s
-              anything else we’d need. For any concerns, or if you need to
-              cancel, contact us at
-              <span className="contact">
-                {telephone}
-                <a href="tel:02-7905-7940">02-7905-7940</a>
-              </span>
-              <span className="contact">
-                {viber}
-                <a href="tel:+639278876400">0927-887-6400</a>
-              </span>
-              <span className="contact">
-                {atsign}
-                <a href="mailto:contact@automart.ph">contact@automart.ph</a>
-              </span>
-            </>
-          ),
-          svg: 1,
-        });
-      } else {
+      if (xhr.readyState !== 4) return; //GUARD CLAUSE
+      // const json = JSON.parse(xhr.response);
+      dispatch(setModal("getMyQuote")); //open modal to notify user
+      if (xhr.status !== 201) {
         //set error dialog
         setResult({
           title: `Error Status: ${xhr.status}`,
           description: xhr.statusText,
           svg: 2,
         });
+        return;
       }
+
+      //set success dialog
+      setResult({
+        title:
+          "Thanks for successfully booking a Car Inspection to Sell Your Car!",
+        description: (
+          <>
+            We will finalize details, and get in contact with you if there’s
+            anything else we’d need. For any concerns, or if you need to cancel,
+            contact us at
+            <span className="contact">
+              {telephone}
+              <a href="tel:02-7905-7940">02-7905-7940</a>
+            </span>
+            <span className="contact">
+              {viber}
+              <a href="tel:+639278876400">0927-887-6400</a>
+            </span>
+            <span className="contact">
+              {atsign}
+              <a href="mailto:contact@automart.ph">contact@automart.ph</a>
+            </span>
+          </>
+        ),
+        svg: 1,
+      });
     };
 
     //get the form values and stringify it
