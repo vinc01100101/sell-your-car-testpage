@@ -55,7 +55,7 @@ export default function appBar({ toggleDrawer }) {
       <AppBar color="secondary">
         <Toolbar>
           <Grid container wrap="nowrap">
-            <Grid item xs={1}>
+            <Grid item xs={1} className={classes.gridMenu}>
               <IconButton
                 edge="start"
                 color="inherit"

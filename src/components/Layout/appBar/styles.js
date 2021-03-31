@@ -1,6 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
+  gridMenu: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   gridTitle: {
     justifyContent: "center",
     [theme.breakpoints.up("md")]: {
