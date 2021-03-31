@@ -32,7 +32,7 @@ const pna = () => {
         <img
           className={classes.logo}
           style={{ width: `${entry[1]}px` }}
-          src={`images/${groupName}/${entry[0]}.png`}
+          src={`images/${groupName}/${entry[0]}.webp`}
         />
       </Grid>
     ));
