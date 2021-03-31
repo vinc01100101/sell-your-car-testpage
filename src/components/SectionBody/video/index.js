@@ -5,6 +5,9 @@
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+if (typeof window !== "undefined") {
+  import("@justinribeiro/lite-youtube");
+}
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "10px",
@@ -23,7 +26,7 @@ const video = () => {
   const classes = useStyles();
   return (
     <Paper className={classes.root} elevation={3}>
-      <iframe
+      {/* <iframe
         width="100%"
         height="100%"
         src="https://www.youtube.com/embed/O1b4LEQdfQg"
@@ -31,7 +34,11 @@ const video = () => {
         frameBorder={0}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-      />
+      /> */}
+      <lite-youtube
+        videoid="O1b4LEQdfQg"
+        videotitle="This is a video title"
+      ></lite-youtube>
     </Paper>
   );
 };

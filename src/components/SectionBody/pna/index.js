@@ -4,22 +4,23 @@
 
 import { Grid } from "@material-ui/core";
 import useStyles from "./styles";
+import Image from "next/image";
 
 const pnaObj = {
   partners: {
-    bdo: 98,
-    eastWest: 164,
-    securityBank: 155,
-    orix: 82,
-    unionBank: 107,
-    avis: 132,
+    bdo: [98, 34],
+    eastWest: [164, 43],
+    securityBank: [155, 55],
+    orix: [82, 82],
+    unionBank: [107, 107],
+    avis: [132, 70],
   },
   affiliates: {
-    dost: 74,
-    dti: 74,
-    techMaker: 60,
-    upScale: 80,
-    ideaSpace: 140,
+    dost: [74, 75],
+    dti: [74, 74],
+    techMaker: [60, 60],
+    upScale: [80, 56],
+    ideaSpace: [140, 33],
   },
 };
 
@@ -29,10 +30,12 @@ const pna = () => {
   const makeGridItems = (groupName) => {
     return Object.entries(pnaObj[groupName]).map((entry, i) => (
       <Grid key={i} xs={6} sm={4} lg item className={classes.gridItem}>
-        <img
-          className={classes.logo}
-          style={{ width: `${entry[1]}px` }}
-          src={`images/${groupName}/${entry[0]}.webp`}
+        <Image
+          layout="fixed"
+          width={entry[1][0]}
+          height={entry[1][1]}
+          quality={100}
+          src={`/images/${groupName}/${entry[0]}.webp`}
         />
       </Grid>
     ));

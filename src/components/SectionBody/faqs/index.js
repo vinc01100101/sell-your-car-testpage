@@ -105,7 +105,7 @@ const faqs = () => {
   };
   return (
     <>
-      <Typography variant="body1" className={classes.description}>
+      <Typography variant="h6" component="div" className={classes.description}>
         With the Sell My Car service, Automart.Ph will do the hard work to sell
         your car while you wait. No more looking for buyers, negotiating with
         joy bidders, and setting up countless meetups–Sell My Car is designed to

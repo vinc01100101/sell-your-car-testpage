@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }) {
           content="Sell My Car or Trade In My Used Car Hassle-Free, Quickly and for High Prices in the Philippines. Automart.Ph Will Sell for You. Just Drive It In"
         />
         <link rel="icon" href="/favicon.ico" />
-        {/* preloads */}
+        {/* asset preloads */}
         <link
           rel="preload"
           as="image"
@@ -61,10 +61,12 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="preload" as="image" href="images/introImage.webp" />
 
+        {/* fonts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href={`https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap`}
           rel="stylesheet"
+          defer
         />
 
         <script

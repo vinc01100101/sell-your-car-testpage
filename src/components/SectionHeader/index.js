@@ -22,6 +22,7 @@ const sectionHeader = () => {
           src="images/headerImage.webp"
           srcSet="images/headerImage_4000.webp 4000w, images/headerImage_2000.webp 2000w, images/headerImage_1000.webp 1000w, images/headerImage_500.webp 500w"
           sizes="100vw"
+          alt="A cover image."
         />
         <Container maxWidth="sm" className={classes.container}>
           <Typography variant="h3" className={classes.headerText}>

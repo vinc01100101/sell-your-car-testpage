@@ -9,6 +9,9 @@ import { useSelector } from "react-redux";
 //svg's
 import { viber, telephone, atsign } from "@/svgStore/svgCall";
 
+//contact hrefs
+import { VIBER, TELEPHONE, EMAIL } from "@/components/hrefLinks";
+
 //redux
 import { useDispatch } from "react-redux";
 import { setModal } from "@/redux/modals/creators";
@@ -206,15 +209,15 @@ const confirmation = ({ setActiveComponent, setResult }) => {
             contact us at
             <span className="contact">
               {telephone}
-              <a href="tel:02-7905-7940">02-7905-7940</a>
+              <a href={TELEPHONE}>{TELEPHONE.split(":")[1]}</a>
             </span>
             <span className="contact">
               {viber}
-              <a href="tel:+639278876400">0927-887-6400</a>
+              <a href={VIBER}>{VIBER.split(":")[1]}</a>
             </span>
             <span className="contact">
               {atsign}
-              <a href="mailto:contact@automart.ph">contact@automart.ph</a>
+              <a href={EMAIL}>{EMAIL.split(":")[1]}</a>
             </span>
           </>
         ),

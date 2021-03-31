@@ -17,6 +17,7 @@ export const setDatesArray = () => ({
   type: ACTIONS.SET_DATES_ARRAY,
 });
 
+//CHAINED ACTIONS---------------------------
 export const setLocationsData = (payload) => ({
   type: ACTIONS.SET_LOCATIONS_DATA,
   payload,
