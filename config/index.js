@@ -1,9 +1,11 @@
+import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
+const breakpoints = createBreakpoints({});
+
 const theme = {
   overrides: {
     // Style sheet name ⚛️
-    // MuiList: {
-    //   root: {
-    //   },
+    // MuiTypography: {
+    //   root: {},
     // },
   },
   palette: {
@@ -24,6 +26,17 @@ const theme = {
   },
   typography: {
     fontFamily: `'Source Sans Pro', sans-serif`,
+    body1: {
+      fontSize: "16px",
+      [breakpoints.up("md")]: {
+        fontSize: "18px",
+      },
+    },
+    h5: {
+      [breakpoints.up("md")]: {
+        fontWeight: "bold",
+      },
+    },
   },
 };
 

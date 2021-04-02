@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
   },
   child: {
     margin: "20px 0px 42px 0px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
   },
   iconContainer: {
     display: "flex",

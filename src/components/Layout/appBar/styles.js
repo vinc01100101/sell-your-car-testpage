@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
   gridMenu: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
   gridTitle: {
     justifyContent: "center",
