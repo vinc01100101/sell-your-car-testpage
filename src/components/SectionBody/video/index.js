@@ -5,8 +5,15 @@
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-if (typeof window !== "undefined") {
-  import("@justinribeiro/lite-youtube");
+/**
+ * only create custom element when
+ * typeof customElements.get("lite-yt") === "undefined"
+ */
+if (
+  typeof window !== "undefined" &&
+  typeof customElements.get("lite-yt") === "undefined"
+) {
+  import("./customizedSetupDom").then((mod) => mod.default());
 }
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +27,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       height: "470px",
     },
+  },
+  videoContainer: {
+    position: "relative",
+    width: "100%",
+    height: "100%",
   },
 }));
 const video = () => {
@@ -35,10 +47,12 @@ const video = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       /> */}
-      <lite-youtube
-        videoid="O1b4LEQdfQg"
-        videotitle="This is a video title"
-      ></lite-youtube>
+      <div className={classes.videoContainer}>
+        <lite-yt
+          videoid="O1b4LEQdfQg"
+          videotitle="This is a video title"
+        ></lite-yt>
+      </div>
     </Paper>
   );
 };
