@@ -57,6 +57,7 @@ export default function appBar({ toggleDrawer }) {
           <Grid container wrap="nowrap">
             <Grid item xs={1} className={classes.gridMenu}>
               <IconButton
+                aria-label="Menu Button"
                 edge="start"
                 color="inherit"
                 onClick={toggleDrawer(true)}
@@ -72,7 +73,7 @@ export default function appBar({ toggleDrawer }) {
               className={classes.gridTitle}
               alignItems="center"
             >
-              <NextLink href="/">
+              <NextLink href="/" aria-label="Home">
                 <a>{sellmycar}</a>
               </NextLink>
             </Grid>

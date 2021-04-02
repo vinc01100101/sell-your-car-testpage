@@ -61,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     width: "220px",
     height: "56px",
     fontSize: "16px",
+    fontWeight: "bold",
     border: "hidden",
     borderRadius: "10px",
   },

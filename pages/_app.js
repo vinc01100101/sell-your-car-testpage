@@ -56,7 +56,7 @@ function MyApp({ Component, pageProps }) {
           rel="preload"
           as="image"
           href="images/headerImage.webp"
-          imagesrcset="images/headerImage_4000.webp 4000w, images/headerImage_2000.webp 2000w, images/headerImage_1000.webp 1000w, images/headerImage_500.webp 500w"
+          imagesrcset="images/headerImage_4000.webp 4000w, images/headerImage_2000.webp 2000w, images/headerImage_1000.webp 1000w"
           imagesizes="100vw"
         />
         <link rel="preload" as="image" href="images/introImage.webp" />
@@ -66,12 +66,11 @@ function MyApp({ Component, pageProps }) {
         <link
           href={`https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap`}
           rel="stylesheet"
-          defer
         />
 
         <script
-          async
           src="https://www.googletagmanager.com/gtag/js?id=G-6L6EWL6H47"
+          defer
         ></script>
       </Head>
       {/* this svg sprite is hidden, images are called in src/svgStore/svgCall.js */}

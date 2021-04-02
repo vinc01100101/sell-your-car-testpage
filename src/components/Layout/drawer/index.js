@@ -46,10 +46,10 @@ export default function drawer({ isDrawerOpen, toggleDrawer }) {
   ];
 
   const logoLinks = [
-    [FACEBOOK, facebook],
-    [INSTAGRAM, instagram],
-    [YOUTUBE, youtube],
-    [LINKEDIN, linkedin],
+    [FACEBOOK, facebook, "Facebook"],
+    [INSTAGRAM, instagram, "Instagram"],
+    [YOUTUBE, youtube, "YouTube"],
+    [LINKEDIN, linkedin, "Linked In"],
   ];
 
   const makeList = () => {
@@ -104,7 +104,9 @@ export default function drawer({ isDrawerOpen, toggleDrawer }) {
             <ListItem>
               {logoLinks.map((logoLink, i) => (
                 <Link key={i} href={logoLink[0]} target="_blank">
-                  <IconButton>{logoLink[1]}</IconButton>
+                  <IconButton aria-label={logoLink[2]}>
+                    {logoLink[1]}
+                  </IconButton>
                 </Link>
               ))}
             </ListItem>

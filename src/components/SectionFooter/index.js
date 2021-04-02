@@ -35,10 +35,10 @@ const sectionFooter = () => {
   ];
 
   const logoLinks = [
-    [FACEBOOK, facebook],
-    [INSTAGRAM, instagram],
-    [YOUTUBE, youtube],
-    [LINKEDIN, linkedin],
+    [FACEBOOK, facebook, "Facebook"],
+    [INSTAGRAM, instagram, "Instagram"],
+    [YOUTUBE, youtube, "YouTube"],
+    [LINKEDIN, linkedin, "Linked In"],
   ];
 
   const makeLinks = (links) => {
@@ -53,7 +53,11 @@ const sectionFooter = () => {
       group.push(
         <li key={i}>
           <Link href={entry[0]} target="_blank" key={i} variant="body1">
-            {type == "string" ? entry[1] : <IconButton>{entry[1]}</IconButton>}
+            {type == "string" ? (
+              entry[1]
+            ) : (
+              <IconButton aria-label={entry[2]}>{entry[1]}</IconButton>
+            )}
           </Link>
         </li>
       );

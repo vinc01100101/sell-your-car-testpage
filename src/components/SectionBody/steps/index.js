@@ -18,6 +18,7 @@ import data from "./data";
 import { useDispatch } from "react-redux";
 import { setModal } from "@/redux/modals/creators";
 
+import Image from "next/image";
 // component
 const steps = () => {
   const dispatch = useDispatch();
@@ -31,16 +32,27 @@ const steps = () => {
       >
         <div className={classes.setFlex}>
           <div className={classes.logoContainer}>
+            <Image
+              src={`/svg/not-in-sprite/logo-step${i}.svg`}
+              alt={entry.title}
+              width={entry.size[0]}
+              height={entry.size[1]}
+              layout="fixed"
+            />
             {
               //the yellow badge on the first card
               i == 0 && (
-                <img
-                  className={classes.introBadge}
-                  src={`svg/not-in-sprite/logo-step-badge.svg`}
-                />
+                <div className={classes.introBadge}>
+                  <Image
+                    src={`/svg/not-in-sprite/logo-step-badge.svg`}
+                    alt="Best Offer"
+                    width="54px"
+                    height="54px"
+                    layout="fixed"
+                  />
+                </div>
               )
             }
-            <img src={`svg/not-in-sprite/logo-step${i}.svg`} />
           </div>
           <CardContent style={{ color: i == 0 && "white" }}>
             <Typography variant="h5" component="h5" className={classes.title}>

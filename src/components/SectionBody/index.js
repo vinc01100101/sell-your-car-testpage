@@ -42,7 +42,9 @@ const body = () => {
                   <img
                     className={classes.introImage}
                     src="images/introImage.webp"
-                    alt="A rich man buying his car."
+                    alt="A man selling his car."
+                    width="407px"
+                    height="270.94px"
                   />
                 )}
                 <div className={`${i == 7 && classes.callOrChatBackground}`}>

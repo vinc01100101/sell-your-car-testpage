@@ -17,6 +17,7 @@ const theme = {
     secondary: {
       light: "#9fd497",
       main: "#6FA269",
+      // main: "#2D6227", //WCAD color contrast passing ratio
       dark: "#42743d",
       contrastText: "#fff",
     },

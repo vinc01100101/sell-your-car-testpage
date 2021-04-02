@@ -36,6 +36,7 @@ const pna = () => {
           height={entry[1][1]}
           quality={100}
           src={`/images/${groupName}/${entry[0]}.webp`}
+          alt={entry[0]}
         />
       </Grid>
     ));
