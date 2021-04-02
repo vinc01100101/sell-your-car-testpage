@@ -83,8 +83,9 @@ export default function drawer({ isDrawerOpen, toggleDrawer }) {
         open={isDrawerOpen}
         onOpen={toggleDrawer(true)}
         onClose={toggleDrawer(false)}
-        disableBackdropTransition={true}
-        disableDiscovery={true}
+        disableBackdropTransition
+        disableDiscovery
+        disableSwipeToOpen
         transitionDuration={{ enter: 400, exit: 400 }}
       >
         <div className={classes.drawerContainer}>
