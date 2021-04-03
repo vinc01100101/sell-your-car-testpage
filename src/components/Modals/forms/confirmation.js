@@ -1,7 +1,7 @@
 console.log("IMPORTING: confirmation.js");
 
 //material ui
-import { Typography, InputBase } from "@material-ui/core";
+import { Typography, InputBase, Link } from "@material-ui/core";
 
 //redux
 import { useSelector } from "react-redux";
@@ -164,7 +164,7 @@ const confirmation = ({ setActiveComponent, setResult }) => {
     //open loading dialog
     setResult({
       title: "Please wait...",
-      description: "Your data is being sent.",
+      description: "Your form is being sent.",
       svg: 0,
     });
     setActiveComponent(4);
@@ -209,15 +209,15 @@ const confirmation = ({ setActiveComponent, setResult }) => {
             contact us at
             <span className="contact">
               {telephone}
-              <a href={TELEPHONE}>{TELEPHONE.split(":")[1]}</a>
+              <Link href={TELEPHONE}>{TELEPHONE.split(":")[1]}</Link>
             </span>
             <span className="contact">
               {viber}
-              <a href={VIBER}>{VIBER.split(":")[1]}</a>
+              <Link href={VIBER}>{VIBER.split(":")[1]}</Link>
             </span>
             <span className="contact">
               {atsign}
-              <a href={EMAIL}>{EMAIL.split(":")[1]}</a>
+              <Link href={EMAIL}>{EMAIL.split(":")[1]}</Link>
             </span>
           </>
         ),

@@ -10,7 +10,7 @@ import {
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { setModal } from "@/redux/modals/creators";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 //next
 import dynamic from "next/dynamic";
@@ -87,11 +87,24 @@ const modals = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [activeComponent, setActiveComponent] = useState(() => 0);
+  const [paperClasses, setPaperClasses] = useState(() => ({
+    frontPaper: "",
+    backPaper: "",
+  }));
   const [result, setResult] = useState(() => ({
     svg: 0,
     title: "",
     description: "",
   }));
+  useEffect(() => {
+    result.svg != 0 &&
+      setTimeout(() => {
+        setPaperClasses(() => ({
+          frontPaper: " frontPaperEnd",
+          backPaper: " backPaperEnd",
+        }));
+      }, 500);
+  }, [result.svg]);
   const handleClose = () => {
     dispatch(setModal(false));
   };
@@ -166,8 +179,22 @@ const modals = () => {
       <>
         <div className={classes.dialogLayout}>
           <div className="iconAndText">
-            {svgReferenceArray[result.svg]}
-            <div>
+            {result.svg != 0 ? (
+              <div className="icon">
+                <div
+                  className={`twoPapers backPaper${paperClasses.backPaper}`}
+                />
+                <div
+                  className={`twoPapers frontPaper${paperClasses.frontPaper}`}
+                >
+                  {svgReferenceArray[result.svg]}
+                </div>
+              </div>
+            ) : (
+              svgReferenceArray[result.svg]
+            )}
+
+            <div className="text">
               <Typography variant="h5">{title}</Typography>
               {description && (
                 <Typography variant="body1">{description}</Typography>
@@ -176,8 +203,8 @@ const modals = () => {
           </div>
         </div>
 
-        <div className={classes.buttonsContainer}>
-          {result.svg != 0 && (
+        {result.svg != 0 && (
+          <div className={classes.buttonsContainer}>
             <Button
               variant={result.svg === 1 ? "contained" : "text"}
               color={result.svg === 1 ? "secondary" : "default"}
@@ -185,18 +212,24 @@ const modals = () => {
             >
               {result.svg === 1 ? "OK" : "Cancel"}
             </Button>
-          )}
 
-          {result.svg === 2 && (
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={() => setActiveComponent(3)}
-            >
-              Retry
-            </Button>
-          )}
-        </div>
+            {result.svg === 2 && (
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={() => {
+                  setPaperClasses(() => ({
+                    frontPaper: "",
+                    backPaper: "",
+                  }));
+                  setActiveComponent(3);
+                }}
+              >
+                Retry
+              </Button>
+            )}
+          </div>
+        )}
       </>
     );
   };

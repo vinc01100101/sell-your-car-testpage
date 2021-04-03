@@ -166,49 +166,93 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
-    marginTop: "30px",
+    // marginTop: "30px",
 
     "& button": {
       width: "180px",
     },
   },
   dialogLayout: {
+    height: "100%",
     overflowY: "auto",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
-
     "& > .iconAndText": {
+      padding: "32px",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "flex-start",
       alignItems: "center",
+      justifyContent: "flex-start",
 
       [theme.breakpoints.up("sm")]: {
         flexDirection: "row",
-        alignItems: "flex-start",
       },
 
-      "& > svg": {
-        width: "150px",
-        height: "auto%",
-        marginRight: "0px",
-        flexShrink: 0,
-        marginBottom: "32px",
+      "& > .icon": {
+        width: "100px",
+        height: "110px",
+        "& > .twoPapers": {
+          position: "absolute",
+          width: "100px",
+          height: "150px",
+          borderRadius: "5px",
+          boxShadow: "5px 5px 10px 5px rgba(0, 0, 0, 0.5)",
+          transition: "transform 0.7s",
+          transform: "rotate(0deg)",
+          margin: "0 auto",
+          top: "0",
+          [theme.breakpoints.up("sm")]: {
+            left: "11px",
+            top: "35%",
+          },
+        },
+        "& > .frontPaper": {
+          display: "flex",
+          alignItems: "center",
+          padding: "10px",
+          justifyContent: "center",
+          background: "white",
 
-        [theme.breakpoints.up("sm")]: {
-          marginRight: "30px",
-          marginBottom: "0px",
+          "& > svg": {
+            width: "100%",
+            height: "auto",
+          },
+        },
+        "& > .frontPaperEnd": {
+          transform: "translateX(-40px) rotate(-15deg)",
+        },
+        "& > .backPaper": {
+          background: "#2A2D4C",
+        },
+        "& > .backPaperEnd": {
+          transform: "translateX(25px) rotate(25deg)",
         },
       },
-    },
-    "& > div > h5, p": {
-      userSelect: "text !important",
-      pointerEvents: "auto !important",
 
-      "& > .contact": {
+      "& > .text": {
+        flex: 1,
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
+        justifyContent: "flex-start",
+        [theme.breakpoints.up("sm")]: {
+          alignItems: "flex-start",
+        },
+
+        "& > h5 , & > p": {
+          userSelect: "text !important",
+          pointerEvents: "auto !important",
+          textAlign: "center",
+          [theme.breakpoints.up("sm")]: {
+            textAlign: "left",
+          },
+
+          "& > .contact": {
+            display: "flex",
+            alignItems: "center",
+          },
+        },
       },
     },
   },
