@@ -173,12 +173,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   dialogLayout: {
-    height: "100%",
     overflowY: "auto",
+    height: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
     "& > .iconAndText": {
+      minHeight: "240px",
       padding: "32px",
       display: "flex",
       flexDirection: "column",
@@ -186,12 +187,15 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "flex-start",
 
       [theme.breakpoints.up("sm")]: {
-        flexDirection: "row",
+        flexDirection: "row-reverse",
+        justifyContent: "flex-end",
       },
 
       "& > .icon": {
-        width: "100px",
+        width: "200px",
         height: "110px",
+        display: "flex",
+        justifyContent: "center",
         "& > .twoPapers": {
           position: "absolute",
           width: "100px",
@@ -200,11 +204,10 @@ const useStyles = makeStyles((theme) => ({
           boxShadow: "5px 5px 10px 5px rgba(0, 0, 0, 0.5)",
           transition: "transform 0.7s",
           transform: "rotate(0deg)",
-          margin: "0 auto",
           top: "0",
           [theme.breakpoints.up("sm")]: {
-            left: "11px",
-            top: "35%",
+            right: "90px",
+            top: "25%",
           },
         },
         "& > .frontPaper": {

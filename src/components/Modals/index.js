@@ -162,7 +162,7 @@ const modals = () => {
             {activeComponent > 0 ? "Back" : "Cancel"}
           </Button>
           <Button
-            disabled={isDisabled}
+            // disabled={isDisabled}
             variant="contained"
             color="secondary"
             onClick={handleNextButton}
@@ -179,7 +179,7 @@ const modals = () => {
       <>
         <div className={classes.dialogLayout}>
           <div className="iconAndText">
-            {result.svg != 0 ? (
+            {result.svg != 0 && (
               <div className="icon">
                 <div
                   className={`twoPapers backPaper${paperClasses.backPaper}`}
@@ -190,8 +190,6 @@ const modals = () => {
                   {svgReferenceArray[result.svg]}
                 </div>
               </div>
-            ) : (
-              svgReferenceArray[result.svg]
             )}
 
             <div className="text">
@@ -200,6 +198,7 @@ const modals = () => {
                 <Typography variant="body1">{description}</Typography>
               )}
             </div>
+            {result.svg === 0 && svgReferenceArray[result.svg]}
           </div>
         </div>
 

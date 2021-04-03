@@ -1,4 +1,4 @@
-//SAMPLE API USED IN APPOINTMENT CONFIRMATION FORM
+//SAMPLE API ENDPOINT FOR APPOINTMENT "POST"
 
 export default (req, res) => {
   const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
