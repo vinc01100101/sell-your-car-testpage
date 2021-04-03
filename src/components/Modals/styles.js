@@ -179,7 +179,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "flex-start",
     "& > .iconAndText": {
-      minHeight: "240px",
+      // minHeight: "240px",
       padding: "32px",
       display: "flex",
       flexDirection: "column",
