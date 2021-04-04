@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 //input component makers
 import makeInputComponents from "./makeInputComponents";
 
-const personalInfo = () => {
+export default function personalInfo() {
   //redux states
   const { firstName, lastName, mobileNumber, email, address } = useSelector(
     (state) => state.modals
@@ -24,6 +24,4 @@ const personalInfo = () => {
       {makeTextField("Address", address, "address")}
     </form>
   );
-};
-
-export default personalInfo;
+}

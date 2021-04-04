@@ -54,7 +54,7 @@ const faqs = () => {
                 : classes.summary
             }
           >
-            <Typography className={classes.title} variant="h6">
+            <Typography className={classes.title} variant="h6" component="div">
               {accordion.title}
             </Typography>
           </AccordionSummary>

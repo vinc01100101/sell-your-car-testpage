@@ -18,7 +18,7 @@ import {
 //input component makers
 import makeInputComponents from "./makeInputComponents";
 
-const vehicleInfo = () => {
+export default function vehicleInfo() {
   //redux states
   const {
     year,
@@ -76,6 +76,4 @@ const vehicleInfo = () => {
       {makeTextField("Odometer", odometer, "odometer")}
     </form>
   );
-};
-
-export default vehicleInfo;
+}

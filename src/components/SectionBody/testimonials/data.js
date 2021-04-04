@@ -1,6 +1,6 @@
 //array of data objects
 
-const testimonialsData = [
+export default [
   {
     name: "Miguel",
     testimonial: `“Some short copy here for testimonial. Vesting period influencer
@@ -25,4 +25,3 @@ const testimonialsData = [
     src: "images/testimonials/testimonial2.webp",
   },
 ];
-export default testimonialsData;

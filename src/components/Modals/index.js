@@ -1,3 +1,4 @@
+//material ui
 import {
   Modal,
   Backdrop,
@@ -6,29 +7,23 @@ import {
   Paper,
   Button,
 } from "@material-ui/core";
-
 //redux
 import { useSelector, useDispatch } from "react-redux";
 import { setModal } from "@/redux/modals/creators";
 import { useState, useEffect } from "react";
-
 //next
 import dynamic from "next/dynamic";
-
 //styles
 import useStyles from "./styles";
-
 //forms
 // import Appointment from "./forms/appointment";
 // import VehicleInfo from "./forms/vehicleInfo";
 // import PersonalInfo from "./forms/personalInfo";
 // import Confirmation from "./forms/confirmation";
-
 const Appointment = "./forms/appointment";
 const VehicleInfo = "./forms/vehicleInfo";
 const PersonalInfo = "./forms/personalInfo";
 const Confirmation = "./forms/confirmation";
-
 //svg's
 import loading from "@/svgStore/svg/loading";
 import success from "@/svgStore/svg/success";
@@ -72,7 +67,8 @@ let componentReferenceArray = [
   },
 ];
 
-const modals = () => {
+export default function modals() {
+  //redux states
   const {
     activeModal,
     location,
@@ -87,6 +83,7 @@ const modals = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [activeComponent, setActiveComponent] = useState(() => 0);
+  //for paper animation upon form submission
   const [paperClasses, setPaperClasses] = useState(() => ({
     frontPaper: "",
     backPaper: "",
@@ -103,7 +100,7 @@ const modals = () => {
           frontPaper: " frontPaperEnd",
           backPaper: " backPaperEnd",
         }));
-      }, 500);
+      }, 700);
   }, [result.svg]);
   const handleClose = () => {
     dispatch(setModal(false));
@@ -134,7 +131,7 @@ const modals = () => {
   const { Component, title, description } = componentReferenceArray[
     activeComponent
   ];
-  //--Component variable is only for makeFormLayout()
+  //--Component constant is only for makeFormLayout()
   const makeFormLayout = () => {
     //--disable submit button if requirements are not met
     const isDisabled =
@@ -212,6 +209,7 @@ const modals = () => {
               {result.svg === 1 ? "OK" : "Cancel"}
             </Button>
 
+            {/* the retry button upon failed submission (error) */}
             {result.svg === 2 && (
               <Button
                 variant="contained"
@@ -254,6 +252,4 @@ const modals = () => {
       </Modal>
     </>
   );
-};
-
-export default modals;
+}

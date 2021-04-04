@@ -16,7 +16,7 @@ import { VIBER, TELEPHONE, EMAIL } from "@/components/hrefLinks";
 import { useDispatch } from "react-redux";
 import { setModal } from "@/redux/modals/creators";
 
-const confirmation = ({ setActiveComponent, setResult }) => {
+export default function confirmation({ setActiveComponent, setResult }) {
   //redux states
   const {
     location,
@@ -38,6 +38,7 @@ const confirmation = ({ setActiveComponent, setResult }) => {
   } = useSelector((state) => state.modals);
   const dispatch = useDispatch();
 
+  //the key value pairs to present on the confirmation form
   const appointment = {
     title: "Appointment Schedule",
     data: [
@@ -187,7 +188,7 @@ const confirmation = ({ setActiveComponent, setResult }) => {
       console.log(readyStates[xhr.readyState], xhr.status);
       if (xhr.readyState !== 4) return; //GUARD CLAUSE
       // const json = JSON.parse(xhr.response);
-      dispatch(setModal("getMyQuote")); //open modal to notify user
+      dispatch(setModal("getMyQuote")); //open modal to notify the user
       if (xhr.status !== 201) {
         //set error dialog
         setResult({
@@ -247,6 +248,4 @@ const confirmation = ({ setActiveComponent, setResult }) => {
       <input type="submit" id="submitterButton" hidden />
     </form>
   );
-};
-
-export default confirmation;
+}

@@ -1,27 +1,22 @@
 console.log("IMPORTING: appointment.js");
-
 //material ui
 import { Typography, IconButton } from "@material-ui/core";
-
 //svg icons
 import { arrowright, arrowleft } from "@/svgStore/svgCall";
-
 //redux
 import { setInput } from "@/redux/modals/creators";
 import { useSelector, useDispatch } from "react-redux";
-
 //react
 import { useState, useEffect } from "react";
-
 //static fields data
 import { FIELD_TIME } from "./data/appointmentData";
-
 //input component makers
 import makeInputComponents from "./makeInputComponents";
 
 //global to prevent redefine during window.onresize
 let lastX, difference, cellsContainer, pointer, containerWidth, total;
-const appointment = () => {
+
+export default function appointment() {
   const dispatch = useDispatch();
 
   //redux states
@@ -166,11 +161,12 @@ const appointment = () => {
       <div className="datesContainer">
         <div className="sub-datesContainer">
           <div
-            // touch events for smartphones, mouse events for pc
             className="cellsContainer"
+            // touch events for smartphones
             onTouchStart={handleDragDown}
             onTouchMove={handleDragMove}
             onTouchEnd={handleDragUp}
+            // mouse events for pc
             onMouseDown={handleDragDown}
             onMouseMove={handleDragMove}
             onMouseUp={handleDragUp}
@@ -205,6 +201,4 @@ const appointment = () => {
       {makeSelect("Time", time, "time", FIELD_TIME)}
     </form>
   );
-};
-
-export default appointment;
+}

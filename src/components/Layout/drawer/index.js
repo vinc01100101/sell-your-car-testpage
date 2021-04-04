@@ -1,5 +1,3 @@
-console.log("drawer module imported.");
-
 //material ui
 import {
   SwipeableDrawer,

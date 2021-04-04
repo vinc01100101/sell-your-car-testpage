@@ -9,12 +9,12 @@ import testimonials from "./testimonials"; //waiting for testi data
 import faqs from "./faqs";
 import pna from "./pna";
 import callorchat from "./callorchat";
-
+//styles
 import useStyles from "./styles";
-
+//material ui
 import { Container, Typography } from "@material-ui/core";
 
-const body = () => {
+export default function body() {
   const classes = useStyles();
 
   return (
@@ -29,7 +29,7 @@ const body = () => {
             <div
               key={i}
               className={`${classes.child} ${
-                i == 2 && classes.stepsBackground
+                i == 2 ? classes.stepsBackground : ""
               }`}
             >
               {/* maxWidth = "sm" for testimonials = 4 and callorchat = 7 */}
@@ -47,12 +47,15 @@ const body = () => {
                     height="270.94px"
                   />
                 )}
-                <div className={`${i == 7 && classes.callOrChatBackground}`}>
+                <div
+                  className={`${i == 7 ? classes.callOrChatBackground : ""}`}
+                >
                   <Typography
                     className={`${classes.title} ${
                       i == 0 && classes.introTitle
                     }`}
                     variant="h4"
+                    component="div"
                   >
                     {component.title}
                   </Typography>
@@ -65,6 +68,4 @@ const body = () => {
       )}
     </div>
   );
-};
-
-export default body;
+}

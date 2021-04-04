@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+export default makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -55,5 +55,3 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "2px 2px 10px gray",
   },
 }));
-
-export default useStyles;

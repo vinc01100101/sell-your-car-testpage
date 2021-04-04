@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+export default makeStyles((theme) => ({
   root: {
     marginTop: "50px",
   },
@@ -10,5 +10,3 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
 }));
-
-export default useStyles;

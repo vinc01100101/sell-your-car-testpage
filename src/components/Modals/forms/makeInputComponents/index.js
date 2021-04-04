@@ -23,7 +23,7 @@ export default function makeInputComponents() {
   const emailReg = /^(\w+)?@?([a-z]*)?\.?([a-z]{0,3})?$/i;
   const defaultFormatReg = /.*/;
 
-  //hashmap [inputFormat, characterLength]
+  //reference [inputFormat, characterLength]
   const regs = {
     plateNumber: [defaultFormatReg, 14],
     conductionSticker: [defaultFormatReg, 14],

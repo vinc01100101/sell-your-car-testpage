@@ -1,6 +1,6 @@
 export const FIELD_YEAR = (() => {
   const yearNow = new Date().getFullYear();
-  // "", == for empty value
+  // "", == for default empty value (NONE)
   return ["", ...[...Array(yearNow - 1998)].map((x, i) => 1999 + i)];
 })();
 

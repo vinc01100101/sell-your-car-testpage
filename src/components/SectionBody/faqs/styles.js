@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+export default makeStyles((theme) => ({
   description: {
     marginBottom: "30px",
   },
@@ -46,5 +46,3 @@ const useStyles = makeStyles((theme) => ({
     userSelect: "text !important",
   },
 }));
-
-export default useStyles;

@@ -5,7 +5,7 @@ import useStyles from "./styles";
 import { useDispatch } from "react-redux";
 import { setModal } from "@/redux/modals/creators";
 
-const sectionHeader = () => {
+export default function sectionHeader() {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -40,6 +40,4 @@ const sectionHeader = () => {
       </div>
     </div>
   );
-};
-
-export default sectionHeader;
+}

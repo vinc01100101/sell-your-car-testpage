@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+export default makeStyles((theme) => ({
   root: {
     position: "relative",
     display: "flex",
@@ -86,5 +86,3 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0,
   },
 }));
-
-export default useStyles;

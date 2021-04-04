@@ -1,5 +1,5 @@
+//material ui
 import { IconButton, Link } from "@material-ui/core";
-
 //svg icon pieces
 import {
   facebook,
@@ -22,24 +22,22 @@ import {
 } from "@/components/hrefLinks";
 //sibling files
 import useStyles from "./styles";
-
-const sectionFooter = () => {
+//references
+const textLinks = [
+  [LOGIN, "Login or Signup"],
+  [FAQS, "FAQs"],
+  [TERMS, "Terms and Condition"],
+  [PRIVACY, "Privacy Policy"],
+  [CONTACTUS, "Contact Us"],
+];
+const logoLinks = [
+  [FACEBOOK, facebook, "Facebook"],
+  [INSTAGRAM, instagram, "Instagram"],
+  [YOUTUBE, youtube, "YouTube"],
+  [LINKEDIN, linkedin, "Linked In"],
+];
+export default function sectionFooter() {
   const classes = useStyles();
-
-  const textLinks = [
-    [LOGIN, "Login or Signup"],
-    [FAQS, "FAQs"],
-    [TERMS, "Terms and Condition"],
-    [PRIVACY, "Privacy Policy"],
-    [CONTACTUS, "Contact Us"],
-  ];
-
-  const logoLinks = [
-    [FACEBOOK, facebook, "Facebook"],
-    [INSTAGRAM, instagram, "Instagram"],
-    [YOUTUBE, youtube, "YouTube"],
-    [LINKEDIN, linkedin, "Linked In"],
-  ];
 
   const makeLinks = (links) => {
     //get the type
@@ -87,6 +85,4 @@ const sectionFooter = () => {
       </div>
     </div>
   );
-};
-
-export default sectionFooter;
+}

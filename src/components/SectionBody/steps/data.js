@@ -1,4 +1,4 @@
-const data = [
+export default [
   {
     title: "Want to Trade-In Your Car?",
     content:
@@ -25,4 +25,3 @@ const data = [
     size: ["181px", "180px"],
   },
 ];
-export default data;
