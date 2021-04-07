@@ -73,8 +73,8 @@ export default function appBar({ toggleDrawer }) {
               className={classes.gridTitle}
               alignItems="center"
             >
-              <NextLink href="/" aria-label="Home">
-                <a>{sellmycar}</a>
+              <NextLink href="/">
+                <a aria-label="Home">{sellmycar}</a>
               </NextLink>
             </Grid>
 

@@ -34,7 +34,10 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
   },
 }));
-const video = () => {
+
+video.title = "How it works";
+
+export default function video() {
   const classes = useStyles();
   return (
     <Paper className={classes.root} elevation={3}>
@@ -55,6 +58,4 @@ const video = () => {
       </div>
     </Paper>
   );
-};
-
-export default { title: "How it works", content: video };
+}

@@ -24,13 +24,16 @@ const pnaObj = {
   },
 };
 
-const pna = () => {
+pna.title = "Partners & Affiliates";
+
+export default function pna() {
   const classes = useStyles();
 
   const makeGridItems = (groupName) => {
     return Object.entries(pnaObj[groupName]).map((entry, i) => (
       <Grid key={i} xs={6} sm={4} lg item className={classes.gridItem}>
         <Image
+          // priority //<--throws Error: EPERM: operation not permitted, unlink
           layout="fixed"
           width={entry[1][0]}
           height={entry[1][1]}
@@ -51,9 +54,4 @@ const pna = () => {
       </Grid>
     </div>
   );
-};
-
-export default {
-  title: "Partners & Affiliates",
-  content: pna,
-};
+}

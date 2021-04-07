@@ -19,8 +19,10 @@ import { useDispatch } from "react-redux";
 import { setModal } from "@/redux/modals/creators";
 
 import Image from "next/image";
-// component
-const steps = () => {
+
+steps.title = "Just follow these 3 easy steps";
+
+export default function steps() {
   const dispatch = useDispatch();
   const classes = useStyles();
   const makeCards = (entry, i) => {
@@ -55,7 +57,7 @@ const steps = () => {
             }
           </div>
           <CardContent style={{ color: i == 0 && "white" }}>
-            <Typography variant="h5" component="h5" className={classes.title}>
+            <Typography variant="h5" component="div" className={classes.title}>
               {entry.title}
             </Typography>
             <Typography variant="body1" component="p">
@@ -98,6 +100,4 @@ const steps = () => {
       {data.map(makeCards)}
     </>
   );
-};
-
-export default { title: "Just follow these 3 easy steps", content: steps };
+}

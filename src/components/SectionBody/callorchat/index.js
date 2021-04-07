@@ -8,7 +8,9 @@ import { Link } from "@material-ui/core";
 //sibling files
 import useStyles from "./styles";
 
-const callorchat = () => {
+callorchat.title = "You can call or chat with us!";
+
+export default function callorchat() {
   const classes = useStyles();
 
   const contacts = [
@@ -31,6 +33,4 @@ const callorchat = () => {
   };
 
   return <div className={classes.root}>{makeContacts()}</div>;
-};
-
-export default { title: "You can call or chat with us!", content: callorchat };
+}

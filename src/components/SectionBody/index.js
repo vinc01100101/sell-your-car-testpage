@@ -9,6 +9,17 @@ import testimonials from "./testimonials"; //waiting for testi data
 import faqs from "./faqs";
 import pna from "./pna";
 import callorchat from "./callorchat";
+
+//reference
+const componentReferenceArray = [
+  intro,
+  video,
+  steps,
+  benefits,
+  /*testimonials,*/ faqs,
+  pna,
+  callorchat,
+];
 //styles
 import useStyles from "./styles";
 //material ui
@@ -21,51 +32,51 @@ export default function body() {
     // body component
     <div className={classes.root}>
       {/* body's children components */}
-      {[intro, video, steps, benefits, testimonials, faqs, pna, callorchat].map(
-        (component, i) => {
-          const Component = component.content;
-          return (
-            // conditional classes.stepsBackground for light green background
-            <div
-              key={i}
-              className={`${classes.child} ${
-                i == 2 ? classes.stepsBackground : ""
-              }`}
+      {componentReferenceArray.map((Component, i) => {
+        return (
+          // conditional classes.stepsBackground for light green background
+          <div
+            key={i}
+            className={`${classes.child} ${
+              i == 2 ? classes.stepsBackground : ""
+            }`}
+          >
+            {/* maxWidth = "sm" for testimonials = 4 and callorchat = componentReferenceArray.length-1 */}
+            <Container
+              // maxWidth={i === 4 || i === componentReferenceArray.length-1 ? "sm" : "md"}
+              maxWidth={i === componentReferenceArray.length - 1 ? "sm" : "md"}
+              className={i === 0 ? classes.introFlexSetter : ""}
             >
-              {/* maxWidth = "sm" for testimonials = 4 and callorchat = 7 */}
-              <Container
-                maxWidth={i === 4 || i === 7 ? "sm" : "md"}
-                className={i === 0 ? classes.introFlexSetter : ""}
+              {/* circular header image */}
+              {i == 0 && (
+                <img
+                  className={classes.introImage}
+                  src="images/introImage.webp"
+                  alt="A man selling his car."
+                  width="407px"
+                  height="270.94px"
+                />
+              )}
+              <div
+                className={`${
+                  i == componentReferenceArray.length - 1
+                    ? classes.callOrChatBackground
+                    : ""
+                }`}
               >
-                {/* circular header image */}
-                {i == 0 && (
-                  <img
-                    className={classes.introImage}
-                    src="images/introImage.webp"
-                    alt="A man selling his car."
-                    width="407px"
-                    height="270.94px"
-                  />
-                )}
-                <div
-                  className={`${i == 7 ? classes.callOrChatBackground : ""}`}
+                <Typography
+                  className={`${classes.title} ${i == 0 && classes.introTitle}`}
+                  variant="h4"
+                  component="div"
                 >
-                  <Typography
-                    className={`${classes.title} ${
-                      i == 0 && classes.introTitle
-                    }`}
-                    variant="h4"
-                    component="div"
-                  >
-                    {component.title}
-                  </Typography>
-                  <Component />
-                </div>
-              </Container>
-            </div>
-          );
-        }
-      )}
+                  {Component.title}
+                </Typography>
+                <Component />
+              </div>
+            </Container>
+          </div>
+        );
+      })}
     </div>
   );
 }

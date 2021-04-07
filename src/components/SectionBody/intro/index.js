@@ -4,7 +4,9 @@
 
 import { Typography } from "@material-ui/core";
 
-const intro = () => {
+intro.title = "Which is more difficult–buying or selling a car?";
+
+export default function intro() {
   return (
     <>
       <Typography variant="body1" component="p">
@@ -23,9 +25,4 @@ const intro = () => {
       </Typography>
     </>
   );
-};
-
-export default {
-  title: "Which is more difficult–buying or selling a car?",
-  content: intro,
-};
+}

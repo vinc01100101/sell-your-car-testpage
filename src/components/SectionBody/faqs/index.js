@@ -15,7 +15,9 @@ import { useState } from "react";
 import data from "./data";
 import useStyles from "./styles";
 
-const faqs = () => {
+faqs.title = "Sell My Car FAQ’s";
+
+export default function faqs() {
   const classes = useStyles();
   //for controlled accordion____
   // const [expanded, setExpanded] = useState(() => false);
@@ -114,6 +116,4 @@ const faqs = () => {
       {makeAccordions()}
     </>
   );
-};
-
-export default { title: "Sell My Car FAQ’s", content: faqs };
+}
